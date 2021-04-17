@@ -1,0 +1,51 @@
+/* CSS related to seat and seat Container */
+#seat-container{
+    background-color: rgb(236, 236, 229);
+    color: #000;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    margin: auto;
+    border: 2px solid rgb(73, 83, 175);
+    border-radius: 5px;
+}
+
+.seat {
+    background-color: #b4cef0;
+    height: 25px;
+    width: 35px;
+    margin: 4px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: 0.12s;
+  }
+
+  .seat.occupied {
+    background-color: rgb(89, 94, 100);
+    cursor: not-allowed;
+  }
+
+  .seat:hover{
+    transform: scale(1.1);  
+  }
+
+  .seat.selected {
+    background-color: #35ff68;
+  }
+
+ 
+
+  .rowSeat { 
+    display: flex;
+    
+  }
+
+
+
+  /* Css for driver logo */
+  .logo {
+    height: 25px;
+    width: 35px;
+  }
+
+ 

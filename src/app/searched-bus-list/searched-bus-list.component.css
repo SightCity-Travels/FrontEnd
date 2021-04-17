@@ -1,0 +1,67 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+   
+    /* border: 1px solid #ddd; */
+    
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 10px;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+        .text{
+            text-align: center;
+        }
+        .row{
+            text-align: center;
+        }
+
+        
+        
+          .card {
+            background-color:#f3ebeb;
+    padding: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+  
+     background: rgba(204, 223, 228, 0.9);  
+    /* background: rgba(155, 152, 152, 0.6);  */
+    font-weight: bold;
+    border-radius: 20px;
+           
+        }
+        .card2 {
+          background-color:#f3ebeb;
+          padding: 20px;
+          margin-top: 20px;
+          overflow: hidden;
+        
+           background: rgba(204, 223, 228, 0.9);  
+          /* background: rgba(155, 152, 152, 0.6);  */
+          font-weight: bold;
+          border-radius: 20px;
+      }
+        .card2:hover{
+          box-shadow: 1px 1px 9px 2px white;  
+        }
+        body{
+          font-family: Arial;
+          padding: 10px;
+          background: #f1f1f1;
+          background-repeat: no-repeat;
+          /* background-image: url("./assets/bus_bg.jpg"); */
+          background-image: url("/src/assets/buswater.jpeg");
+          background-size: 100% auto;
+          height:100%;
+          font-family: "Lato", sans-serif;
+          /* overflow: auto;
+          background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; */
+        } 
+
+       

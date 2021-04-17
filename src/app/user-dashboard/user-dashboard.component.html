@@ -1,0 +1,105 @@
+<div class="tab">
+  <button style="font-size:5em;"> <i style="margin-left: 70px;" class="fa fa-user" aria-hidden="true"></i></button>
+  <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user"
+      aria-hidden="true"></i>Profile</button>
+  <button class="tablinks" (click)="openTab($event, 'Bookings','bookbtn')" id="bookbtn"><i class="fa fa-ticket"
+      aria-hidden="true"></i>Bookings</button>
+  <button class="tablinks" (click)="openTab($event, 'Wallet','walletbtn')" id="walletbtn"><i class="fa fa-google-wallet"
+      aria-hidden="true"></i>Wallet</button>
+  <button class="tablinks" (click)="openTab($event, 'Changepass','passbtn')" id="passbtn"><i class="fa fa-key"
+      aria-hidden="true"></i>Change Password</button>
+  <button class="tablinks" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
+      aria-hidden="true"></i>Sign Out</button>
+</div>
+
+<div id="Profile" class="tabcontent">
+  <h3 style="text-align: center; font-style:oblique; color:black;">Personal Details</h3>
+  <div class="card">
+    <form action="" method="POST">
+      Name:<input type="text" id="name" value="" /><br>
+      DOB:<input type="date" id="dob" value="" /><br>
+      Gender:<br>
+      Male <input type="radio" id="male" name="gender" value="male">
+      Female <input type="radio" id="female" name="gender" value="female"><br>
+      Email:<input type="email" id="email" /><br>
+      Mobile:<input type="tel" id="mobile" /><br>
+      Address:<input type="text" id="address" /><br>
+      <button name='edit' value='edit'>Edit</button>
+      <button name='save' value='save'>Save</button>
+    </form>
+  </div>
+</div>
+
+<div id="Bookings" class="tabcontent">
+  <h3 style="text-align: center; font-style:oblique; color:black;">Bookings</h3>
+  <div class="card">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 ticket ">
+
+          <table>
+            <tr>
+              <th>Passenger Name</th>
+              <th>Ticket Id</th>
+              <th>Seat No</th>
+              <th>Total Fare</th>
+            </tr>
+            <tr>
+              <td>John Peter <br></td>
+
+              <td>1000876</td>
+              <td>12</td>
+              <td>400 </td>
+            </tr>
+            <tr>
+              <th>Bus Id</th>
+              <th>From </th>
+              <th>To</th>
+              <th>Departure Time</th>
+            </tr>
+            <tr>
+              <td>1002<br></td>
+              <td>Mumbai</td>
+              <td>Chennai</td>
+              <td>2:00pm</td>
+            </tr>
+          </table>
+
+        </div>
+        <button class="btn1" type="submit">Print</button>
+        <button class="btn2" type="submit">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="Wallet" class="tabcontent">
+  <h3 style="text-align: center; font-style:oblique; color:black;">Wallet</h3>
+  <div class="card">
+
+    <h2>Available Balance : 5000</h2>
+
+    CVV:<input type="text" name="cvv"><br>
+    Card Number:<input type="text" name="cardNumber"><br>
+    Expiration Date:<input type="date" name="expirationDate"><br>
+    Card holder Name :<input type="text" name="cardHolderName"><br>
+    Amount :<input type="text" name="amount"><br>
+    <button class="btn1" type="submit">+Add Balance</button>
+  </div>
+</div>
+
+  <div id="Changepass" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Change Password</h3>
+    <div class="card">
+
+      <label>Old Password</label><br>
+      <input type="text" /><br>
+      <label>New Password</label><br>
+      <input type="text" /><br>
+      <label>Confirm Password</label><br>
+      <input type="text" /><br>
+      <button class="btn1" type="submit">Submit</button>
+      <button class="btn2" type="submit">Cancel</button>
+    </div>
+  </div>

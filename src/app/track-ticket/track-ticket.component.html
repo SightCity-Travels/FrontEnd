@@ -1,0 +1,25 @@
+<div  class="card" style="width: 50%; margin-left: 25%;">
+    <form  form #loginForm="ngForm" >
+      <div >
+        <h3 style="text-align: center;">TRACK TICKET</h3>
+       
+        <label for="tn"><b>Ticket Id</b></label>
+        <input type="password" #tn placeholder="Enter your ticket number" id="tn" required  name="tn" >
+        
+  
+        <label for="email"><b>Email</b></label>
+        <input type="text"#em placeholder="Enter Email" id="pwd" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"> 
+        <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
+          <div *ngIf="em.errors.required">Email is required</div>
+          <div *ngIf="em.errors.pattern">invalid email type</div>
+        </div>
+    
+        
+        <div class="">
+          <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" class="signupbtn">Track</button></a> 
+          <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+        </div>
+       
+      </div>
+    </form>
+    </div>

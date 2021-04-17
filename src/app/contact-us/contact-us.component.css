@@ -1,0 +1,80 @@
+
+
+.fon{
+    position: relative;
+    display: inline;
+    /* top: 15vh; */
+    /* background-color: limegreen; */
+    left: 20px;
+    width: 141px;
+    height: 36px;
+    text-align: left;
+    font: normal normal normal 30px/36px SF Pro Display;
+    font-weight: bold;
+    letter-spacing: 0px;
+    color: #040318;
+    text-shadow: 0px 2px 3px #5B5B5B80;
+    opacity: 1;
+}
+.for{
+    position: relative;
+    /* top: 16vh; */
+    height: auto;
+    width: 95%;
+    padding-right: 20px;
+}
+.form-group{
+    font-weight: lighter;
+    position: relative;
+    line-height: 10px;
+    left: 20px;
+    width: 100%;
+    right: 20px;
+    
+    /* height: 49px; */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+}
+button {
+    font-weight: bold;
+    position: relative;
+    /* place-items: right; */
+    color:white;
+    /* padding: 14px 20px;  */
+    /* margin: 8px 0;
+    border: none; */
+    /* left: 300px;  */
+    text-align: center;
+    float:right;
+    top: 10px;
+    right: 10px;
+    /* right: 200px; */
+    cursor: pointer;
+    width: 25%;
+    opacity: 0.9;
+    background:#313780 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+    /* display: block;
+    justify-items: flex-end; */
+}
+  
+button:hover {
+    opacity:1;
+}
+
+.card {
+    background-color:white;
+    padding: 20px;
+    opacity: 0.9;
+    margin-top: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 80%;
+    margin-left: auto;
+  margin-right: auto;
+    
+  }

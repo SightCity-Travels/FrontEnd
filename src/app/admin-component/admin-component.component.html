@@ -1,0 +1,110 @@
+<div class="tab">
+
+    <button style="font-size:5em;"> <i style="margin-left: 60px;" class="fas fa-user-cog" aria-hidden="true"></i></button>
+    <button class="tablinks" (click)="openTab($event, 'Booking','bookBtn')"  id="bookBtn">Bookings</button>
+    <button class="tablinks" (click)="openTab($event, 'AddBus','addBusBtn')"  id="addBusBtn">Add Bus</button>
+    <button class="tablinks" (click)="openTab($event, 'Route','updateRouteBtn')"  id="updateRouteBtn">Update Route</button>
+    <button class="tablinks" (click)="openTab($event, 'Frequency','preferredBusButton')"  id="preferredBusButton">Preferred Bus</button>
+    <button class="tablinks" (click)="openTab($event, 'Customer','custRegisterBtn')"  id="custRegisterBtn">Customer Registration</button>
+</div>
+
+<div id="AddBus" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Add Bus</h3>
+    <div class="card">
+        <label>Bus Id</label><br>
+        <input type="text"> <br>
+        <label>Source</label><br>
+        <input type="text"><br>
+        <label>Destination</label><br>
+        <input type="text"><br>
+        <label>Type</label><br>
+        <input type="checkbox" name="ac">
+        <label for="ac">AC</label><br>
+        <input type="checkbox" name="non-ac">
+        <label for="non-ac"> Non-AC</label><br>
+        <br>
+        <label>Capacity</label><br>
+        <input type="text"><br>
+        <label>Fare</label><br>
+        <input type="text"><br>
+        <label>Start Time</label><br>
+        <input type="text"><br>
+        <label>Duration</label><br>
+        <input type="text"><br>
+        <button type="submit">Add</button>
+
+
+    </div>
+</div>
+<div id="Booking" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Booking</h3>
+    <div class="card">
+        <label>Bus No:</label>
+        <input type="text" id="busNo"><br>
+        <p>Period </p>
+        <input type="radio" class="accordion" name="period"/>Daily
+        <div class="panel">
+            <input type="date"><br>
+        </div>
+        <input type="radio" class="accordion" name="period"/>Weekly
+        <div class="panel">
+            <input type="week"><br>
+        </div>
+        <input type="radio" class="accordion" name="period"/>Monthly
+        <div class="panel">
+            <input type="month"><br>
+        </div><br>
+        <button type="submit" (click)="functionCall()">Check</button>
+
+
+        <!-- this div is for displaying   -->
+        <div [hidden]="isBookinghidden">
+            <p style="color :rgb(0, 0, 0)"> This is table</p> 
+        </div>
+
+    </div>
+
+   
+</div>
+
+<div id="Route" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Profit</h3>
+    <div class="card">
+        <label>Bus No</label><br>
+        <input type="text" id="busNo"><br>
+        <label>Source</label><br>
+        <input type="text"><br>
+        <label>Destination</label><br>
+        <input type="text"><br>
+        <button type="submit">Check</button>
+    </div>
+</div>
+
+<div id="Frequency" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Preferred Bus</h3>
+    <div class="card">
+        <p>Period </p>
+        <input type="radio" class="accordion" name="period"/>Weekly
+        <div class="panel">
+            <input type="week"><br>
+        </div>
+        <input type="radio" class="accordion" name="period"/>Monthly
+        <div class="panel">
+            <input type="month"><br>
+        </div><br>
+        <button type="submit">Check</button>
+    </div>
+</div>
+<div id="Customer" class="tabcontent">
+    <h3 style="text-align: center; font-style:oblique; color:black;">Customer Registration</h3>
+    <div class="card">
+        <p>Type</p>
+        <input type="radio" class="accordion" name="type"/>Registered Customer<br>
+        <input type="radio" class="accordion" name="type"/>Registered Customer without any Bookings<br>
+        <button type="submit">Check</button>
+    </div>
+</div>
+
+
+
+

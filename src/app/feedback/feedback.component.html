@@ -1,0 +1,76 @@
+<div id="main_1">
+<div class="card" style="width: 45%; margin-left: 25%; margin-bottom: 40px;  background: rgba(204, 223, 228, 0.7);">
+
+  <h1 class="top">Your Feedback </h1>
+  <h3 style="text-align: center;"> We would like to hear from you!!!!</h3>
+
+    <div class="logo" >
+     
+    
+    <div class="register-item">
+
+      <form #myform="ngForm" class="form form-register">
+
+        <div class="quest" >
+          <h3 style="text-align: center;"> What do you feel about Easy Bus services?</h3>
+        </div>
+
+        <div class="container1">
+            <div class="item">
+              <label for="0">
+              <input class="radio" type="radio" name="feedback" id="0" value="0">
+              <span>🤬</span>
+            </label>
+            </div>
+        
+            <div class="item">
+              <label for="1">
+              <input class="radio" type="radio" name="feedback" id="1" value="1">
+              <span>🙁</span>
+            </label>
+            </div>
+        
+            <div class="item">
+              <label for="2">
+              <input class="radio" type="radio" name="feedback" id="2" value="2">
+              <span>😶</span>
+            </label>
+            </div>
+        
+            <div class="item">
+              <label for="3">
+              <input class="radio" type="radio" name="feedback" id="3" value="3">
+              <span>😁</span>
+            </label>
+            </div>
+        
+            <div class="item">
+              <label for="4">
+              <input class="radio" type="radio" name="feedback" id="4" value="4">
+              <span>😍</span>
+            </label>
+            </div>
+        
+          </div>
+          <!-- <div class="quest"> -->
+            <!-- <h3> What would you like to do?</h3></div>
+
+            <div >
+              <select name="titles" class="drop">
+                <option value="Suggest">Want to give Suggestion</option>
+                <option value="App">Provide Appreciation</option>
+                <option value="comp">Register a Complaint</option>
+                
+              </select>
+            </div>     -->
+
+            <div class="quest">
+              <h3 style="text-align: center;"> Tell Us About Your Experience</h3></div>
+        <textarea rows="7" cols="50" name="comment"  class="form-input" id="length" placeholder="Text" ngModel required>
+          Enter text here...</textarea>
+          <button type="button">Submit</button>
+       
+      </form>
+    </div>
+</div>
+</div>

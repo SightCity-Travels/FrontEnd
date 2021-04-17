@@ -1,0 +1,86 @@
+<div class="card">
+  <div id="downloadPdf">
+    <button (click)="captureScreen()">Download as Pdf</button>
+  </div>
+ 
+  <div class="ticketContainer" id="printThisTicket">
+    <img class="logo" src="../assets/logo for ticket.png" width="100px" height="80px">
+    <p>Contact Us. XXXXXXXXXXX</p>
+ 
+    <br><br><br><br>
+    <hr>
+    <br>
+    <table class="topBar">
+      <tr>
+        <th>Source ----> Destination</th>
+        <th>Date Of Journey : 06/05/1999</th>
+        <th>Ticket Id : 54646</th>
+      </tr>
+    </table>
+ 
+    <div class="passengerDiv">
+      <table>
+        <div class="titlePassenger">
+          <tr>
+            <th>Passenger Name</th>
+            <th>Seat Number</th>
+            <th>Age</th>
+            <th>Passenger Id</th>
+          </tr>
+        </div>
+        <div class="listPassenger">
+          <tr>
+            <td> Ankit Sharma</td>
+            <td> a1 </td>
+            <td> 22 </td>
+            <td> 3001</td>
+          </tr>
+        </div>
+        <div class="listPassenger">
+          <tr>
+            <td> Ankit Sharma</td>
+            <td> a1 </td>
+            <td> 22 </td>
+            <td> 3001</td>
+          </tr>
+        </div>
+ 
+        <div class="listPassenger">
+          <tr>
+            <td> Ankit Sharma</td>
+            <td> a1 </td>
+            <td> 22 </td>
+            <td> 3001</td>
+          </tr>
+        </div>
+      </table>
+    </div>
+    <div class="busInfoBar">
+      <table>
+        <tr>
+          <th>Bus Id : 202</th>
+          <th>Bus Type : AC</th>
+          <th>Bus Name : Purple prasanna Travels</th>
+        </tr>
+      </table>
+    </div>
+ 
+    <div class="jouneyInfoBar">
+      <table>
+        <tr>
+          <th>Departure Time : 10:30 pm</th>
+          <th>Arrivale Time : 09:30 am</th>
+          <th>Total Fare : Rs 1000</th>
+        </tr>
+      </table>
+    </div>
+ 
+  </div>
+
+  <div class="">
+    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" class="signupbtn">Sign-up</button></a>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+    
+  </div>
+</div>
+<div style="margin-top:60px ;"></div>

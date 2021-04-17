@@ -1,0 +1,108 @@
+.ticketContainer{
+    padding: 40px;
+}
+ 
+.ticketContainer p{
+    float: right;
+}
+ 
+.ticketContainer hr{
+    border: 2px solid rgb(134, 35, 5);
+}
+ 
+.topBar {
+    background-color: rgb(223, 166, 112);
+    border-radius: 10px;
+    padding-bottom:10px;
+    padding-left: 15px; 
+    padding-right: 20px; 
+    width: 100%;
+    margin: auto;
+ 
+}
+ 
+.topBar th{
+    width: 100%;
+    padding-left: 80px;
+    padding-right:80px;
+    overflow: hidden; 
+    /* border: 1px solid black; */
+}
+ 
+.ticketContainer .logo{
+    float: left;
+} 
+ 
+.passengerDiv{
+    background-color: rgb(161, 221, 184);
+    padding: 10px;
+    width: 95%;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+ 
+table {
+    /* border: 1px solid black; */
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+  }
+
+
+
+ 
+  .titlePassenger th,td {
+        /* border: 1px solid black; */
+        width: 350px;
+        overflow: hidden;
+    
+  }
+ 
+/* th{
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+}
+ 
+td{
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+} */
+
+
+ 
+.passengerDiv .titlePassenger{
+    background-color: rgb(235, 214, 188);
+    border-radius: 10px;
+    width:100%;
+    margin:auto;
+}
+ 
+.passengerDiv .listPassenger{
+    background-color: rgb(246, 247, 205);
+    border-radius: 10px;
+    margin-top: 5px;
+    width:100%;
+    margin:auto;
+    margin-top: 10px;
+}
+ 
+.busInfoBar {
+    background-color: aquamarine;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+ 
+.jouneyInfoBar{
+    background-color: rgb(103, 100, 240);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+ 
+#downloadPdf{
+    text-align: right;
+}
+
+ 
