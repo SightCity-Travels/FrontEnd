@@ -1,4 +1,8 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
+import { Bus } from '../Bus';
+import { BusserviceService } from '../service/busservice.service';
+import { DatePipe } from '@angular/common';
+import { passenger } from '../passenger';
 
 @Component({
   selector: 'app-seat-booking',
@@ -6,19 +10,43 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./seat-booking.component.css']
 })
 export class SeatBookingComponent implements OnInit {
-  bookedSeats: string[] = ['a1', 'b2', 'c7','b6'];
+  bookedSeats: string[]=[];
   selectedSeatCount: number = 0;
   selectedSeatsList:Set<string> = new Set();
   totalAmount:number=0;
-  constructor() { }
+  dateValue:any;
+  dateOfJourney;
+  busId:number;
+  selectedBus:Bus;
+  // alreadyBookedPassenger:passenger[];
+  constructor(private busService:BusserviceService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+
+    this.busId=Number(localStorage.getItem("selectedBusId"));
+    // this.dateValue=Date.parse
+   
+    this.dateValue=(localStorage.getItem('dateOfJourney'));
+    this.dateOfJourney =this.datepipe.transform(this.dateValue, 'yyyy-MM-dd');
+    // console.log(this.dateOfJourney);
+
+    this.busService.fetchBookedSeats(this.dateOfJourney,this.busId).subscribe(
+      fetchedSeatList=>{
+        this.bookedSeats=fetchedSeatList; 
+        localStorage.setItem("seatList",JSON.stringify(this.bookedSeats))
+      }
+    );
+  
+   
+    this.bookedSeats= JSON.parse(localStorage.getItem("seatList"));
+
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);
       bookedSeat1.classList.toggle("occupied");
       return bookedSeat1;
     });
-    
+
+
   }
 
   selectSeat(seat: string) {
@@ -55,7 +83,7 @@ export class SeatBookingComponent implements OnInit {
 
 
 
-
+  
 
 
 

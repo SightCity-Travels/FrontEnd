@@ -26,6 +26,7 @@ import { NewHomeComponent } from './new-home/new-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -58,9 +59,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgxPrintModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

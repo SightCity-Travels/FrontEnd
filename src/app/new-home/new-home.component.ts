@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-home',
@@ -12,13 +10,14 @@ import { startWith, map } from 'rxjs/operators';
 export class NewHomeComponent implements OnInit {
   control = new FormControl();
 
-  source: String = "";
-  destination: String = "";
-  constructor() { }
+  source: String;
+  destination: String;
+  dateOfJourney:Date;
+
+  constructor(private router:Router) { }
   ngOnInit() {
     var myIndex = 0;
     carousel();
-
     function carousel() {
       var i;
       var x;
@@ -38,10 +37,28 @@ export class NewHomeComponent implements OnInit {
         setTimeout(carousel, 2000); // Change image every 2 seconds
       }
     }
+  }
 
 
+
+  checkBus(searchBusForm:NgForm){
+    if(this.source===this.destination){
+      alert("Source and Destination cannot be same or empty!");
+    }
+    else if(searchBusForm.valid){
+
+      localStorage.setItem("source",this.source.toString());
+      localStorage.setItem("destination",this.destination.toString());
+      localStorage.setItem("dateOfJourney",this.dateOfJourney.toString());
+      this.router.navigate(['searchBus']); 
+    }
+    else{
+      alert("Enter valid infomation");
+    }
 
   }
+
+ 
 }
 
 
