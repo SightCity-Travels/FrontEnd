@@ -1,4 +1,4 @@
-<div id="main_1" class="card" style="margin-top: 50px; border-radius: 30px;">
+<div id="main_1" class="card" style= "border-radius: 30px;">
   <div class="outer" style="padding-top: 28px ; padding-bottom: 35px;">
     <h3 style="text-align: center;">BOOK YOUR BUS TODAY</h3>
 
@@ -18,12 +18,16 @@
       <br>
 
 
-      <label for="source" style="margin-left: 2%;">SOURCE</label>
-      <input list="list-buses" type="text" value="source" id="source" name="source" [(ngModel)]="source" #src=ngModel
-        placeholder="ENTER SOURCE CITY" required>
-      <span *ngIf="(src.dirty||src.touched)" style='color: red; border-color: red;'>
-        <span *ngIf="src.errors?.required">Source is required</span></span><br>
 
+      <div class="row">
+        <div class="col_s">
+      <span *ngIf="(src.dirty||src.touched)" style='color:rgb(8, 58, 59); '>
+        <span  style="margin-left: 10%;" *ngIf="src.errors?.required">Source is required</span></span><br>
+
+      <!-- <label for="source" style="margin-left: 2%;">SOURCE</label> -->
+      <input list="list-buses" type="text"  value="source" id="source" name="source"  [(ngModel)]="source" #src=ngModel
+        placeholder="ENTER SOURCE CITY" required style="margin-left: 10%;">
+     
 
       <datalist id="list-buses">
         <option value="Pune">
@@ -38,40 +42,45 @@
         <option value="Akola">
 
       </datalist>
+    </div>
+    <div class="col_s">
+      <span *ngIf="(des.dirty||des.touched)" style='color:rgb(8, 55, 56);'>
+        <span  style="margin-left: 9%;" *ngIf="des.errors?.required">Destination is required</span></span><br>
 
-      <!--<div *ngIf="des.invalid && (des.dirty||des.touched)" style="color: red;border-color: red;"></div>-->
-      <!-- <label for="source" style="margin-left: 2%;">SOURCE</label>
-        <input type="text" id="source" name="source" placeholder="ENTER SOURCE CITY"> -->
-      <span *ngIf="(des.dirty||des.touched)" style='color: red; border-color: red;'>
-        <span *ngIf="des.errors?.required">Destination is required</span></span><br>
-      <label for="des" style="margin-left: 3%;">DESTINATION</label>
+      <!-- <label for="destination" style="margin-left: 2%;">DESTINATION</label> -->
+      <input list="list-buses" type="text" value="source" id="destination" name="destination" [(ngModel)]="destination" #des=ngModel
+        placeholder="ENTER DESTINATION CITY" required style="margin-left: 5%;">
 
-      <input list="list- bus" type="text" id="des" name="des" value="des" [(ngModel)]="destination" #des=ngModel
-        placeholder=" ENTER DESTINATION CITY" required>
-
-
-
-      <datalist id="list-bus">
-        <option value="Delhi">
-        <option value="Nashik">
+      <datalist id="list-buses">
         <option value="Pune">
-        <option value="Chandannagar">
-        <option value="Ahmadnagar">
-        <option value="Nanded">
-        <option value="Akola">
+        <option value="Mumbai">
+        <option value="Delhi">
+        <option value="Chennai">
+        <option value="Aurangabad">
+        <option value="Nashik">
         <option value="Nagpur">
+        <option value="Akola">
         <option value="Akola">
         <option value="Akola">
 
       </datalist>
+    </div>
+
+     
+     
+
+    <div class="col_s">
+     
+      <!-- <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label> -->
+      <input type="text" placeholder="CHOOSE TRAVEL DATE"
+      onfocus="(this.type='date')"onblur="(this.type='text')">
+      <!-- <input type="date" id="dt" name="dt" placeholder="Travel date"> -->
+    </div>
+  </div>
 
 
-      <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>
-      <input type="date" id="dt" name="dt">
-
-
-      <a style="text-decoration: none; color: white;" [routerLink]="['/searchBus']"><button type="button"
-          style="margin-left: 35%;"> SEARCH BUSES</button></a>
+      <a style="text-decoration: none;margin-left: 40%; color: white;" [routerLink]="['/searchBus']"><button type="button" class="search_button"
+         > SEARCH BUSES</button></a>
 
     </form>
   </div>
