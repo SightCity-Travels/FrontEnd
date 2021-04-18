@@ -11,8 +11,7 @@ import { startWith, map } from 'rxjs/operators';
 })
 export class NewHomeComponent implements OnInit {
   control = new FormControl();
-  streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
-  filteredStreets: Observable<string[]>;
+
   source: String = "";
   destination: String = "";
   constructor() { }
@@ -39,10 +38,10 @@ export class NewHomeComponent implements OnInit {
         setTimeout(carousel, 2000); // Change image every 2 seconds
       }
     }
+
+
+
   }
-
-
-
 }
 
 
