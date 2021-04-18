@@ -35,8 +35,7 @@
       <label for="cvv">CVV</label><br>
       <input type="text" id="cvv" name="cvv" maxlength="3" pattern="[0-9]*" style="width: 10%; height: 30px;">
     <br>
-      <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" value="Submit"
-        class="btn" onclick="myFunction()">Pay</button></a>   
+    <button type="button" id="myBtn1">Pay</button>
      
     </form>
   </div>
@@ -61,10 +60,7 @@
     <!-- </div> -->
     <br>
     
-  
-    <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" value="Submit"
-      class="btn" onclick="myFunction()">Pay</button></a>
-    
+    <button type="button"id="myBtn2">Pay</button>
   </div>
   <button class="accordion">Wallet</button>
   <div class="panel">
@@ -73,10 +69,26 @@
     <form action="/action_page.php" >
     <input type="radio" name="radio" /> Wallet
     <br>
-    <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" value="Submit"
-      class="btn" onclick="myFunction()">Pay</button></a>
+    <button type="button"id="myBtn3">Pay</button>
     </form>
   </div>
 
 </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Payment succesful <br><br>
+    Your ticket has been booked<br><br>
+    <b>Thankyou!!!</b></p>
+
+    <br>
+    <br>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" value="Submit" class="cancelbtn" >view ticket</button></a>
+  </div>
+
+</div>
+
 <div style="margin-top:60px ;"></div>
