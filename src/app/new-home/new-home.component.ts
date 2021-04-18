@@ -14,7 +14,8 @@ export class NewHomeComponent implements OnInit {
 
   source: String = "";
   destination: String = "";
-  constructor() { }
+  isStatus:Boolean=false;
+  constructor() { this.isStatus=Boolean(sessionStorage.getItem("status"));}
   ngOnInit() {
     
  var myIndex = 0;

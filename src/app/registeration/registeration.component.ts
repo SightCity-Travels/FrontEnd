@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserserviceService } from '../service/userservice.service';
+import { UserService } from '../service/user.service';
 import { User } from '../User';
 
 
@@ -13,7 +13,7 @@ import { User } from '../User';
 export class RegisterationComponent implements OnInit {
   user:User=new User(); 
 userCPassword:string;
-  constructor( private userservice:UserserviceService,private router:Router){}
+  constructor( private userservice:UserService,private router:Router){}
  
 
   ngOnInit(): void {}

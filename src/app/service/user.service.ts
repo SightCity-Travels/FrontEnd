@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { User } from '../User';
+import { LoginDto } from '../model/LoginDto';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserserviceService {
+export class UserService {
 
   constructor(private httpClient:HttpClient) { }
   // registerUser(user:User):Observable<User>{
@@ -24,5 +25,10 @@ export class UserserviceService {
     let url = 'http://localhost:9090/registerorupdateuser';
     return this.httpClient.post<User>(url, user);
   }
+
+  loginUser(loginDto:LoginDto):Observable<boolean>{
+    return this.httpClient.post<boolean>("http://localhost:9090/login",loginDto);
+  }
+
 
 }
