@@ -19,10 +19,9 @@ export class NewHomeComponent implements OnInit {
   ngOnInit() {
     
 
-    var myIndex = 0;
+ var myIndex = 0;
 carousel();
-
-function carousel() {
+ function carousel() {
   var i;
   var x ;
   x= document.getElementsByClassName("mySlides");
@@ -30,17 +29,20 @@ function carousel() {
     x[i].style.display = "none";  
   }
   myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
+  if (myIndex > x.length) {myIndex = 1}   
+  try{
+  x[myIndex-1].style.display = "block";  }
+  catch{}
+  finally{
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 
     
   }
 
-
+}}
   
-}
+
 
 //   ngOnInit(): void {
 //   }
