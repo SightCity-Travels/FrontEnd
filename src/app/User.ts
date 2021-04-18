@@ -4,7 +4,6 @@ export class User{
     lastName:string;
     email:string;
     password:string;
-  
     contactNo:string;
     dateOfBirth:Date
     gender:string;

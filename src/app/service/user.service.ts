@@ -8,7 +8,7 @@ import { User } from '../User';
 @Injectable({
   providedIn: 'root'
 })
-export class UserserviceService {
+export class UserService {
 
   constructor(private httpClient:HttpClient) { }
   // registerUser(user:User):Observable<User>{
