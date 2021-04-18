@@ -7,26 +7,30 @@
         <h1 style="text-align: center;">LOGIN</h1>
       
     
-        <label for="email"><b>Email</b></label>
-        <input type="text"#em placeholder="Enter Email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=user.email> 
-        <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
-          <div *ngIf="em.errors.required">Email is required</div>
-          <div *ngIf="em.errors.pattern">invalid email type</div>
-        </div>
+        <label for="userId"><b>Email</b></label>
+        <input type="text"#em placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> 
+         <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
+          <div *ngIf="em.errors.required">UserId is required</div>
+
+         </div> 
     
         <label for="pwd"><b>Password</b></label>
-        <input type="password" #pwd placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=user.password>
+        <input type="password" #pwd placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password>
         <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)"style='color: red; border-color: red;'>
           <div *ngIf="pwd.errors.required">Password is required</div>
-          <div *ngIf="pwd.errors.pattern">invalid password type</div>
-        </div> 
+          <div *ngIf="pwd.errors.pattern">invalid password type</div> 
+         </div> 
     
-        <div class="">
-          <button type="submit" class="signupbtn">Login</button>
+       
+          <button type="submit" class="signupbtn">Login</button><br>
+          <div class="container">
           <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+          <span>
          <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
+        </span>
         </div>
-        <div>
+
+        <div class="container">
           <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" >Register</button></a>
         </div>
       </div>
