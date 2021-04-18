@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bus } from '../Bus';
+import { BusserviceService } from '../service/busservice.service';
 
 @Component({
   selector: 'app-searched-bus-list',
@@ -6,10 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searched-bus-list.component.css']
 })
 export class SearchedBusListComponent implements OnInit {
+  source:string="";
+  destination:string="";
+  dateOfJourney;
+  dateValue:any;
+  busList:Bus[];
+  selectedBusId:number;
+  constructor(private busService:BusserviceService) {
+   }
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.source=String(localStorage.getItem('source'));
+    this.destination=String(localStorage.getItem('destination'));
+    this.dateValue=Date.parse(localStorage.getItem('dateOfJourney'));
+    this.dateOfJourney= new Date(this.dateValue).toLocaleDateString();
+  
+    this.busService.searchBusList(this.source,this.destination).subscribe(
+      fetchedBusList=>{
+        this.busList=fetchedBusList;
+        console.log(this.busList);
+      }
+    );
+  }
+
+
+  busSelect(busID){
+    // console.log(busID);
+    this.selectedBusId=busID;
+    localStorage.setItem("selectedBusId",this.selectedBusId.toString());
   }
 
 }

@@ -2,8 +2,7 @@
   <div class="outer" style="padding-top: 28px ; padding-bottom: 35px;">
     <h3 style="text-align: center;">BOOK YOUR BUS TODAY</h3>
 
-    <!-- <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)"  > -->
-    <form>
+    <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)">
       <div style="text-align: center;">
 
         <label for="nsleeper">
@@ -33,45 +32,39 @@
         <option value="Aurangabad">
         <option value="Nashik">
         <option value="Nagpur">
-        <option value="Akola">
-        <option value="Akola">
-        <option value="Akola">
-
+        <option value="Udaipur">
+        <option value="Bengaluru">
+        <option value="Ooty">
       </datalist>
 
-      <!--<div *ngIf="des.invalid && (des.dirty||des.touched)" style="color: red;border-color: red;"></div>-->
-      <!-- <label for="source" style="margin-left: 2%;">SOURCE</label>
-        <input type="text" id="source" name="source" placeholder="ENTER SOURCE CITY"> -->
+      <label for="destination" style="margin-left: 2%;">Destination</label>
+      <input list="list-buses" type="text" value="destination" id="destination" name="destination"
+        [(ngModel)]="destination" #des=ngModel placeholder="ENTER DESTINATION CITY" required>
       <span *ngIf="(des.dirty||des.touched)" style='color: red; border-color: red;'>
         <span *ngIf="des.errors?.required">Destination is required</span></span><br>
-      <label for="des" style="margin-left: 3%;">DESTINATION</label>
 
-      <input list="list- bus" type="text" id="des" name="des" value="des" [(ngModel)]="destination" #des=ngModel
-        placeholder=" ENTER DESTINATION CITY" required>
-
-
-
-      <datalist id="list-bus">
-        <option value="Delhi">
-        <option value="Nashik">
+      <datalist id="list-buses">
         <option value="Pune">
-        <option value="Chandannagar">
-        <option value="Ahmadnagar">
-        <option value="Nanded">
-        <option value="Akola">
+        <option value="Mumbai">
+        <option value="Delhi">
+        <option value="Chennai">
+        <option value="Aurangabad">
+        <option value="Nashik">
         <option value="Nagpur">
-        <option value="Akola">
-        <option value="Akola">
+        <option value="Udaipur">
+        <option value="Bengaluru">
+        <option value="Ooty">
 
       </datalist>
+
+
 
 
       <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>
-      <input type="date" id="dt" name="dt">
+      <input type="date" id="dt" name="dt" #dt="ngModel" required [(ngModel)]="dateOfJourney">
 
 
-      <a style="text-decoration: none; color: white;" [routerLink]="['/searchBus']"><button type="button"
-          style="margin-left: 35%;"> SEARCH BUSES</button></a>
+     <button type="submit" style="margin-left: 35%;" > SEARCH BUSES</button>
 
     </form>
   </div>
