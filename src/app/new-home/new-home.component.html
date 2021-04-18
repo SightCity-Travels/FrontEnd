@@ -1,31 +1,30 @@
+<div id="main_1" class="card" style="margin-top: 50px; border-radius: 30px;">
+  <div class="outer" style="padding-top: 28px ; padding-bottom: 35px;">
+    <h3 style="text-align: center;">BOOK YOUR BUS TODAY</h3>
 
-
-  <div id="main_1" class="card" style="margin-top: 50px; border-radius: 30px;">
-    <div class="outer" style="padding-top: 28px ; padding-bottom: 35px;">
-        <h3 style="text-align: center;">BOOK YOUR BUS TODAY</h3>
-    
-        <!-- <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)"  > -->
+    <!-- <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)"  > -->
     <form>
-    <div style="text-align: center;">
- 
-            <label for="nsleeper">
-                <input type="radio" id="nsleeper" name="bus-type">
-                <span class="checkmark"></span>NON-AC SLEEPER
-            </label>
-            <label for="asleeper">
-                <input type="radio" id="asleeper" name="bus-type">
-                <span class="checkmark"></span>AC SLEEPER
-            </label><br>
-    </div>
+      <div style="text-align: center;">
+
+        <label for="nsleeper">
+          <input type="radio" id="nsleeper" name="bus-type">
+          <span class="checkmark"></span>NON-AC SLEEPER
+        </label>
+        <label for="asleeper">
+          <input type="radio" id="asleeper" name="bus-type">
+          <span class="checkmark"></span>AC SLEEPER
+        </label><br>
+      </div>
       <br>
-      
-     
-        <label for="source" style="margin-left: 2%;">SOURCE</label>
-      <input  list ="list-buses" type="text" value="source" id="source" name="source" [(ngModel)]="source" #src=ngModel placeholder="ENTER SOURCE CITY" required>
-      <span *ngIf="(src.dirty||src.touched)"style='color: red; border-color: red;'>
+
+
+      <label for="source" style="margin-left: 2%;">SOURCE</label>
+      <input list="list-buses" type="text" value="source" id="source" name="source" [(ngModel)]="source" #src=ngModel
+        placeholder="ENTER SOURCE CITY" required>
+      <span *ngIf="(src.dirty||src.touched)" style='color: red; border-color: red;'>
         <span *ngIf="src.errors?.required">Source is required</span></span><br>
-     
-   
+
+
       <datalist id="list-buses">
         <option value="Pune">
         <option value="Mumbai">
@@ -37,22 +36,23 @@
         <option value="Akola">
         <option value="Akola">
         <option value="Akola">
-   
-    </datalist>
-   
-         <!--<div *ngIf="des.invalid && (des.dirty||des.touched)" style="color: red;border-color: red;"></div>-->
-        <!-- <label for="source" style="margin-left: 2%;">SOURCE</label>
+
+      </datalist>
+
+      <!--<div *ngIf="des.invalid && (des.dirty||des.touched)" style="color: red;border-color: red;"></div>-->
+      <!-- <label for="source" style="margin-left: 2%;">SOURCE</label>
         <input type="text" id="source" name="source" placeholder="ENTER SOURCE CITY"> -->
-        <span *ngIf="(des.dirty||des.touched)"style='color: red; border-color: red;'>
-          <span *ngIf="des.errors?.required">Destination is required</span></span><br>
-        <label for="des" style="margin-left: 3%;">DESTINATION</label>
-        
-        <input list ="list- bus" type="text" id="des" name="des" value="des" [(ngModel)]="destination" #des=ngModel placeholder=" ENTER DESTINATION CITY" required >
- 
-   
- 
-    <datalist id="list-bus">
-      <option value="Delhi">
+      <span *ngIf="(des.dirty||des.touched)" style='color: red; border-color: red;'>
+        <span *ngIf="des.errors?.required">Destination is required</span></span><br>
+      <label for="des" style="margin-left: 3%;">DESTINATION</label>
+
+      <input list="list- bus" type="text" id="des" name="des" value="des" [(ngModel)]="destination" #des=ngModel
+        placeholder=" ENTER DESTINATION CITY" required>
+
+
+
+      <datalist id="list-bus">
+        <option value="Delhi">
         <option value="Nashik">
         <option value="Pune">
         <option value="Chandannagar">
@@ -62,223 +62,248 @@
         <option value="Nagpur">
         <option value="Akola">
         <option value="Akola">
- 
-  </datalist>
-        
-    
-        <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>
-        <input type="date" id="dt" name="dt"  >
-        
-       
-        <a style="text-decoration: none; color: white;" [routerLink]="['/searchBus']" ><button type="button" style="margin-left: 35%;" > SEARCH BUSES</button></a>
-     
-    </form>
-    </div>
-   </div>
 
-   <div style="background-color: white; margin-top: 60px; width: 100%;" > 
-    <div style="border-radius: 35px;">
-      <br>
-      <h3 style="text-align: center">POPULAR DESTINATIONS </h3>
-    
+      </datalist>
+
+
+      <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>
+      <input type="date" id="dt" name="dt">
+
+
+      <a style="text-decoration: none; color: white;" [routerLink]="['/searchBus']"><button type="button"
+          style="margin-left: 35%;"> SEARCH BUSES</button></a>
+
+    </form>
+  </div>
+</div>
+
+<div style="background-color: white; margin-top: 60px; width: 100%;">
+  <div style="border-radius: 35px;">
+    <br>
+    <h3 style="text-align: center">POPULAR DESTINATIONS </h3>
+
     <div id="main_1" class="slideshow-container">
-    
-      <div class="mySlides fade" >
-    
+
+      <div class="mySlides fade">
+
         <img src="../assets/jai.jpeg" id="img1" alt="JAIPUR" style="height: 450px;">
-       
-        <div class="text"><h3>JAIPUR</h3></div>
+
+        <div class="text">
+          <h3>JAIPUR</h3>
+        </div>
       </div>
-      
-      <div class="mySlides fade" >
-        
+
+      <div class="mySlides fade">
+
         <img src="../assets/udaipur.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
-        <div class="text"><h3>UDAIPUR</h3></div>
+        <div class="text">
+          <h3>UDAIPUR</h3>
+        </div>
       </div>
-      
-      <div class="mySlides fade" >
-        <img src="../assets/hyd.jpg" id="img1"  alt="JAIPUR"style="height: 450px;">
-        <div class="text"><h3>HYDERABAD</h3></div>
+
+      <div class="mySlides fade">
+        <img src="../assets/hyd.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
+        <div class="text">
+          <h3>HYDERABAD</h3>
+        </div>
       </div>
-      <div class="mySlides fade" >
+      <div class="mySlides fade">
         <img src="../assets/goa.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
-        <div class="text"><h3>GOA</h3></div>
+        <div class="text">
+          <h3>GOA</h3>
+        </div>
       </div>
-      <div class="mySlides fade" >
+      <div class="mySlides fade">
         <img src="../assets/mumbai.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
-        <div class="text"><h3>MUMBAI</h3></div>
+        <div class="text">
+          <h3>MUMBAI</h3>
+        </div>
       </div>
-      <div class="mySlides fade" >
-        <img src="../assets/mangalore.jpg" id="img1"  style="height: 450px;">
-        <div class="text"><h3>MANGALORE</h3></div>
+      <div class="mySlides fade">
+        <img src="../assets/mangalore.jpg" id="img1" style="height: 450px;">
+        <div class="text">
+          <h3>MANGALORE</h3>
+        </div>
       </div>
-      <div class="mySlides fade" >
+      <div class="mySlides fade">
         <img src="../assets/tirupati.jpg" id="img1" style="height: 450px;">
-        <div class="text"><h3>TIRUPATI</h3></div>
+        <div class="text">
+          <h3>TIRUPATI</h3>
+        </div>
       </div>
+    </div>
+    <br>
+
+
+
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
+
+
+  <section id="about-section"
+    style=" background-color:rgba(0, 0, 0,0);border-radius: 30px; margin-top: 14%;margin-bottom: 50px;">
+    <div class="card" id="main_1" style="border-radius: 30px; background-color: rgb(193, 219, 231);">
+      <!-- <div class="container"> -->
+      <div class="section-title">
+
+        <h2>ABOUT US</h2>
+        <h3> EasyBus - India's fastest growing online bus service</h3>
+        EasyBus over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts
+        have resulted into EasyBus becoming one of the leading ticketing platforms in India for various Bus services. We
+        have a strong presence with a ticket inventory from over 2500 bus partners and 100000 route options our app and
+        website.
+
+        Founded in the year 2008, EasyBus Services (India) Private Limited is a pioneer in providing end-to-end software
+        and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking
+        systems, passenger information systems, logistics management backed by a 24x7 customer support center. The
+        company also provides technology solutions to more than 300 large private bus partners in India, 5 state
+        transport corporations and 2 international bus partners.
+
+
+        Our ever-expanding services now also include Hotels and Rentals for buses. With an array of products lined, we
+        aim to constantly introduce such affordable and first in industry customer centric solutions to the market.
+
+        Today, EasyBus is also the preferred Information Technology Partner for State Transport Corporations and Private
+        Bus Fleet Bus Partners. EasyBus is an ISO 9001:2008 certified company.
+
       </div>
       <br>
-    
-    
-      
-      <div style="text-align:center">
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-        <span class="dot"></span> 
-      </div>
-    
-    </div> 
-  
-    
-    <section id = "about-section" style=" background-color:rgba(0, 0, 0,0);border-radius: 30px; margin-top: 14%;margin-bottom: 50px;">
-      <div class="card" id="main_1" style="border-radius: 30px; background-color: rgb(193, 219, 231);">
-        <!-- <div class="container"> -->
-            <div class="section-title">
-              
-                    <h2>ABOUT US</h2>
-                   <h3> EasyBus - India's fastest growing online bus service</h3>
-                   EasyBus over the years, has strived to deliver easy booking solutions to its customers. Our continued efforts have resulted into EasyBus becoming one of the leading ticketing platforms in India for various Bus services. We have a strong presence with a ticket inventory from over 2500 bus partners and 100000 route options our app and website.
-    
-                   Founded in the year 2008, EasyBus Services (India) Private Limited is a pioneer in providing end-to-end software and other value-added solutions such as e-ticketing systems, fleet management solutions, vehicle tracking systems, passenger information systems, logistics management backed by a 24x7 customer support center. The company also provides technology solutions to more than 300 large private bus partners in India, 5 state transport corporations and 2 international bus partners.
-                   
-                   
-                   Our ever-expanding services now also include Hotels and Rentals for buses. With an array of products lined, we aim to constantly introduce such affordable and first in industry customer centric solutions to the market.
-                   
-                   Today, EasyBus is also the preferred Information Technology Partner for State Transport Corporations and Private Bus Fleet Bus Partners. EasyBus is an ISO 9001:2008 certified company.
-             
-            </div> 
-            <br>
-            
-    <h2 style="text-align:center"> Meet Our Team</h2>
-    <div class="row">
-      <div class="column">
-        <div class="team-1">
-        <div class="card">
-          <div class="team-img">
-          <img src="../assets/goa.jpg" alt="Jane" style="width:100%;height: 140px;">
-        </div>
-          <div class="container">
-            <h2>name</h2>
-            <p class="title">CEO & Founder</p>
-          
-            <p>name@example.com</p>
-            <div class="team-social">
-              <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
-              <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
-               <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a> 
-              <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
-             
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-    
-      <div class="column">
-        <div class="team-1">
-        <div class="card">
-          <div class="team-img">
-          <img src="../assets/goa.jpg" alt="Mike" style="width:100%;height: 140px;">
-        </div>
-          <div class="container">
-            <h2>name</h2>
-            <p class="title">Art Director</p>
-           
-            <p>name@example.com</p>
-            <div class="team-social">
-              <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
-              <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
-               <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a> 
-              <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
-             
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="column">
-        <div class="team-1">
-        <div class="card">
-          <div class="team-img">
-          <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
-        </div>
-          <div class="container">
-            <h2>name</h2>
-            <p class="title">Designer</p>
-         
-            <p>name@example.com</p>
-           
-            <div class="team-social">
-              <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
-              <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
-               <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a> 
-              <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
-             
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-       <div class="column">
-        <div class="team-1">
-        <div class="card">
-          <div class="team-img">
-          <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
-        </div>
-          <div class="container">
-            <h2>name</h2>
-            <p class="title">Designer</p>
-           
-            <p>name@example.com</p>
-            <div class="team-social">
-              <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
-              <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
-               <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a> 
-              <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
-             
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-       <div class="column">
-        <div class="team-1">
-        <div class="card">
-          <div class="team-img">
-          <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
-        </div>
-          <div class="container">
-            <h2>name</h2>
-            <p class="title">Designer</p>
-            
-            <p>name@example.com</p>
-            <div class="team-social">
-              <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
-              <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
-               <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a> 
-              <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
-             
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
+
+      <h2 style="text-align:center"> Meet Our Team</h2>
+      <div class="row">
+        <div class="column">
+          <div class="team-1">
+            <div class="card">
+              <div class="team-img">
+                <img src="../assets/goa.jpg" alt="Jane" style="width:100%;height: 140px;">
+              </div>
+              <div class="container">
+                <h2>name</h2>
+                <p class="title">CEO & Founder</p>
+
+                <p>name@example.com</p>
+                <div class="team-social">
+                  <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+
+                </div>
+              </div>
             </div>
-    
-    
-    
-    
-    
-    </section>
-    <div style="height: 40px;">
-    
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="team-1">
+            <div class="card">
+              <div class="team-img">
+                <img src="../assets/goa.jpg" alt="Mike" style="width:100%;height: 140px;">
+              </div>
+              <div class="container">
+                <h2>name</h2>
+                <p class="title">Art Director</p>
+
+                <p>name@example.com</p>
+                <div class="team-social">
+                  <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="team-1">
+            <div class="card">
+              <div class="team-img">
+                <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
+              </div>
+              <div class="container">
+                <h2>name</h2>
+                <p class="title">Designer</p>
+
+                <p>name@example.com</p>
+
+                <div class="team-social">
+                  <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="team-1">
+            <div class="card">
+              <div class="team-img">
+                <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
+              </div>
+              <div class="container">
+                <h2>name</h2>
+                <p class="title">Designer</p>
+
+                <p>name@example.com</p>
+                <div class="team-social">
+                  <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="team-1">
+            <div class="card">
+              <div class="team-img">
+                <img src="../assets/goa.jpg" alt="John" style="width:100%;height: 140px;">
+              </div>
+              <div class="container">
+                <h2>name</h2>
+                <p class="title">Designer</p>
+
+                <p>name@example.com</p>
+                <div class="team-social">
+                  <a class="social-tw" href=""><i class="fab fa-twitter"></i></a>
+                  <a class="social-fb" href=""><i class="fab fa-facebook-f"></i></a>
+                  <a class="social-li" href=""><i class="fab fa-linkedin-in"></i></a>
+                  <a class="social-in" href=""><i class="fab fa-instagram"></i></a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    </div> 
+
+
+
+
+
+  </section>
+  <div style="height: 40px;">
+
+  </div>
+</div>

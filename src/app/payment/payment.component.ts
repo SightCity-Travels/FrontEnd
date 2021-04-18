@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-payment',
@@ -10,9 +10,9 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 export class PaymentComponent implements OnInit {
 
-   constructor() { }
-  
-  
+  constructor() { }
+
+
 
   ngOnInit() {
     var acc = document.getElementsByClassName("accordion");
@@ -68,8 +68,16 @@ btn3.onclick = function() {
  
 
 
-  }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
 
-
-  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   }
+}

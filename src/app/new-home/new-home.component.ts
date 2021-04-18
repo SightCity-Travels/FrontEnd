@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Observable} from 'rxjs';
-import {startWith, map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-home',
@@ -11,14 +11,12 @@ import {startWith, map} from 'rxjs/operators';
 })
 export class NewHomeComponent implements OnInit {
   control = new FormControl();
-  streets: string[] = ['Champs-Élysées', 'Lombard Street', 'Abbey Road', 'Fifth Avenue'];
-  filteredStreets: Observable<string[]>;
-  source:String="";
-  destination:String="";
+
+  source: String = "";
+  destination: String = "";
   constructor() { }
   ngOnInit() {
     
-
  var myIndex = 0;
 carousel();
  function carousel() {
@@ -36,15 +34,7 @@ carousel();
   finally{
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
-
-    
   }
-
-}}
-  
+  }}
 
 
-//   ngOnInit(): void {
-//   }
-
-// }
