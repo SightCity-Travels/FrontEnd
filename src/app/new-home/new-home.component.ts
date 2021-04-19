@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 export class NewHomeComponent implements OnInit {
   control = new FormControl();
 
+  minDate = new Date();
+
+
 // <<<<<<< HEAD
 //   source: String = "";
 //   destination: String = "";
