@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginDto } from './model/LoginDto';
+import { UserService } from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Bus-Reservation';
 
- isShown:boolean=true;
+//  isShown:boolean;
  
+ isStatus:Boolean=false;
+
+ 
+  constructor(private service:UserService, private router:Router) { 
+    this.isStatus=Boolean(sessionStorage.getItem("status"));
+  }
+ 
+ 
+ 
+
 }
