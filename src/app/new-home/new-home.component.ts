@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-new-home',
   templateUrl: './new-home.component.html',
@@ -44,6 +45,8 @@ export class NewHomeComponent implements OnInit {
         setTimeout(carousel, 2000); // Change image every 2 seconds
       }
     }
+
+
   }
 
 

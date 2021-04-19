@@ -27,6 +27,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -60,9 +63,11 @@ import { DatePipe } from '@angular/common';
     NgxPrintModule,
     NgbModule,
     HttpClientModule,
+   MatMomentDateModule,
+   MatNativeDateModule
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, MatMomentDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
