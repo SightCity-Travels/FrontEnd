@@ -1,6 +1,7 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Bus } from '../Bus';
 
+
 import { DatePipe } from '@angular/common';
 import { passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
@@ -40,6 +41,7 @@ export class SeatBookingComponent implements OnInit {
   
    
     this.bookedSeats= JSON.parse(localStorage.getItem("seatList"));
+    //console.log(this.bookedSeats);
 
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);

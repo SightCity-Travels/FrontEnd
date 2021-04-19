@@ -3,6 +3,7 @@ import { Bus } from '../Bus';
 import { BusService } from '../service/bus.service';
 
 
+
 @Component({
   selector: 'app-searched-bus-list',
   templateUrl: './searched-bus-list.component.html',
