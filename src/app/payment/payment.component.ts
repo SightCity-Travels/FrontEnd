@@ -11,7 +11,10 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class PaymentComponent implements OnInit {
 
   constructor() { }
-
+cardnumber:number;
+mm:number;
+yy:number;
+cvv:number;
 
 
   ngOnInit() {
