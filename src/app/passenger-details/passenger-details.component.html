@@ -1,70 +1,57 @@
 <!-- <div class="card"> -->
-    <div id="main_1">
-        <div class="containers">
-            <h2>PASSENGERS INFORMATION</h2>
-            <form action="" #passenger="ngForm">
-                <label for="name">NAME</label><br>
-                <input type="text" id="name" name="Name" placeholder="Name" #name="ngModel" required
-                    [(ngModel)]="passengerDetail.passengerName"><br>
 
-                <span *ngIf="name.invalid && (name.touched || name.dirty)" style="color: red;border-color:red;">
-                    <span *ngIf=name.errors.required>Name is required</span>
-                </span>
-                <br>
-                <label for="Age">AGE</label><br>
-                <input type="text" id="age" name="age" placeholder="Age" #age="ngModel" required
+<div id="main_1">
+    <div class="containers">
+        <h2>Passengers Information</h2>
+        <form action="" #passenger="ngForm">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="Name" placeholder="Name" #name="ngModel" required
+                [(ngModel)]="passengerDetail.passengerName">
+            <span *ngIf="name.invalid && (name.touched || name.dirty)" style="color: red;border-color:red;">
+                <span *ngIf=name.errors.required>Name is required</span>
+            </span>
+            <br>
+            <label for="Age">Age</label><br>
+            <input type="text" id="age" name="age" placeholder="Age" #age="ngModel" required
+                [(ngModel)]="passengerDetail.passengerAge">
+            <span *ngIf="age.invalid && (age.touched || age.dirty)" style="color: red;border-color:red;">
+                <span *ngIf=age.errors.required>Age is required</span>
+            </span>
+            <br>
+            <label for="Gender">Gender</label><br><br>
+            <input type="radio" name="gender" value="male" [(ngModel)]="passengerDetail.gender"> Male<br><br>
+            <input type="radio" name="gender" value="female" [(ngModel)]="passengerDetail.gender"> Female<br>
 
-                    [(ngModel)]="passengerDetail.passengerAge"><br>
+            <button type="reset" (click)="addPassenger()" [disabled]="numberOfPassengers==0">Add Passenger</button>
 
-                <span *ngIf="age.invalid && (age.touched || age.dirty)" style="color: red;border-color:red;">
-                    <span *ngIf=age.errors.required>Age is required</span>
-                </span>
-                <br>
-                <label for="Gender">Gender</label><br><br>
-                <input type="radio" name="gender" value="male" [(ngModel)]="passengerDetail.gender"> Male<br><br>
-                <input type="radio" name="gender" value="female" [(ngModel)]="passengerDetail.gender"> Female<br>
-                
-                <button type="reset" (click)="addPassenger()" [disabled]="numberOfPassengers==0">Add Passenger</button>
-              </form>
-     
-        </div>
-    
-    
-     
-        <!-- <form action="" #contactDetails=ngForm (ngSubmit)='passengerDetails(passenger)'> -->
-        <form>
-            <div class="containers">
-                <h2>Contact Details</h2>
-     
-                <hr>
-     
-                <label for="email"><b>Email Id</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" #email="ngModel" required
-
-                    pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=user.firstName>&nbsp;
-
-     
-                <span *ngIf="email.invalid && (email.dirty||email.touched)" style='color: red; border-color: red;'>
-                    <span *ngIf="email.errors.required">Email is required</span>
-                    <span *ngIf="email.errors.pattern">Invalid email type</span></span>
-                <br>
-                <label for="mobile"><b>Phone</b></label>
-                <input type="text" placeholder="Enter Mobile No" name="mobile" id="mobile" #mobile="ngModel" required
-                    pattern="^[6-9]\d{9}$" [(ngModel)]=user.firstName> &nbsp;
-                <span *ngIf="mobile.invalid && (mobile.dirty||mobile.touched)" style='color: red; border-color: red;'>
-                    <span *ngIf="mobile.errors.required">Mobile number is required</span>
-                    <span *ngIf="mobile.errors.pattern">Mobile number is invalid</span></span>
-     
-                <hr>
-     
-                <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/paymentLink']"> -->
-                <button type="submit" class="phonebtn" (click)="displayPassenger()">Proceed to pay</button>
-                <!-- </a> -->
-            </div>
         </form>
-     
     </div>
 
-    <div style="margin-top:150px ;"></div>
 
-    <!-- </div> -->
+
+    <!-- <form action="" #contactDetails=ngForm (ngSubmit)='passengerDetails(passenger)'> -->
+    <form #contactForm=ngForm (ngSubmit)="proceedToPay(contactForm)" >
+        <div class="containers">
+            <h2>Contact Details</h2>
+            <hr>
+            <label for="email"><b>Email Id</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" #em=ngModel required
+                pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=emailOfPassenger>&nbsp;
+            <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: red; border-color: red;'>
+                <span *ngIf="em.errors.required">Email is required</span>
+                <span *ngIf="em.errors.pattern">Invalid email type</span></span>
+            <br>
+            <hr>
+
+            <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/paymentLink']"> -->
+            <button type="submit" class="phonebtn">Proceed to pay</button>
+            <!-- </a> -->
+        </div>
+    </form>
+
+</div>
+
+ <div style="margin-top:150px ;"></div>
+ <!-- </div> -->
+
+
