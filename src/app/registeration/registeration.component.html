@@ -17,7 +17,7 @@
   <span *ngIf="lnm.errors?.required">Last Name is required</span></span>
   <input type="text" #lnm="ngModel"  placeholder="Enter Last Name" name="lname" id="lname" required  [(ngModel)]=user.lastName> 
 
-    <label for ="dob">Date</label>
+    <label for ="dob">Date of Birth</label>
     <input type="date" #dob="ngModel"  id="dob" name="dob" required [(ngModel)]=user.dateOfBirth>
 
       <label for="email"><b>Email</b> &nbsp;</label>

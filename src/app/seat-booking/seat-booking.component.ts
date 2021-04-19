@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Bus } from '../Bus';
-import { BusserviceService } from '../service/busservice.service';
+import { BusService } from '../service/bus.service';
 import { DatePipe } from '@angular/common';
 import { passenger } from '../passenger';
 
@@ -19,7 +19,7 @@ export class SeatBookingComponent implements OnInit {
   busId:number;
   selectedBus:Bus;
   // alreadyBookedPassenger:passenger[];
-  constructor(private busService:BusserviceService,public datepipe: DatePipe) { }
+  constructor(private busService:BusService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 
@@ -39,6 +39,7 @@ export class SeatBookingComponent implements OnInit {
   
    
     this.bookedSeats= JSON.parse(localStorage.getItem("seatList"));
+    //console.log(this.bookedSeats);
 
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);

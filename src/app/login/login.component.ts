@@ -56,7 +56,11 @@ export class LoginComponent implements OnInit {
           if(loginUser == true){
             localStorage.setItem("userId",this.loginDto.id.toString());
             sessionStorage.setItem("status",true.valueOf.toString());
-            this.router.navigate(['homeLink']);
+           // this.router.navigate(['homeLink']);
+            this.router.navigate(['homeLink'])
+            .then(() => {
+              window.location.reload();
+            });
            
           }else if(loginUser == false){
               this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
