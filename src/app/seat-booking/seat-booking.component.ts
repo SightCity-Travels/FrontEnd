@@ -3,7 +3,7 @@ import { Bus } from '../Bus';
 
 
 import { DatePipe } from '@angular/common';
-import { passenger } from '../passenger';
+import { Passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
 import { Router } from '@angular/router';
 
