@@ -5,7 +5,7 @@ export class User{
     email:string;
     password:string;
     contactNo:string;
-    dateOfBirth:Date
+    dateOfBirth:Date;
     gender:string;
     wallet:number;
     address:string;

@@ -7,7 +7,7 @@ body {
 /* Style the tab */
 .tab {
   float: left;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.589);
   width: 25%;
   height: 520px;
 }
@@ -30,7 +30,7 @@ body {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #f1f1f1;
+  background-color:rgb(11, 89, 92);
   opacity: 0.9;
 }
 /* Create an active/current "tab button" class */
