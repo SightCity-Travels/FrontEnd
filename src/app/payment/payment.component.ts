@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { passenger } from '../passenger';
+import { DatePipe } from '@angular/common';
+import { Status } from '../status.enum';
+import { BookaTicketDto } from '../model/BookaTicketDto';
+import { Ticket } from '../Ticket';
+import { BusService } from '../service/bus.service';
+
 
 @Component({
   selector: 'app-payment',
@@ -10,14 +17,56 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 export class PaymentComponent implements OnInit {
 
-  constructor() { }
+
+
 cardnumber:number;
 mm:number;
 yy:number;
 cvv:number;
 
+  constructor(public datepipe: DatePipe, private busService:BusService) { }
+
+  passengers:passenger[];
+  emailOfPassenger:string;
+  busId:number;
+  dateOfJourney;
+  dateValue:any;
+  totalFare:number;
+  Status=Status;
+  status:Status=Status.booked;
+  fetchedSeatInfo;
+  numberOfPassengers:number;
+  userId:number;
+  bookATicket:BookaTicketDto= new BookaTicketDto();
+  ticket:Ticket=new Ticket();
+
+  finalBookedTicket:Ticket;
+
+
+  //list of passenger
+  //ticket info
 
   ngOnInit() {
+
+    this.passengers=JSON.parse(localStorage.getItem("listOfPassenger"));
+    this.emailOfPassenger=localStorage.getItem("emailOfPassenger");
+    this.busId=Number(localStorage.getItem("selectedBusId"));
+    this.dateValue = (localStorage.getItem('dateOfJourney'));
+    this.dateOfJourney = String(this.datepipe.transform(this.dateValue, 'yyyy-MM-dd'));
+    this.totalFare= Number(localStorage.getItem("totalFare"));
+    this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
+    this.numberOfPassengers = this.fetchedSeatInfo.length;
+    this.userId=Number(localStorage.getItem("userId"));
+
+    this.ticket.travelDate=this.dateOfJourney;
+    this.ticket.totalAmount=this.totalFare;
+    this.ticket.email=this.emailOfPassenger;
+    this.ticket.noOfPassengers=this.numberOfPassengers;
+    this.ticket.st=this.status;
+
+    this.bookATicket.ticket=this.ticket;
+    this.bookATicket.passengers=this.passengers;
+
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -32,43 +81,43 @@ cvv:number;
         }
       });
     }
-      // Get the modal
+    // Get the modal
 
- // Get the modal
- var modal = document.getElementById("myModal");
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
- // Get the button that opens the modal
- var btn1 = document.getElementById("myBtn1");
- var btn2 = document.getElementById("myBtn2");
- var btn3 = document.getElementById("myBtn3");
- 
- // Get the <span> element that closes the modal
- var span;
- span = document.getElementsByClassName("close")[0];
- 
- // When the user clicks the button, open the modal 
- btn1.onclick = function() {
-   modal.style.display = "block";
- }
- btn2.onclick = function() {
-  modal.style.display = "block";
-}
-btn3.onclick = function() {
-  modal.style.display = "block";
-}
- 
- // When the user clicks on <span> (x), close the modal
- span.onclick = function() {
-   modal.style.display = "none";
- }
- 
- // When the user clicks anywhere outside of the modal, close it
- window.onclick = function(event) {
-   if (event.target == modal) {
-     modal.style.display = "none";
-   }
- }
- 
+    // Get the button that opens the modal
+    var btn1 = document.getElementById("myBtn1");
+    var btn2 = document.getElementById("myBtn2");
+    var btn3 = document.getElementById("myBtn3");
+
+    // Get the <span> element that closes the modal
+    var span;
+    span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn1.onclick = function () {
+      modal.style.display = "block";
+    }
+    btn2.onclick = function () {
+      modal.style.display = "block";
+    }
+    btn3.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
 
 
     // When the user clicks on <span> (x), close the modal
@@ -82,5 +131,16 @@ btn3.onclick = function() {
         modal.style.display = "none";
       }
     }
+
   }
+
+  bookingOfTicket(){
+    this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
+      fetchedTicket=>{
+        this.finalBookedTicket=fetchedTicket;
+        console.log(JSON.stringify(this.finalBookedTicket));
+      }
+    );
+  }
+
 }
