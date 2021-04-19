@@ -1,8 +1,10 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Bus } from '../Bus';
-import { BusService } from '../service/bus.service';
+
+
 import { DatePipe } from '@angular/common';
 import { passenger } from '../passenger';
+import { BusService } from '../service/bus.service';
 
 @Component({
   selector: 'app-seat-booking',

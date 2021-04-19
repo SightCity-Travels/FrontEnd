@@ -16,13 +16,15 @@
       </div>
       <br>
 
+      <div class="row">
+        <div class="col_s">
+      <span *ngIf="(src.dirty||src.touched)" style='color:rgb(8, 58, 59); '>
+        <span  style="margin-left: 10%;" *ngIf="src.errors?.required">Source is required</span></span><br>
 
-      <label for="source" style="margin-left: 2%;">SOURCE</label>
-      <input list="list-buses" type="text" value="source" id="source" name="source" [(ngModel)]="source" #src=ngModel
-        placeholder="ENTER SOURCE CITY" required>
-      <span *ngIf="(src.dirty||src.touched)" style='color: red; border-color: red;'>
-        <span *ngIf="src.errors?.required">Source is required</span></span><br>
-
+      <!-- <label for="source" style="margin-left: 2%;">SOURCE</label> -->
+      <input list="list-buses" type="text"  value="source" id="source" name="source"  [(ngModel)]="source" #src=ngModel
+        placeholder="ENTER SOURCE CITY" required style="margin-left: 10%;">
+     
 
       <datalist id="list-buses">
         <option value="Pune">
@@ -36,12 +38,16 @@
         <option value="Bengaluru">
         <option value="Ooty">
       </datalist>
+    </div>
 
-      <label for="destination" style="margin-left: 2%;">Destination</label>
+    <div class="col_s">
+      <span *ngIf="(des.dirty||des.touched)" style='color:rgb(8, 55, 56);'>
+        <span  style="margin-left: 9%;" *ngIf="des.errors?.required">Destination is required</span></span><br>
+
       <input list="list-buses" type="text" value="destination" id="destination" name="destination"
-        [(ngModel)]="destination" #des=ngModel placeholder="ENTER DESTINATION CITY" required>
-      <span *ngIf="(des.dirty||des.touched)" style='color: red; border-color: red;'>
-        <span *ngIf="des.errors?.required">Destination is required</span></span><br>
+        [(ngModel)]="destination" #des=ngModel placeholder="ENTER DESTINATION CITY" required style="margin-left: 5%;">
+     
+
 
       <datalist id="list-buses">
         <option value="Pune">
@@ -51,17 +57,28 @@
         <option value="Aurangabad">
         <option value="Nashik">
         <option value="Nagpur">
+
+
         <option value="Udaipur">
         <option value="Bengaluru">
         <option value="Ooty">
 
+
       </datalist>
+    </div>
 
 
+    <div class="col_s">
+      <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
+        <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br>
+      <!-- <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label> -->
+      <input type="text" placeholder="CHOOSE TRAVEL DATE"  id="dt" name="dt"
+      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney">
+      <!-- <input type="date" id="dt" name="dt" placeholder="Travel date"> -->
+    </div>
+  </div>
 
 
-      <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>
-      <input type="date" id="dt" name="dt" #dt="ngModel" required [(ngModel)]="dateOfJourney">
 
 
      <button type="submit" style="margin-left: 35%;" > SEARCH BUSES</button>
