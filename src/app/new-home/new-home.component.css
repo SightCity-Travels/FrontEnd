@@ -48,13 +48,28 @@ button {
   height: auto;
 } 
 
-input[type=text], input[type=password],input[type=date]{
+ .dt{
   width: 90%;
-  padding: 15px;
+  padding-top: 0px;
   margin: 5px 0 22px 0;
+  margin-top:24px;
   display: inline-block;
   border: none;
    background: #f1f1f1; 
+  font-weight: bold;
+} 
+
+
+
+input[type=text], input[type=password],input[type=date]{
+  width: 90%;
+  padding: 15px;
+  padding-top:20px;
+  padding-bottom: 20px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: none;
+  /* background: #f1f1f1; */
   font-weight: bold;
 }
 label{
