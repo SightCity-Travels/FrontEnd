@@ -30,4 +30,8 @@ export class BusService {
   bookATicket(bookATicket:BookaTicketDto,userId:number,busId:number):Observable<Ticket>{
     return this.httpClient.post<Ticket>("http://localhost:9090/bookaticket?userId="+userId+"&busId="+busId,bookATicket);
   }
+
+  getBusByticketId(ticketId:number):Observable<Bus>{
+    return this.httpClient.get<Bus>("http://localhost:9090/getBusByTicketId?ticketId="+ticketId);
+}
 }

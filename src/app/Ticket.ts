@@ -8,6 +8,7 @@ export class Ticket{
     totalAmount:number;
     st:Status;
 	noOfPassengers:number;
+    
 
     // constructor(ticketId:number,travelDate:Date){
 

@@ -54,7 +54,7 @@ input[type=text], input[type=password],input[type=date]{
   margin: 5px 0 22px 0;
   display: inline-block;
   border: none;
-  background: #f1f1f1;
+   background: #f1f1f1; 
   font-weight: bold;
 }
 label{
@@ -314,8 +314,6 @@ img {vertical-align: middle;
   padding: 2px 16px;
   color: white;
 }
-
-
 
 
 /*************************************************************/

@@ -88,7 +88,8 @@ export class SeatBookingComponent implements OnInit {
 
 
     this.totalAmount = this.selectedSeatsList.size * this.selectedBus.fare;
-
+    
+   console.log(this.totalAmount);
 
     //this code is to disable button until and unless the seat is selected
     if (this.selectedSeatCount != 0) {
@@ -109,6 +110,7 @@ export class SeatBookingComponent implements OnInit {
     const selectedSeatsArray = Array.from(this.selectedSeatsList);
     localStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
     localStorage.setItem("totalFare", this.totalAmount.toString());
+  
     this.router.navigate(['passengerDetailsLink']);
   }
 
