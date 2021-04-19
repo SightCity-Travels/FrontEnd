@@ -88,18 +88,18 @@ export class AdminComponentComponent implements OnInit {
 
 
   constructor() { 
-    this.bookingDetails=[{
-      ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
-    },
-    {
-      ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
+  //   this.bookingDetails=[{
+  //     ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
+  //   },
+  //   {
+  //     ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
 
-    },
-    {
-      ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.booked,noOfPassengers:30
+  //   },
+  //   {
+  //     ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.booked,noOfPassengers:30
 
-    },
-  ]
+  //   },
+  // ]
 
   this.busDetails=[{
     busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"

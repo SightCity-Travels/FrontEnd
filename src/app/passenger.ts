@@ -3,4 +3,5 @@ export class passenger{
     passengerName:string;
     passengerAge:number;
     seatNo:string;
+    gender:string;
 }

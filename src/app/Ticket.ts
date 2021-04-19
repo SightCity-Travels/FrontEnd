@@ -2,7 +2,7 @@ import { Status } from "./status.enum";
 
 export class Ticket{
     ticketId:number;
-	travelDate:Date;	
+	travelDate:String;	
 	email:String;	
     totalAmount:number;
     st:Status;

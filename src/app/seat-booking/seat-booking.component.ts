@@ -51,18 +51,12 @@ export class SeatBookingComponent implements OnInit {
       return bookedSeat1;
     });
 
-
     // this code is to get bus information by bus id
     this.busService.getBusById(this.busId).subscribe(
       fetchedBus => {
         this.selectedBus = fetchedBus
       });
-
-
-
-
   }
-
 
 
   selectSeat(seat: string) {
