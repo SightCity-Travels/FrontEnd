@@ -42,6 +42,7 @@ export class SeatBookingComponent implements OnInit {
    
     this.bookedSeats= JSON.parse(localStorage.getItem("seatList"));
     //console.log(this.bookedSeats);
+  
 
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);
