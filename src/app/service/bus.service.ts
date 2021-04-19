@@ -18,4 +18,8 @@ export class BusService {
   fetchBookedSeats(dateOfJourney:Date,busId:number):Observable<string[]>{
     return this.httpClient.get<string[]>("http://localhost:9090/fetchbookedseats?travelDate="+dateOfJourney+"&busId="+busId);
   }
+
+  getBusById(busId:number):Observable<Bus>{
+    return this.httpClient.get<Bus>("http://localhost:9090/getbusbyid?busId="+busId);
+  }
 }

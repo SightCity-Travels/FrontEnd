@@ -53,7 +53,7 @@
                 <td>{{b.timeOfArrival}}</td>
                 <td>₹ {{b.fare}}</td>
                 <td>{{b.typeOfBus}}</td>
-                <td><a style="text-decoration: none; color: white;" [routerLink]="['/seatBookingLink']"><button type="button"  style="  background-color:rgb(11, 89, 92); color: white;"  (click)="busSelect(b.busId)">View Seats</button></a></td>
+                <td><button type="button"  style="  background-color:rgb(11, 89, 92); color: white;"  (click)="busSelect(b.busId)">View Seats</button></td>
             </tr>
     </table>
     </ng-template>
