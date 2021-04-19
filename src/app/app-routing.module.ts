@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminComponentComponent } from './admin-component/admin-component.component';
+import { AppComponent } from './app.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -24,7 +25,6 @@ const routes: Routes = [
   {
     path:"loginLink", component:LoginComponent
   },
-
   {
     path:"homeLink", component:NewHomeComponent
   },

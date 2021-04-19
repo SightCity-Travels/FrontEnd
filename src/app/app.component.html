@@ -1,5 +1,5 @@
 
-<!-- 
+ 
 <div class="navbar">
     <div class="logo"><input type="image" src="../assets/logo3.png" style="height: 110px; width: 160px;" class="dropbtn" /></div>
   <ul>
@@ -8,25 +8,25 @@
               <input type="image" src="../assets/loginn.png" style="height: 35px; width: 35px;" class="dropbtn" />
               <div class="dropdown-content">
                   <a [routerLink]="['/trackticket']">Track booking</a>
-                  <a [routerLink]="['/loginLink']">Login/Sign-up</a>
-                   <div *ngIf="isShown then block2 else block1"></div>
+                  <!-- <a [routerLink]="['/loginLink']">Login/Sign-up</a> -->
+                   <span *ngIf="isStatus then block2 else block1"></span>
                   <ng-template #block1>
                     <a [routerLink]="['/loginLink']">Login/Sign-up</a>
                   </ng-template>
                   <ng-template #block2>
-                    <a [routerLink]="['/userDashBoard']" style="float: right;">DashBoard</a>
+                    <a [routerLink]="['/userDashBoard']">DashBoard</a>
                   </ng-template>  
                   <a [routerLink]="['/feedbackLink']">Feedback</a>
               </div>
           </div>
       <li><a [routerLink]="['/contactUsLink']" style="float: right;">CONTACT US</a></li>
      
-       <li><a [routerLink]="['/aboutUsLink']" style="float: right;">ABOUT US</a></li> 
+       <!-- <li><a [routerLink]="['/aboutUsLink']" style="float: right;">ABOUT US</a></li>  -->
       <li><a href = #about-section style="float: right;">ABOUT US</a></li>
       <li><a [routerLink]="['/homeLink']" style="float: right;">HOME</a></li>
   </ul>
-</div> -->
-<div class="navbar">
+</div> 
+<!-- <div class="navbar">
   <div class="logo"><input type="image" src="../assets/logo3.png" style="height: 80px; width: 140px;" class="dropbtn" /></div>
 
   <ul>
@@ -43,10 +43,10 @@
       </li>
       <li><a [routerLink]="['/contactUsLink']" style="float: right;">CONTACT US</a></li>
       <li><a href = #about-section style="float: right;">ABOUT US</a></li>
-      <!-- <li><a [routerLink]="['/aboutUsLink']" style="float: right;">ABOUT US</a></li> -->
-      <li><a [routerLink]="['/homeLink']" style="float: right;">HOME</a></li>
+      <li><a [routerLink]="['/aboutUsLink']" style="float: right;">ABOUT US</a></li> 
+      <!-- <li><a [routerLink]="['/homeLink']" style="float: right;">HOME</a></li>
   </ul>
-</div>
+</div>  -->
 <div class="row">
   <div class="main">
 
