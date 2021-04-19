@@ -51,6 +51,7 @@ button {
  .dt{
   width: 90%;
   padding-top: 0px;
+  
   margin: 5px 0 22px 0;
   margin-top:24px;
   display: inline-block;
@@ -59,7 +60,9 @@ button {
   font-weight: bold;
 } 
 
-
+/* .dt::placeholder{
+padding-left: 10px;
+} */
 
 input[type=text], input[type=password],input[type=date]{
   width: 90%;
