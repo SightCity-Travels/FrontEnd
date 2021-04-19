@@ -1,18 +1,30 @@
 <!-- <div class="card"> -->
     <div id="main_1">
         <div class="containers">
+<<<<<<< HEAD
             <h2>Passengers Information</h2>
             <form action="" #passenger="ngForm">
                 <label for="name">Name</label><br>
                 <input type="text" id="name" name="Name" placeholder="Name" #name="ngModel" required
                     [(ngModel)]="passengerDetail.passengerName">
+=======
+            <h2>PASSENGERS INFORMATION</h2>
+            <form action="" #passenger="ngForm">
+                <label for="name">NAME</label><br>
+                <input type="text" id="name" name="Name" placeholder="Name" #name="ngModel" required
+                    [(ngModel)]="passengerDetail.passengerName"><br>
+>>>>>>> 1ecd09bea86ac6bf8c0a8b31f4165fb064cca360
                 <span *ngIf="name.invalid && (name.touched || name.dirty)" style="color: red;border-color:red;">
                     <span *ngIf=name.errors.required>Name is required</span>
                 </span>
                 <br>
-                <label for="Age">Age</label><br>
+                <label for="Age">AGE</label><br>
                 <input type="text" id="age" name="age" placeholder="Age" #age="ngModel" required
+<<<<<<< HEAD
                     [(ngModel)]="passengerDetail.passengerAge">
+=======
+                    [(ngModel)]="passengerDetail.passengerAge"><br>
+>>>>>>> 1ecd09bea86ac6bf8c0a8b31f4165fb064cca360
                 <span *ngIf="age.invalid && (age.touched || age.dirty)" style="color: red;border-color:red;">
                     <span *ngIf=age.errors.required>Age is required</span>
                 </span>
@@ -37,7 +49,11 @@
      
                 <label for="email"><b>Email Id</b></label>
                 <input type="text" placeholder="Enter Email" name="email" id="email" #email="ngModel" required
+<<<<<<< HEAD
                     pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=ticket.email>&nbsp;
+=======
+                    pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=user.firstName>&nbsp;
+>>>>>>> 1ecd09bea86ac6bf8c0a8b31f4165fb064cca360
      
                 <span *ngIf="email.invalid && (email.dirty||email.touched)" style='color: red; border-color: red;'>
                     <span *ngIf="email.errors.required">Email is required</span>
@@ -59,5 +75,9 @@
         </form>
      
     </div>
+<<<<<<< HEAD
     <div style="margin-top:60px ;"></div>
+=======
+    <div style="margin-top:150px ;"></div>
+>>>>>>> 1ecd09bea86ac6bf8c0a8b31f4165fb064cca360
     <!-- </div> -->
