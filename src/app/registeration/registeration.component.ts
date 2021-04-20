@@ -22,7 +22,7 @@ userCPassword:string;
      var modal = document.getElementById("myModal");
 
      // Get the button that opens the modal
-     //var btn1 = document.getElementById("btn1");
+    // var btn1 = document.getElementById("btn1");
    
       var btn2 = document.getElementById("myBtn2");
       var btn3 = document.getElementById("myBtn3");
