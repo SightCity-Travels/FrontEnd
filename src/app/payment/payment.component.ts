@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { passenger } from '../passenger';
+import { Passenger } from '../passenger';
 import { DatePipe } from '@angular/common';
 import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
@@ -17,15 +17,18 @@ import { BusService } from '../service/bus.service';
 
 export class PaymentComponent implements OnInit {
 
-  constructor(public datepipe: DatePipe, private busService:BusService) { }
+  constructor(public datepipe: DatePipe, private busService:BusService) { 
+   
+  }
 
-  passengers:passenger[];
+  passengers:Passenger[];
   emailOfPassenger:string;
   busId:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  Status=Status;
+  //Status=Status;
+ // let st= Status[Status.booked];
   status:Status=Status.booked;
   fetchedSeatInfo;
   numberOfPassengers:number;
@@ -48,7 +51,7 @@ export class PaymentComponent implements OnInit {
     this.totalFare= Number(localStorage.getItem("totalFare"));
     this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
-    this.userId=Number(localStorage.getItem("userId"));
+    this.userId=Number(sessionStorage.getItem("userId"));
 
     this.ticket.travelDate=this.dateOfJourney;
     this.ticket.totalAmount=this.totalFare;
@@ -131,6 +134,7 @@ export class PaymentComponent implements OnInit {
       fetchedTicket=>{
         this.finalBookedTicket=fetchedTicket;
         console.log(JSON.stringify(this.finalBookedTicket));
+        localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
       }
     );
   }

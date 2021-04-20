@@ -5,38 +5,39 @@
  
   <div class="ticketContainer" id="printThisTicket">
     <img class="logo" src="../assets/logo for ticket.png" width="100px" height="80px">
-    <p>Contact Us. XXXXXXXXXXX</p>
+    <p>Contact Us. +91 1234 567 890</p>
  
     <br><br><br><br>
     <hr>
     <br>
     <table class="topBar">
       <tr>
-        <th>Source ----> Destination</th>
-        <th>Date Of Journey : 06/05/1999</th>
-        <th>Ticket Id : 54646</th>
+        <th>{{bus.source}} - {{bus.destination}}</th>
+        <th>Date Of Journey : {{ticket.travelDate}}</th>
+        <th>Ticket Id : {{ticket.ticketId}}</th>
       </tr>
     </table>
  
     <div class="passengerDiv">
       <table>
         <div class="titlePassenger">
-          <tr>
+          <tr >
             <th>Passenger Name</th>
             <th>Seat Number</th>
             <th>Age</th>
             <th>Passenger Id</th>
           </tr>
         </div>
-        <div class="listPassenger">
-          <tr>
-            <td> Ankit Sharma</td>
-            <td> a1 </td>
-            <td> 22 </td>
-            <td> 3001</td>
+      
+        <div class="listPassenger" >
+          <tr  *ngFor="let p of passengerList">
+            <td>{{p.passengerName}}</td>
+            <td> {{p.seatNo}} </td>
+            <td> {{p.passengerAge}} </td>
+            <td>{{p.passengerId}}</td>
           </tr>
         </div>
-        <div class="listPassenger">
+        <!-- <div class="listPassenger">
           <tr>
             <td> Ankit Sharma</td>
             <td> a1 </td>
@@ -52,15 +53,15 @@
             <td> 22 </td>
             <td> 3001</td>
           </tr>
-        </div>
+        </div> --> 
       </table>
     </div>
     <div class="busInfoBar">
       <table>
         <tr>
-          <th>Bus Id : 202</th>
-          <th>Bus Type : AC</th>
-          <th>Bus Name : Purple prasanna Travels</th>
+          <th>Bus Id : {{bus.busId}}</th>
+          <th>Bus Type : {{bus.typeOfBus}}</th>
+          <th>Bus Name : {{bus.busName}}</th>
         </tr>
       </table>
     </div>
@@ -68,18 +69,18 @@
     <div class="jouneyInfoBar">
       <table>
         <tr>
-          <th>Departure Time : 10:30 pm</th>
-          <th>Arrivale Time : 09:30 am</th>
-          <th>Total Fare : Rs 1000</th>
+          <th>Departure Time : {{bus.timeOfDeparture}}</th>
+          <th>Arrivale Time : {{bus.timeOfArrival}}</th>
+          <th>Total Fare : Rs {{ticket.totalAmount}}</th>
         </tr>
       </table>
     </div>
  
   </div>
 
-  <div class="">
-    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" class="signupbtn">Sign-up</button></a>
-    <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+  <div >
+    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']" ><button type="submit" class="signupbtn" class="button">Reschedule</button></a>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" class="button" >Cancel</button></a>
     
   </div>
 </div>

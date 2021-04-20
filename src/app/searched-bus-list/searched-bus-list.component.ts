@@ -40,7 +40,7 @@ export class SearchedBusListComponent implements OnInit {
     // console.log(busID);
     this.selectedBusId=busID;
     localStorage.setItem("selectedBusId",this.selectedBusId.toString());
-
+  
     this.router.navigate(['seatBookingLink']).then(()=>{
       window.location.reload();
     });
