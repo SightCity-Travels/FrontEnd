@@ -1,41 +1,49 @@
 
 
-<div  class="card" style="width: 50%; margin-left: 25%;">
+<div  class="card" style="width: 33%; margin-left: 30%;padding-left: 110px;">
   <!-- <div class="outer" style="width: 50%;">  -->
     <form  form #loginForm="ngForm" (ngSubmit)="checkLogin(loginForm)" >
       <div >
-        <h1 style="text-align: center;">LOGIN</h1>
+        <h1 style="margin-left: 35%;">LOGIN</h1>
       
-    
-        <label for="userId"><b>Email</b></label>
-        <input type="text"#em placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> 
+        <label for="userId"><b>USER ID</b></label><br>
+        <input type="text"#em placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> <br>
          <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
           <div *ngIf="em.errors.required">UserId is required</div>
 
          </div> 
     
-        <label for="pwd"><b>Password</b></label>
-        <input type="password" #pwd placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password>
+        <label for="pwd"><b>PASSWORD</b></label><br>
+        <input type="password" #pwd placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password><br>
         <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)"style='color: red; border-color: red;'>
           <div *ngIf="pwd.errors.required">Password is required</div>
           <div *ngIf="pwd.errors.pattern">invalid password type</div> 
          </div> 
     
        
-          <button type="submit" class="signupbtn">Login</button><br>
-          <div class="container">
-          <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
-          <span>
+          
+          
+            <div class="">
+              <button type="submit" class="signupbtn">Login</button>
+              <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+            </div>
+          <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+          
+          <div>
          <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
-        </span>
-        </div>
+          </div>
+        
 
-        <div class="container">
-          <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" >Register</button></a>
-        </div>
+       
+          <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>
+        
       </div>
+      
     </form>
   <!-- </div>  -->
+</div>
+<div style="height: 100px;">
+
 </div>
 
 

@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../User';
 import { LoginDto } from '../model/LoginDto';
+import { Ticket } from '../Ticket';
+import { Passenger } from '../passenger';
 
 
 @Injectable({
@@ -30,5 +32,12 @@ export class UserService {
     return this.httpClient.post<boolean>("http://localhost:9090/login",loginDto);
   }
 
+  ticketDetails(ticketId:number):Observable<Ticket>{
+    return this.httpClient.get<Ticket>("http://localhost:9090/ticketDetails?ticketId="+ticketId);
+  }
+
+  passengerList(ticketId:number):Observable<Passenger[]>{
+    return this.httpClient.get<Passenger[]>("http://localhost:9090/getPassengerList?ticketId="+ticketId);
+  }
 
 }

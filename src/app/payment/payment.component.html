@@ -35,7 +35,7 @@
       <label for="cvv">CVV</label><br>
       <input type="text" id="cvv" name="cvv" maxlength="3" pattern="[0-9]*" style="width: 10%; height: 30px;">
     <br>
-    <button type="button" id="myBtn1">Pay</button>
+    <button type="button" id="myBtn1" (click)="bookingOfTicket()">Pay</button>
      
     </form>
   </div>
@@ -60,7 +60,7 @@
     <!-- </div> -->
     <br>
     
-    <button type="button"id="myBtn2">Pay</button>
+    <button type="button" id="myBtn2" (click)="bookingOfTicket()">Pay</button>
   </div>
   <button class="accordion">Wallet</button>
   <div class="panel">
@@ -69,7 +69,7 @@
     <form action="/action_page.php" >
     <input type="radio" name="radio" /> Wallet
     <br>
-    <button type="button"id="myBtn3">Pay</button>
+    <button type="button"id="myBtn3" (click)="bookingOfTicket()">Pay</button>
     </form>
   </div>
 
@@ -91,4 +91,4 @@
 
 </div>
 
-<div style="margin-top:60px ;"></div>
+<div style="margin-top:150px ;"></div>
