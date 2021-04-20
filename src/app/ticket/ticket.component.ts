@@ -27,6 +27,7 @@ bus:Bus;
 
   ngOnInit(): void {
 
+
     this.service.ticketDetails(this.ticketId).subscribe(
       fetchedTicket=>{
         this.ticket=fetchedTicket;
@@ -48,6 +49,7 @@ bus:Bus;
         //console.log(this.bus);
       }
     );
+
 
   }
   public captureScreen()  

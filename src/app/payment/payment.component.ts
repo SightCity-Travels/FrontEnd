@@ -19,9 +19,16 @@ import { BusService } from '../service/bus.service';
 
 export class PaymentComponent implements OnInit {
 
-  constructor(public datepipe: DatePipe, private busService:BusService) { 
-   
-  }
+
+
+
+cardnumber:number;
+mm:number;
+yy:number;
+cvv:number;
+
+  constructor(public datepipe: DatePipe, private busService:BusService) { }
+
 
   wallet:Wallet=new Wallet();
   passengers:Passenger[];
@@ -40,6 +47,7 @@ export class PaymentComponent implements OnInit {
   ticket:Ticket=new Ticket();
 
   finalBookedTicket:Ticket;
+
 
   //list of passenger
   //ticket info

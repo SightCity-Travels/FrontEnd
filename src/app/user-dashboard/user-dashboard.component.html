@@ -1,6 +1,6 @@
 <div class="tab">
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
-      aria-hidden="true"></i><br>MyDashboard</button>
+      aria-hidden="true"></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</button>
   <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user"
       aria-hidden="true"></i>Profile</button>
   <button class="tablinks" (click)="openTab($event, 'Bookings','bookbtn')" id="bookbtn"><i class="fa fa-ticket"
@@ -10,14 +10,14 @@
   <button class="tablinks" (click)="openTab($event, 'Changepass','passbtn')" id="passbtn"><i class="fa fa-key"
       aria-hidden="true"></i>Change Password</button>
   <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']">
-    <button class="tablinks" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
+    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
         aria-hidden="true"></i>Sign Out</button></a>
 </div>
 
 <div id="Profile" class="tabcontent">
 
   <div class="card">
-    <h3 style="text-align: center; font-style:oblique; color:black;">Personal Details</h3>
+    <h1 style="text-align: center; font-style:oblique; color:black;">Personal Details</h1>
     <form action="" method="POST">
       Name<br>
       <input type="text" id="name" value="" placeholder="Enter Name" name="username" #userName="ngModel"
@@ -88,10 +88,10 @@
 <div id="Wallet" class="tabcontent">
 
   <div class="card">
-    <h3 style="text-align: center; font-style:oblique; color:black;">Wallet</h3>
-    <h2>Available Balance : {{loggedInUser.wallet}} <i class="fa fa-inr" aria-hidden="true"></i></h2>
+    <h1 style="text-align: center; font-style:oblique; color:black;">Wallet</h1>
+    <h2>Available Balance : <i class="fa fa-inr" aria-hidden="true"></i> {{loggedInUser.wallet}}</h2>
     <label for="cname">Name on Card</label><br>
-    <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z]*" placeholder="Enter Name"
+    <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name"
       [(ngModel)]=wallet.cardName required />
     <div *ngIf="cname.invalid && (cname.dirty||cname.touched)" style='color: red; border-color: red;'>
       <div *ngIf="cname.errors.required">Name is required</div>
@@ -124,7 +124,7 @@
 
     <label for="cvv">CVV</label><br>
     <input type="password" id="cvv" name="cvv" #cvv="ngModel" [(ngModel)]=wallet.cvv maxlength="3" pattern="[0-9]*"
-      placeholder="Enter CVV" required />
+      placeholder="Enter CVV" required  />
     <div *ngIf="cvv.invalid && (cvv.dirty||cvv.touched)" style='color: red; border-color: red;'>
       <div *ngIf="cvv.errors.required">cvv is required</div>
       <div *ngIf="cvv.errors.pattern">Please follow the pattern : (123)</div>
@@ -145,7 +145,7 @@
 <div id="Changepass" class="tabcontent">
 
   <div class="card">
-    <h3 style="text-align: center; font-style:oblique; color:black;">Change Password</h3>
+    <h1 style="text-align: center; font-style:oblique; color:black;">Change Password</h1>
 
 
     <form #passwordForm="ngForm" (ngSubmit)="checkPassword(passwordForm)">
@@ -157,7 +157,7 @@
         <div *ngIf="opw.errors.required">Password is required</div>
         <div *ngIf="opw.errors.pattern">invalid password type</div>
       </div><br>
-
+      <div id="oldPassword"></div>
       <label for="npwd">New Password</label><br>
       <input type="password" #npw="ngModel" placeholder="Enter Password" id="npwd" required name="npwd" required
         pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
@@ -179,6 +179,7 @@
         <div *ngIf="cpw.errors.required">Password is required</div>
         <div *ngIf="cpw.errors.pattern">invalid password type</div>
       </div><br>
+      <div id="changePassword"></div>
       <button class="btn1" type="submit">Submit</button>&nbsp;
       <button class="btn2" type="reset">Reset</button>
       <div id="resultDiv"></div>

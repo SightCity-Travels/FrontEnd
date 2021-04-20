@@ -27,13 +27,12 @@ import { ContactUsComponent } from './contact-us/contact-us.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+//import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
-
-
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+ import { MatDatepickerModule } from '@angular/material/datepicker';
+ import { MatNativeDateModule } from '@angular/material/core';
+ import { MatFormFieldModule } from '@angular/material/form-field';
+ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -72,10 +71,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
 
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule 
+     MatDatepickerModule,
+     MatNativeDateModule,
+     MatFormFieldModule,
+     MatInputModule 
 
 
     
