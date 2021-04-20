@@ -3,6 +3,6 @@ export class Wallet{
     cardNo:string;
     expMonth:number;
     expYear:number;
-    cvv:number
-
+    cvv:number;
+    amount:number;
 }
