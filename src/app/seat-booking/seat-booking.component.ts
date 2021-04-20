@@ -1,8 +1,9 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Bus } from '../Bus';
-import { BusserviceService } from '../service/busservice.service';
+
 import { DatePipe } from '@angular/common';
 import { passenger } from '../passenger';
+import { BusService } from '../service/bus.service';
 
 @Component({
   selector: 'app-seat-booking',
@@ -19,7 +20,7 @@ export class SeatBookingComponent implements OnInit {
   busId:number;
   selectedBus:Bus;
   // alreadyBookedPassenger:passenger[];
-  constructor(private busService:BusserviceService,public datepipe: DatePipe) { }
+  constructor(private busService:BusService,public datepipe: DatePipe) { }
 
   ngOnInit(): void {
 

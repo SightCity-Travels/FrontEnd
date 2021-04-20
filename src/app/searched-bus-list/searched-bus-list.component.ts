@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bus } from '../Bus';
-import { BusserviceService } from '../service/busservice.service';
+import { BusService } from '../service/bus.service';
+
 
 @Component({
   selector: 'app-searched-bus-list',
@@ -14,7 +15,7 @@ export class SearchedBusListComponent implements OnInit {
   dateValue:any;
   busList:Bus[];
   selectedBusId:number;
-  constructor(private busService:BusserviceService) {
+  constructor(private busService:BusService) {
    }
 
 
