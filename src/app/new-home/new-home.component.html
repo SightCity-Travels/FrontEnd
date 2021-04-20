@@ -69,10 +69,10 @@
 
 
     <div class="col_s">
-      <!-- <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
-        <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br> -->
+      <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
+        <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br>
           <mat-form-field class="dt">
-            <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" >
+            <input matInput [matDatepicker]="picker" [min]="minDate" #dt="ngModel" name="dateOfJourney" [(ngModel)]="dateOfJourney" >
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker ></mat-datepicker>
           </mat-form-field>
