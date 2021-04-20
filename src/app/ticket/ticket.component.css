@@ -11,13 +11,15 @@
 }
  
 .topBar {
-    background-color: rgb(223, 166, 112);
+    background-color: rgb(139, 218, 207);
     border-radius: 10px;
-    padding-bottom:10px;
+    padding-top: 20px;
+    padding-bottom:20px;
     padding-left: 15px; 
     padding-right: 20px; 
     width: 100%;
     margin: auto;
+    font-size: 1.3em;
  
 }
  
@@ -34,7 +36,7 @@
 } 
  
 .passengerDiv{
-    background-color: rgb(161, 221, 184);
+    background-color: rgb(105, 184, 180);
     padding: 10px;
     width: 95%;
     margin: auto;
@@ -74,35 +76,59 @@ td{
 
  
 .passengerDiv .titlePassenger{
-    background-color: rgb(235, 214, 188);
+    background-color: rgb(232, 241, 241);
     border-radius: 10px;
+    padding-top: 12px;
+    padding-bottom:12px;
+    /* padding-left: 15px; 
+    padding-right: 20px;  */
+    font-size: medium;
     width:100%;
     margin:auto;
 }
  
 .passengerDiv .listPassenger{
-    background-color: rgb(246, 247, 205);
+    background-color: rgb(208, 235, 229);
     border-radius: 10px;
     margin-top: 5px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    font-size:medium;
     width:100%;
     margin:auto;
     margin-top: 10px;
 }
  
 .busInfoBar {
-    background-color: aquamarine;
+    background-color: rgb(139, 218, 207);
     border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom:15px;
+    font-size:medium;
     margin-top: 20px;
 }
  
 .jouneyInfoBar{
-    background-color: rgb(103, 100, 240);
+    background-color: rgb(139, 218, 207);
     margin-top: 20px;
     border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom:15px;
+    font-size:medium;
 }
  
 #downloadPdf{
     text-align: right;
 }
-
- 
+.button {
+    border-radius: 4px;
+    background-color:rgb(11, 89, 92);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+    float: right;
+  }
