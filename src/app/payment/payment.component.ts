@@ -5,6 +5,8 @@ import { DatePipe } from '@angular/common';
 import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
 import { Ticket } from '../Ticket';
+import { Wallet } from '../Wallet';
+
 import { BusService } from '../service/bus.service';
 
 
@@ -21,6 +23,7 @@ export class PaymentComponent implements OnInit {
    
   }
 
+  wallet:Wallet=new Wallet();
   passengers:Passenger[];
   emailOfPassenger:string;
   busId:number;

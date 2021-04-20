@@ -27,7 +27,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 
@@ -81,7 +80,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     
   ],
-  providers: [DatePipe, MatMomentDateModule],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
