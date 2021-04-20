@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ChangePasswordDto } from '../model/ChangePasswordDto';
+import { User } from '../model/User';
 import { Password } from '../Password';
+import { UserService } from '../service/user.service';
 import { Status } from '../status.enum';
 import { Ticket } from '../Ticket';
 import { Wallet } from '../Wallet';
@@ -11,19 +14,44 @@ import { Wallet } from '../Wallet';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-password:Password=new Password()
-wallet:Wallet=new Wallet();
-bookingDetails:Ticket[];
-date = new Date('1995-12-17');
-st: string = Status[Status.booked];
-  constructor(){
-    this.bookingDetails=[{
-      ticketId:101,travelDate:this.date,email:"T@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
+  password: Password = new Password()
+  wallet: Wallet = new Wallet();
+  bookingDetails: Ticket[];
+  date = '1995-12-17';
+
+  isEditable: boolean = false;
+  loggedInUserId: number;
+  loggedInUser: User = new User();
+  st: string = Status[Status.booked];
+  tickets:Ticket[];
+  changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
+  constructor(private userService: UserService) {
+    this.bookingDetails = [{
+      ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
     }
-  ]
-   }
+    ]
+  }
 
   ngOnInit(): void {
+    
+    this.loggedInUserId = Number(localStorage.getItem("userId"));
+    console.log(this.loggedInUserId+" of current user");
+    this.userService.getUserByUserId(this.loggedInUserId).subscribe(
+      fetchedUser => {
+        this.loggedInUser = fetchedUser;
+        console.log(this.loggedInUser);
+      }
+    );
+
+
+    this.userService.getTicketsBookedByUserId(this.loggedInUserId).subscribe(
+        fetchedTickets=>{
+          this.tickets=fetchedTickets;
+          console.log(this.tickets);
+        }
+    );
+
+
 
     var i, tabcontent, tablinks;
     // Get all elements with class="tabcontent" and hide them
@@ -38,7 +66,7 @@ st: string = Status[Status.booked];
     }
     // Show the bookinh tab, and add an "active" class to the link that opened the tab
     document.getElementById("Profile").style.display = "block";
-    
+
     // var acc = document.getElementsByClassName("accordion");
     // var i;
     // for (i = 0; i < acc.length; i++) {
@@ -53,25 +81,77 @@ st: string = Status[Status.booked];
     //     });
     //   }
     // document.getElementById('bookBtn').classList.add("active");
-    
-  }
-
-  checkPassword(passwordForm:NgForm){
-    if(passwordForm.valid){
-      alert(JSON.stringify(passwordForm.value));
-    console.log(this.password); //obj will be sent to server thru Api calls
-  }
-  if(this.password.newPassword!=this.password.confirmPassword){
-    alert("Password is not matching");
-  }
-  else{
-    alert("Please enter correct information.");
-  }
 
   }
 
 
-  openTab(evt: Event, name: string,btnClass:string) {
+  updateUserInfo() {
+    this.isEditable = !this.isEditable;
+    if (this.isEditable) {
+      document.getElementById("editUpdateBtn").innerText = "Update";
+    }
+    else {
+      document.getElementById("editUpdateBtn").innerText = "Edit";
+    }
+
+    if (!this.isEditable) {
+      this.userService.registerUser(this.loggedInUser).subscribe(
+        fetchedUser => {
+          this.loggedInUser = fetchedUser;
+          console.log(this.loggedInUser);
+        }
+      );
+    }
+
+  }
+
+
+  rechargeWallet(){
+    this.userService.rechargeWallet(this.loggedInUserId,this.wallet.amount).subscribe(
+      fetchedUser=>{
+        this.loggedInUser=fetchedUser;
+        console.log(this.loggedInUser);
+      }
+    );
+  }
+
+
+
+  checkPassword(passwordForm: NgForm) {
+    if (this.password.newPassword != this.password.confirmPassword) {
+      alert("Password is not matching");
+    }
+    else if(this.password.oldPassword!=this.loggedInUser.password){
+      alert("Incorrect old password");
+    }
+    else if (passwordForm.valid) {
+      // alert(JSON.stringify(passwordForm.value));
+      console.log(this.password); //obj will be sent to server thru Api calls
+      this.changePasswordDto.userId=this.loggedInUserId;
+      this.changePasswordDto.password=this.password.confirmPassword;
+      console.log(this.changePasswordDto);
+
+      this.userService.changePassword(this.changePasswordDto).subscribe(
+        fetchedString=>{
+          if(fetchedString){
+            document.getElementById("resultDiv").innerHTML="Password Changed Successfully";
+          }
+          else{
+            document.getElementById("resultDiv").innerHTML="Could not change the password";
+          }
+        }
+      );
+
+
+    }
+    else {
+      alert("Please enter correct information.");
+    }
+
+  }
+
+
+  openTab(evt: Event, name: string, btnClass: string) {
     var i, tabcontent, tablinks;
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -83,7 +163,7 @@ st: string = Status[Status.booked];
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace("active", "");
     }
-    
+
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(name).style.display = "block";
 
@@ -93,25 +173,3 @@ st: string = Status[Status.booked];
 
 }
 
-
-
-// <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-//     <script>
-        
-//      $(document).ready(function(){
-
-//          $("form input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel]").prop("disabled",false);
-
-//          $("input[name=edit]").on("click",function(){
-
-//                  $("input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel],select").removeAttr("disabled");
-//          })
-
-//          $("input[name=save]").on("click",function(){
-
-//              $("input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel],select").prop("disabled",true);
-//          })
-
-
-//      })
-//     </script>
