@@ -12,12 +12,7 @@
 <div id="AddBus" class="tabcontent">
     
     <div class="card">
-<<<<<<< HEAD
-        <label>Source</label><br>
-        <input type="text"><br>
-        <label>Destination</label><br>
-        <input type="text"><br>
-=======
+
         <h3 style="text-align: center; font-style:oblique; color:black;">Add Bus</h3>
         <form #addBusForm="ngForm" (ngSubmit)="checkBus(addBusForm)">
         <label for="source">Source</label><br>
@@ -34,22 +29,11 @@
             <div *ngIf="dest.errors.pattern">Follow the required pattern : (Mumbai)</div>
         </div><br>
 
->>>>>>> d44c3717c9faab2850b4c88869f7670c06ef7a91
+
         <label>Type</label><br>
         <input type="radio" id="ac" name="type" value="ac">AC<br>
         <input type="radio" id="nonac" name="type" value="nonac">NON-AC<br>
         <br>
-<<<<<<< HEAD
-        <label>Capacity</label><br>
-        <input type="text"><br>
-        <label>Fare</label><br>
-        <input type="text"><br>
-        <label>Start Time</label><br>
-        <input type="text"><br>
-        <label>Duration</label><br>
-        <input type="text"><br>
-        <button type="submit">Add</button>
-=======
         <label for="capacity">Capacity</label><br>
         <input type="text" id="capacity" name="capacity" #cap="ngModel" placeholder="Enter Capacity" [(ngModel)]="addBus.noOfSeats" maxlength="2" pattern="[0-9]*" required/>
         <div *ngIf="cap.invalid && (cap.dirty||cap.touched)"style='color: red; border-color: red;'>
@@ -85,7 +69,6 @@
             </div>    
     </form>
 
->>>>>>> d44c3717c9faab2850b4c88869f7670c06ef7a91
     </div>
 </div>
 <div id="Booking" class="tabcontent">
