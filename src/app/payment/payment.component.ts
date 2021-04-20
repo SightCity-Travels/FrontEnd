@@ -56,7 +56,7 @@ cvv:number;
     this.totalFare= Number(localStorage.getItem("totalFare"));
     this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
-    this.userId=Number(localStorage.getItem("userId"));
+    this.userId=Number(sessionStorage.getItem("userId"));
 
     this.ticket.travelDate=this.dateOfJourney;
     this.ticket.totalAmount=this.totalFare;

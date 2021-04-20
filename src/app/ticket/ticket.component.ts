@@ -9,12 +9,13 @@ import html2canvas from 'html2canvas';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-  
+  ticketId=Number
 
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
   public captureScreen()  
   {  
