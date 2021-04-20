@@ -16,12 +16,12 @@ export class AppComponent implements OnInit {
 //  isShown:boolean;
  
  isStatus:Boolean=false;
+ isStatusD:boolean=false;
 userId:number;
  
   constructor(private service:UserService, private router:Router) { 
    // this.isStatus=Boolean(sessionStorage.getItem("status"));
    this.isStatus=Boolean(sessionStorage.getItem("status"));
-   this.userId=Number(sessionStorage.getItem("userId"));
 
    
   }
@@ -29,12 +29,15 @@ userId:number;
   
   
   }
+
   signOut(){
     console.log(this.userId);
     // localStorage.clear();
-    localStorage.removeItem("userId");
+   localStorage.removeItem("userId");
+ // sessionStorage.removeItem("userId");
+  
     this.isStatus=false;
-  //  console.log(this.userId);
+    console.log(this.userId);
     this.router.navigate(['homeLink'])
 
   }

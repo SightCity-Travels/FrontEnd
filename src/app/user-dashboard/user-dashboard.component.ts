@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { ChangePasswordDto } from '../model/ChangePasswordDto';
 import { User } from '../model/User';
 import { Password } from '../Password';
@@ -19,6 +20,7 @@ export class UserDashboardComponent implements OnInit {
   wallet: Wallet = new Wallet();
   bookingDetails: Ticket[];
   date = '1995-12-17';
+  isStatusD:boolean;
 
   isEditable: boolean = false;
   loggedInUserId: number;
@@ -26,7 +28,7 @@ export class UserDashboardComponent implements OnInit {
   st: string = Status[Status.booked];
   tickets:Ticket[];
   changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router:Router) {
     this.bookingDetails = [{
       ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
 
@@ -121,12 +123,18 @@ export class UserDashboardComponent implements OnInit {
 
   checkPassword(passwordForm: NgForm) {
     if (this.password.newPassword != this.password.confirmPassword) {
-      alert("Password is not matching");
+      //alert("Password is not matching");
+      document.getElementById("changePassword").innerHTML="Confirm Password is not matching";
+      document.getElementById("oldPassword").innerHTML="";
     }
     else if(this.password.oldPassword!=this.loggedInUser.password){
-      alert("Incorrect old password");
+      //alert("Incorrect old password");
+      document.getElementById("changePassword").innerHTML="";
+      document.getElementById("oldPassword").innerHTML="Old Password is incorrect";
     }
     else if (passwordForm.valid) {
+      document.getElementById("oldPassword").innerHTML="";
+      document.getElementById("changePassword").innerHTML="";
       // alert(JSON.stringify(passwordForm.value));
       console.log(this.password); //obj will be sent to server thru Api calls
       this.changePasswordDto.userId=this.loggedInUserId;
@@ -173,5 +181,14 @@ export class UserDashboardComponent implements OnInit {
     document.getElementById(btnClass).classList.add("active");
   }
 
+
+  // signOut(){
+  //  this.isStatusD=false;
+  //  localStorage.setItem("isStatusD",this.isStatusD.toString());
+  //  this.router.navigate(['homeLink'])
+  //  .then(() => {
+  //    window.location.reload();
+
+  // }
 }
 

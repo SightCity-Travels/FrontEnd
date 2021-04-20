@@ -52,6 +52,8 @@ export class AdminComponentComponent implements OnInit {
     this.ispreferredbushidden=true;
     this.isupDateRoutehidden=true;
     this.iscusthidden=true;
+    this.isNoBooking=true;
+
 
   }
 
@@ -62,6 +64,7 @@ export class AdminComponentComponent implements OnInit {
     this.ispreferredbushidden=true;
     this.isupDateRoutehidden=true;
     this.iscusthidden=true;
+    this.isNoBooking=true;
 
     this.service.addorUpdateBus(this.addBus).subscribe(
       addedBus=>{
@@ -79,6 +82,7 @@ export class AdminComponentComponent implements OnInit {
     this.isBookinghidden=true;
     this.isupDateRoutehidden=true;
     this.iscusthidden=true;
+    this.isNoBooking=true;
 
   }
 
@@ -88,6 +92,7 @@ export class AdminComponentComponent implements OnInit {
     this.isAddBushidden=true;
     this.isBookinghidden=true;
     this.iscusthidden=true;
+    this.isNoBooking=true;
 
     // this.service.updateBus(this.updateBus.busId,this.updateBus.source,this.updateBus.destination,this.updateBus.fare).subscribe(
     //   updateBus =>{
