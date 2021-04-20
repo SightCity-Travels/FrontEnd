@@ -17,6 +17,7 @@ userCPassword:string;
  
 
   ngOnInit(): void {}
+  
   checkRegister(registerationForm: NgForm) {
     console.log("Hi");
     if (this.user.password != this.userCPassword) {
