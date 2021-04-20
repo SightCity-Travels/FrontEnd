@@ -66,7 +66,7 @@ export class NewHomeComponent implements OnInit {
       this.router.navigate(['searchBus']); 
     }
     else{
-      alert("Enter valid infomation");
+     // alert("Enter valid infomation");
     }
 
   }
