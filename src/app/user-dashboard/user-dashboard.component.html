@@ -10,7 +10,7 @@
   <button class="tablinks" (click)="openTab($event, 'Changepass','passbtn')" id="passbtn"><i class="fa fa-key"
       aria-hidden="true"></i>Change Password</button>
   <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']">
-    <button class="tablinks" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
+    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
         aria-hidden="true"></i>Sign Out</button></a>
 </div>
 
@@ -91,7 +91,7 @@
     <h3 style="text-align: center; font-style:oblique; color:black;">Wallet</h3>
     <h2>Available Balance : {{loggedInUser.wallet}} <i class="fa fa-inr" aria-hidden="true"></i></h2>
     <label for="cname">Name on Card</label><br>
-    <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z]*" placeholder="Enter Name"
+    <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name"
       [(ngModel)]=wallet.cardName required />
     <div *ngIf="cname.invalid && (cname.dirty||cname.touched)" style='color: red; border-color: red;'>
       <div *ngIf="cname.errors.required">Name is required</div>
