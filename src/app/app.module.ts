@@ -29,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
+
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -69,6 +71,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxPrintModule,
     NgbModule,
     HttpClientModule,
+
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -79,7 +82,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
   ],
   providers: [DatePipe, MatMomentDateModule],
- // providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
