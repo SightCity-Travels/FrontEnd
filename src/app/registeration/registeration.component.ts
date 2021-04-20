@@ -66,19 +66,3 @@ userCPassword:string;
 // }
 
 
-// checkRegister(registerationForm:NgForm){
-//   if(registerationForm.valid){
-//     alert(JSON.stringify(registerationForm.value));
-//   console.log(this.user); //obj will be sent to server thru Api calls
-// }
-// if(this.user.password!=this.userCPassword){
-//   alert("Password is not matching")
-// }
-// else{
-//   alert("Please enter correct information.");
-// }
-
-// }
-
-// }
-
