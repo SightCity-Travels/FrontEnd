@@ -14,16 +14,6 @@ import { Wallet } from '../Wallet';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-<<<<<<< HEAD
-password:Password=new Password()
-wallet:Wallet=new Wallet();
-bookingDetails:Ticket[];
-date = new Date('1995-12-17');
-st: string = Status[Status.booked];
-  constructor(){
-    
-   }
-=======
   password: Password = new Password()
   wallet: Wallet = new Wallet();
   bookingDetails: Ticket[];
@@ -41,7 +31,7 @@ st: string = Status[Status.booked];
     }
     ]
   }
->>>>>>> e85d6fa807797859c24aec6ba8b7be40a2d95e88
+
 
   ngOnInit(): void {
     
