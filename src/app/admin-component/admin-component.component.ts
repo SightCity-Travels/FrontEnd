@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Bus } from '../Bus';
+import { AdminService } from '../service/admin.service';
 import { Status } from '../status.enum';
 import { Ticket } from '../Ticket';
 import { TicketComponent } from '../ticket/ticket.component';
@@ -87,7 +88,7 @@ export class AdminComponentComponent implements OnInit {
 
 
 
-  constructor() { 
+  constructor(private service:AdminService) { 
   //   this.bookingDetails=[{
   //     ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
   //   },
@@ -101,19 +102,19 @@ export class AdminComponentComponent implements OnInit {
   //   },
   // ]
 
-  this.busDetails=[{
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
-  },
-  {
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"2:08:10" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+  // this.busDetails=[{
+  //   busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+  // },
+  // {
+  //   busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"2:08:10" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
 
-  },
-  {
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"2:08:10" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+  // },
+  // {
+  //   busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"2:08:10" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
 
-  },
+  // },
 
-  ]
+  // ]
 
   this.updatedbusDetails=[{
 
@@ -143,7 +144,11 @@ this.userDetails=[{
 
 }
 
+  adminId = Number(localStorage.getItem("adminId"));
+  busList:Bus[];
+
   ngOnInit(): void {
+
     var i, tabcontent, tablinks;
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -172,6 +177,13 @@ this.userDetails=[{
         });
       }
     document.getElementById('bookBtn').classList.add("active");
+
+    this.service.viewAllBuses().subscribe(
+      fetchedbuses=>{
+           this.busList=fetchedbuses;
+          // console.log(this.busList);
+      }
+    );
   }
 
 

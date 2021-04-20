@@ -1,3 +1,4 @@
+
 <div class="tab">
 
     <button style="text-align: center;"> <i style="font-size:5em;" class="fas fa-user-cog" aria-hidden="true"></i><br>MyAdmin</button>
@@ -132,25 +133,25 @@
                 <tr>
                   <th>BusId</th>
                   <th>Bus Name</th>
-                  <th>Number Of Seats</th>
+                  <!-- <th>Number Of Seats</th> -->
                   <th>Duration</th>
                   <th>Type Of Bus</th>
-                  <th>Time of Arrival</th>
                   <th>Time of Departure</th>
+                  <th>Time of Arrival</th>
                   <th>Fare</th>
                   <th>Source</th>
                   <th>Destination</th>
 
 
                 </tr>
-                <tr *ngFor="let busdetails of busDetails">
+                <tr *ngFor="let busdetails of busList">
                   <td>{{busdetails.busId}}</td>
                   <td>{{busdetails.busName}}</td>
-                  <td>{{busdetails.noOfSeats}}</td>
+                  <!-- <td>{{busdetails.noOfSeats}}</td> -->
                   <td>{{busdetails.duration}}</td>
                   <td>{{busdetails.typeOfBus}}</td>
-                  <td>{{busdetails.timeOfArrival}}</td>
                   <td>{{busdetails.timeOfDeparture}}</td>
+                  <td>{{busdetails.timeOfArrival}}</td>
                   <td>{{busdetails.fare}}</td>
                   <td>{{busdetails.source}}</td>
                   <td>{{busdetails.destination}}</td>
@@ -325,7 +326,11 @@
 
     </div>
 </div>
-<div style="margin-top:100px ;"></div>
+<!-- <div style="height: 700px;">
+
+</div> -->
+
+<div style="margin-top:500px ;"></div>
 
 
 
