@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+
+import { Router } from '@angular/router';
+
 import { ChangePasswordDto } from '../model/ChangePasswordDto';
 import { User } from '../model/User';
 import { Password } from '../Password';
@@ -28,7 +30,10 @@ export class UserDashboardComponent implements OnInit {
   st: string = Status[Status.booked];
   tickets:Ticket[];
   changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
-  constructor(private userService: UserService, private router:Router) {
+
+  isStatus:boolean=true;
+  constructor(private userService: UserService,private router:Router) {
+
     this.bookingDetails = [{
       ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
 
@@ -182,6 +187,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
 
+
   // signOut(){
   //  this.isStatusD=false;
   //  localStorage.setItem("isStatusD",this.isStatusD.toString());
@@ -190,5 +196,15 @@ export class UserDashboardComponent implements OnInit {
   //    window.location.reload();
 
   // }
+  signOut(){
+    console.log(this.loggedInUserId);
+    // localStorage.removeItem("userId");
+    localStorage.clear();
+    this.isStatus=false;
+
+    this.router.navigate(['homeLink'])
+  }
+
+
 }
 

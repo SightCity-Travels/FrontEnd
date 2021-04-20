@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
           console.log(loginUser);
           if (loginUser == true) {
             localStorage.setItem("userId", this.loginDto.id.toString());
-            sessionStorage.setItem("status", true.valueOf.toString());
+            localStorage.setItem("status", true.valueOf.toString());
             // this.router.navigate(['homeLink']);
             this.router.navigate(['homeLink'])
               .then(() => {
