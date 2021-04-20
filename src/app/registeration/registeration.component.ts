@@ -100,11 +100,7 @@ export class RegisterationComponent implements OnInit {
     // }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-}
+   
     
   }
   
@@ -123,11 +119,7 @@ export class RegisterationComponent implements OnInit {
         modal.style.display = "block";
       }
 
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-        }
+     
      this. userservice.registerUser(this.user).subscribe(
        userPersisted => {
         console.log(userPersisted);
@@ -144,64 +136,5 @@ export class RegisterationComponent implements OnInit {
 }
 
 
- 
-  // checkRegister(){
-  //   console.log(this.user);
-  //   this.userservice.registerUser(this.user).subscribe(
-  //     userPersisted=>{console.log(userPersisted)});
-  // }
-
-  
-// checkRegister(registerForm: NgForm) {
-//   if (this.user.password != this.userCPassword) {
-//     alert("Password is not matching")
-//   }
-//   else if (registerForm.valid) {
-//     else{
-//     // alert(JSON.stringify(registerationForm.value));
-//     console.log(this.user); //obj will be sent to server thru Api calls
-//     this.userservice.registerUser(this.user).subscribe(
-//       userPersisted => {
-//         console.log(userPersisted)
-//       }
-//     );
-//   }
-//   else {
-//     alert("Please enter correct information.");
-//   }
-// }
-
-// }
 
 
-// =======
-//   checkRegister(registerationForm: NgForm) {
-//     // console.log("Hi");
-//     if (this.user.password != this.userCPassword) {
-//       alert("Password is not matching")
-//     }
-//     else if (registerationForm.valid) {
-//       // alert(JSON.stringify(registerationForm.value));
-//       // console.log(this.user); //obj will be sent to server thru Api calls
-//       // Get the modal
-//       var modal = document.getElementById("myModal");
-
-//       // Get the button that opens the modal
-//       var btn1 = document.getElementById("btn1");
-//       btn1.onclick = function () {
-//         modal.style.display = "block";
-//       }
-//       this.userservice.registerUser(this.user).subscribe(
-//         userPersisted => {
-//           // console.log(userPersisted);
-
-//         }
-//       );
-//       // this.router.navigate(['homeLink']); 
-//     }
-//     else {
-//       alert("Please enter correct information.");
-//     }
-//   }
-// }
-// >>>>>>> e85d6fa807797859c24aec6ba8b7be40a2d95e88
