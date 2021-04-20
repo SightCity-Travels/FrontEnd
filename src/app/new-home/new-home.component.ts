@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-new-home',
   templateUrl: './new-home.component.html',
@@ -9,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class NewHomeComponent implements OnInit {
   control = new FormControl();
+
+  minDate = new Date();
+
 
 // <<<<<<< HEAD
 //   source: String = "";
@@ -23,6 +27,7 @@ export class NewHomeComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
+   console.log( localStorage.getItem("userId"));
     var myIndex = 0;
     carousel();
     function carousel() {
@@ -44,6 +49,8 @@ export class NewHomeComponent implements OnInit {
         setTimeout(carousel, 2000); // Change image every 2 seconds
       }
     }
+
+
   }
 
 
@@ -60,7 +67,7 @@ export class NewHomeComponent implements OnInit {
       this.router.navigate(['searchBus']); 
     }
     else{
-      alert("Enter valid infomation");
+     // alert("Enter valid infomation");
     }
 
   }

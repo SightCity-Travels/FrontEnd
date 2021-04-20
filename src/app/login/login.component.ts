@@ -11,22 +11,22 @@ import { AdminService } from '../service/admin.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
- 
+
 })
 export class LoginComponent implements OnInit {
-  user:User=new User();
+  user: User = new User();
 
-  loginDto:LoginDto = new LoginDto();
-  
+  loginDto: LoginDto = new LoginDto();
 
-  constructor(private service:UserService,private router:Router, private serviceAdmin:AdminService) { } //injected router object
 
- 
+  constructor(private service: UserService, private router: Router, private serviceAdmin: AdminService) { } //injected router object
+
+
 
   ngOnInit(): void {
 
 
-    
+
   }
   // checkLogin(loginForm:NgForm){
   //   if(loginForm.valid){
@@ -48,35 +48,39 @@ export class LoginComponent implements OnInit {
   //   }
 
   // }
-  checkLogin(loginForm:NgForm):void{
-    if(loginForm.valid){
+  checkLogin(loginForm: NgForm): void {
+    if (loginForm.valid) {
       this.service.loginUser(this.loginDto).subscribe(
-        loginUser=>{
+        loginUser => {
           console.log(loginUser);
-          if(loginUser == true){
-            localStorage.setItem("userId",this.loginDto.id.toString());
-            sessionStorage.setItem("status",true.valueOf.toString());
-            this.router.navigate(['homeLink']);
-           
-          }else if(loginUser == false){
-              this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
-                loginAdmin=>{
-                  console.log(loginAdmin);
-                  if(loginAdmin == true){
-                  localStorage.setItem("adminId",this.loginDto.id.toString());
+          if (loginUser == true) {
+            localStorage.setItem("userId", this.loginDto.id.toString());
+            localStorage.setItem("status", true.valueOf.toString());
+            // this.router.navigate(['homeLink']);
+            this.router.navigate(['homeLink'])
+              .then(() => {
+                window.location.reload();
+              });
+
+          } else if (loginUser == false) {
+            this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
+              loginAdmin => {
+                console.log(loginAdmin);
+                if (loginAdmin == true) {
+                  localStorage.setItem("adminId", this.loginDto.id.toString());
                   this.router.navigate(['adminDashBoardLink']);
-                  }
                 }
-              );
+              }
+            );
           }
         }
       );
 
-    }else{
+    } else {
       alert("Please enter correct information.");
     }
   }
-   
+
 
 
 }

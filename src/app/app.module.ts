@@ -24,9 +24,20 @@ import { PassengerDetailsComponent } from './passenger-details/passenger-details
 import { BookedTicketComponent } from './booked-ticket/booked-ticket.component';
 import { NewHomeComponent } from './new-home/new-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+// import { MatMomentDateModule } from "@angular/material-moment-adapter";
+
+
+
+// import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatNativeDateModule } from '@angular/material/core';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -58,8 +69,16 @@ import { DatePipe } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     NgxPrintModule,
-    NgbModule,
+    // NgbModule,
     HttpClientModule,
+
+    BrowserAnimationsModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatFormFieldModule,
+    // MatInputModule 
+
+
     
   ],
   providers: [DatePipe],

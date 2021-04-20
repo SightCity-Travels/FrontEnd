@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import jspdf from 'jspdf';
 
 import html2canvas from 'html2canvas';
+import { UserService } from '../service/user.service';
+import { Passenger } from '../passenger';
+import { BusService } from '../service/bus.service';
+import { Bus } from '../Bus';
+import { Ticket } from '../Ticket';
 
 @Component({
   selector: 'app-ticket',
@@ -11,10 +16,41 @@ import html2canvas from 'html2canvas';
 export class TicketComponent implements OnInit {
   
 
+//ticketId:number;
+ticketId=Number(localStorage.getItem("ticketId"));
+ticket:Ticket;
+details;
+passengerList:Passenger[];
+bus:Bus;
 
-  constructor() { }
+  constructor(private service:UserService, private busService:BusService) { }
 
   ngOnInit(): void {
+
+
+    this.service.ticketDetails(this.ticketId).subscribe(
+      fetchedTicket=>{
+        this.ticket=fetchedTicket;
+      //  console.log(this.ticket);
+ 
+      }
+    );
+      
+    this.service.passengerList(this.ticketId).subscribe(
+      fetchedPassengerList=>{
+        this.passengerList=fetchedPassengerList;
+        //console.log(this.passengerList);
+      }
+    );
+
+    this.busService.getBusByticketId(this.ticketId).subscribe(
+      fetchedBus=>{
+        this.bus=fetchedBus;
+        //console.log(this.bus);
+      }
+    );
+
+
   }
   public captureScreen()  
   {  

@@ -3,12 +3,12 @@
       <div >
         <h3 style="text-align: center;">TICKET CANCELLATION / RESCHEDULE</h3>
        
-        <label for="tn"><b>Ticket Number</b></label>
+        <label for="tn"><b>Ticket Number</b></label><br>
         <input type="password" #tn placeholder="Enter your ticket number" id="tn" required  name="tn" >
         
   
-        <label for="email"><b>Email</b></label>
-        <input type="text"#em placeholder="Enter Email" id="pwd" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"> 
+        <label for="email"><b>Email</b></label><br>
+        <input type="text"#em placeholder="Enter Email" id="pwd" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$"><br> 
         <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
           <div *ngIf="em.errors.required">Email is required</div>
           <div *ngIf="em.errors.pattern">invalid email type</div>
@@ -22,3 +22,4 @@
       </div>
     </form>
     </div>
+    <div style="margin-top:150px ;"></div>

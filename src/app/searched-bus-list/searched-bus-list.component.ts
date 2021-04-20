@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Bus } from '../Bus';
 import { BusService } from '../service/bus.service';
-
 
 @Component({
   selector: 'app-searched-bus-list',
@@ -15,7 +15,9 @@ export class SearchedBusListComponent implements OnInit {
   dateValue:any;
   busList:Bus[];
   selectedBusId:number;
-  constructor(private busService:BusService) {
+
+  constructor(private busService:BusService,private router:Router) {
+
    }
 
 
@@ -38,6 +40,10 @@ export class SearchedBusListComponent implements OnInit {
     // console.log(busID);
     this.selectedBusId=busID;
     localStorage.setItem("selectedBusId",this.selectedBusId.toString());
+  
+    this.router.navigate(['seatBookingLink']).then(()=>{
+      window.location.reload();
+    });
   }
 
 }
