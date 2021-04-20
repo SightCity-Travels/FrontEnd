@@ -12,6 +12,7 @@
 <div id="AddBus" class="tabcontent">
     
     <div class="card">
+
         <h3 style="text-align: center; font-style:oblique; color:black;">Add Bus</h3>
         <form #addBusForm="ngForm" (ngSubmit)="checkBus(addBusForm)">
         <label for="source">Source</label><br>
@@ -27,6 +28,7 @@
             <div *ngIf="dest.errors.required">Destination is required</div>
             <div *ngIf="dest.errors.pattern">Follow the required pattern : (Mumbai)</div>
         </div><br>
+
 
         <label>Type</label><br>
         <input type="radio" id="ac" name="type" value="ac">AC<br>
