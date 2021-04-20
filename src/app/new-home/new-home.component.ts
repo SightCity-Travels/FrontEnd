@@ -27,6 +27,7 @@ export class NewHomeComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
+   console.log( localStorage.getItem("userId"));
     var myIndex = 0;
     carousel();
     function carousel() {
