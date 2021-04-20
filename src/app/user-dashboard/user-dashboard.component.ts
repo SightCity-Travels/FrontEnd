@@ -18,7 +18,7 @@ date = new Date('1995-12-17');
 st: string = Status[Status.booked];
   constructor(){
     this.bookingDetails=[{
-      ticketId:101,travelDate:this.date,email:"T@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
+      ticketId:101,travelDate:"date",email:"T@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
     }
   ]
    }
