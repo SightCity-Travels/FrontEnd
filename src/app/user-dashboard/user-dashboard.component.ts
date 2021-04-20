@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Password } from '../Password';
+import { Status } from '../status.enum';
+import { Ticket } from '../Ticket';
+import { Wallet } from '../Wallet';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -6,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
-  constructor() { }
+password:Password=new Password()
+wallet:Wallet=new Wallet();
+bookingDetails:Ticket[];
+date = new Date('1995-12-17');
+st: string = Status[Status.booked];
+  constructor(){
+    this.bookingDetails=[{
+      ticketId:101,travelDate:this.date,email:"T@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
+    }
+  ]
+   }
 
   ngOnInit(): void {
+
     var i, tabcontent, tablinks;
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -23,9 +38,37 @@ export class UserDashboardComponent implements OnInit {
     }
     // Show the bookinh tab, and add an "active" class to the link that opened the tab
     document.getElementById("Profile").style.display = "block";
-    document.getElementById('profilebtn').classList.add("active");
+    
+    // var acc = document.getElementsByClassName("accordion");
+    // var i;
+    // for (i = 0; i < acc.length; i++) {
+    //     acc[i].addEventListener("click", function () {
+    //         this.classList.toggle("active");
+    //         var panel = this.nextElementSibling;
+    //         if (panel.style.display === "block") {
+    //             panel.style.display = "none";
+    //         } else {
+    //             panel.style.display = "block";
+    //         }
+    //     });
+    //   }
+    // document.getElementById('bookBtn').classList.add("active");
+    
   }
 
+  checkPassword(passwordForm:NgForm){
+    if(passwordForm.valid){
+      alert(JSON.stringify(passwordForm.value));
+    console.log(this.password); //obj will be sent to server thru Api calls
+  }
+  if(this.password.newPassword!=this.password.confirmPassword){
+    alert("Password is not matching");
+  }
+  else{
+    alert("Please enter correct information.");
+  }
+
+  }
 
 
   openTab(evt: Event, name: string,btnClass:string) {
@@ -50,3 +93,25 @@ export class UserDashboardComponent implements OnInit {
 
 }
 
+
+
+// <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+//     <script>
+        
+//      $(document).ready(function(){
+
+//          $("form input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel]").prop("disabled",false);
+
+//          $("input[name=edit]").on("click",function(){
+
+//                  $("input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel],select").removeAttr("disabled");
+//          })
+
+//          $("input[name=save]").on("click",function(){
+
+//              $("input[type=text],form input[type=date],form input[type=radio],form input[type=email],form input[type=tel],select").prop("disabled",true);
+//          })
+
+
+//      })
+//     </script>
