@@ -50,7 +50,6 @@ cvv:number;
   //ticket info
 
   ngOnInit() {
-
     this.passengers=JSON.parse(localStorage.getItem("listOfPassenger"));
     this.emailOfPassenger=localStorage.getItem("emailOfPassenger");
     this.busId=Number(localStorage.getItem("selectedBusId"));
@@ -60,13 +59,11 @@ cvv:number;
     this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
     this.userId=Number(sessionStorage.getItem("userId"));
-
     this.ticket.travelDate=this.dateOfJourney;
     this.ticket.totalAmount=this.totalFare;
     this.ticket.email=this.emailOfPassenger;
     this.ticket.noOfPassengers=this.numberOfPassengers;
     this.ticket.st=this.status;
-
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
 

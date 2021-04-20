@@ -31,7 +31,8 @@ userId:number;
   }
   signOut(){
     console.log(this.userId);
-    sessionStorage.clear();
+    // localStorage.clear();
+    localStorage.removeItem("userId");
     this.isStatus=false;
   //  console.log(this.userId);
     this.router.navigate(['homeLink'])
