@@ -1,6 +1,7 @@
 <div id="main_1">
 <div class="card">
   <h2>Payment </h2>
+  
   <div class="col-50">
  
     <label for="fname">Accepted Cards</label>
@@ -19,6 +20,7 @@
     <!-- <div class="col-50"> -->
  
     <br>
+
     <form >
       <label for="cname">Name on Card</label><br>
       <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name" [(ngModel)]=wallet.cardName required/>
@@ -54,7 +56,9 @@
         <div *ngIf="cvv.errors.required">cvv is required</div>
         <div *ngIf="cvv.errors.pattern">Please follow the pattern : (123)</div>
     </div><br>
+
     <button type="button" id="myBtn1" (click)="bookingOfTicket()">Pay</button>
+
      
     </form>
   </div>

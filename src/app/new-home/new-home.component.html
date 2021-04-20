@@ -71,15 +71,15 @@
     <div class="col_s">
        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
         <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br> 
-           <mat-form-field class="dt">
+           <!-- <mat-form-field class="dt">
             <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney" required #dt="ngModel" [(ngModel)]=dateOfJourney >
             <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
             <mat-datepicker #picker ></mat-datepicker>
           </mat-form-field> 
-        
-       <!-- <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>  -->
-      <!-- <input type="text" placeholder="CHOOSE TRAVEL DATE"  id="dt" name="dt"
-      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney">  -->
+         -->
+       <!-- <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>   -->
+      <input type="text" placeholder="CHOOSE TRAVEL DATE"  id="dt" name="dt"
+      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney"> 
        <!-- <input type="date" id="dt" name="dt" placeholder="Travel date">  -->
     </div>
   </div>

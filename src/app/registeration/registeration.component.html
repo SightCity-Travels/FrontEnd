@@ -64,8 +64,10 @@
    
   
       <div class="">
+
         <div id="btn2"></div>
         <a style="text-decoration: none; color: white;"><button type="submit" class="signupbtn" id="btn1">Sign-up</button></a>
+
         <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
         
       </div>
@@ -78,11 +80,11 @@
   </div> 
   <br>
   <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="myModal1" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <!-- <span class="close">&times;</span> -->
     <p>Registration successful <br><br>
     Please check your mail for Login credentials<br><br>
     <!-- <b>Thankyou!!!</b></p> -->
@@ -98,9 +100,27 @@
   </div> -->
 </div>
 </div>
-  <div style="height: 100px;">
 
-  </div>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <!-- <span class="close">&times;</span> -->
+    <p> Password is not matching <br><br>
+   
+
+    <br>
+    <br>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" value="Submit" class="cancelbtn" >Cancel</button></a>
+  
+    <br>
+    <br>
+    <br>
+    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="submit" value="Submit" class="cancelbtn" >Click here to Login</button></a>
+  </div> -->
+</div>
+</div>
+  
   <div style="margin-top:100px ;"></div>
   
 
