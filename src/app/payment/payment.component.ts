@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { passenger } from '../passenger';
+import { Passenger } from '../passenger';
 import { DatePipe } from '@angular/common';
 import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
@@ -19,6 +19,7 @@ export class PaymentComponent implements OnInit {
 
 
 
+
 cardnumber:number;
 mm:number;
 yy:number;
@@ -26,13 +27,15 @@ cvv:number;
 
   constructor(public datepipe: DatePipe, private busService:BusService) { }
 
-  passengers:passenger[];
+
+  passengers:Passenger[];
   emailOfPassenger:string;
   busId:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  Status=Status;
+  //Status=Status;
+ // let st= Status[Status.booked];
   status:Status=Status.booked;
   fetchedSeatInfo;
   numberOfPassengers:number;
@@ -139,6 +142,7 @@ cvv:number;
       fetchedTicket=>{
         this.finalBookedTicket=fetchedTicket;
         console.log(JSON.stringify(this.finalBookedTicket));
+        localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
       }
     );
   }

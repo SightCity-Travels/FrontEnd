@@ -1,7 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { passenger } from '../passenger';
+import { Passenger } from '../passenger';
 
 @Component({
   selector: 'app-passenger-details',
@@ -10,10 +11,10 @@ import { passenger } from '../passenger';
 })
 export class PassengerDetailsComponent implements OnInit {
   emailOfPassenger: string;
-  allPassengerList: passenger[] = [];
+  allPassengerList: Passenger[] = [];
   fetchedSeatInfo;
 
-  passengerDetail: passenger = new passenger();
+  passengerDetail: Passenger = new Passenger();
   numberOfPassengers: number;
   constructor(private router: Router) {
   }
@@ -25,10 +26,11 @@ export class PassengerDetailsComponent implements OnInit {
       console.log(this.fetchedSeatInfo[i]);
     }
 
+
   }
 
   addPassenger() {
-    var pass: passenger = {
+    var pass: Passenger = {
       passengerId: null,
       passengerName: this.passengerDetail.passengerName,
       passengerAge: this.passengerDetail.passengerAge,
@@ -37,6 +39,7 @@ export class PassengerDetailsComponent implements OnInit {
     }
 
     this.allPassengerList.push(pass);
+
 
     for (let i = 0; i < this.allPassengerList.length; i++) {
       console.log(this.allPassengerList[i]);
@@ -62,3 +65,4 @@ export class PassengerDetailsComponent implements OnInit {
 
 
 }
+

@@ -3,7 +3,7 @@ import { Bus } from '../Bus';
 
 
 import { DatePipe } from '@angular/common';
-import { passenger } from '../passenger';
+import { Passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
 import { Router } from '@angular/router';
 
@@ -44,6 +44,7 @@ export class SeatBookingComponent implements OnInit {
 
     this.bookedSeats = JSON.parse(localStorage.getItem("seatList"));
     //console.log(this.bookedSeats);
+  
 
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);
@@ -87,7 +88,8 @@ export class SeatBookingComponent implements OnInit {
 
 
     this.totalAmount = this.selectedSeatsList.size * this.selectedBus.fare;
-
+    
+   console.log(this.totalAmount);
 
     //this code is to disable button until and unless the seat is selected
     if (this.selectedSeatCount != 0) {
@@ -108,6 +110,7 @@ export class SeatBookingComponent implements OnInit {
     const selectedSeatsArray = Array.from(this.selectedSeatsList);
     localStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
     localStorage.setItem("totalFare", this.totalAmount.toString());
+  
     this.router.navigate(['passengerDetailsLink']);
   }
 
