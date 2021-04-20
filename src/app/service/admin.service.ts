@@ -22,8 +22,22 @@ export class AdminService {
     return this.httpClient.get<Bus[]>("http://localhost:9090/viewallbuses");
   }
 
-  // addBus(bus:Bus):Observable<Bus>{
-  //   return this.httpClient.post<
-  // }
+  addorUpdateBus(bus:Bus):Observable<Bus>{
+    return this.httpClient.post<Bus>("http://localhost:9090/addorupdatebus",bus);
+  }
+
+  viewRegisterCustomer():Observable<User[]>{
+        return this.httpClient.get<User[]>("http://localhost:9090/viewallregsiteredcustomers");
+  }
+ 
+  
+  viewRegisterCustomerWithNoBooking():Observable<User[]>{
+    return this.httpClient.get<User[]>("http://localhost:9090/viewcustomerwhoregisteredbutwithnobooking");
+
+}
+
+mostPerfferedBus():Observable<Number[]>{
+  return this.httpClient.get<Number[]>("http://localhost:9090/mostpreferredbus");
+}
 
 }

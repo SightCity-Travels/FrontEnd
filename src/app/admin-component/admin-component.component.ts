@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, RadioControlValueAccessor } from '@angular/forms';
+import { combineLatest } from 'rxjs';
 import { Bus } from '../Bus';
 import { AdminService } from '../service/admin.service';
+import { BusService } from '../service/bus.service';
 import { Status } from '../status.enum';
 import { Ticket } from '../Ticket';
 import { TicketComponent } from '../ticket/ticket.component';
@@ -21,7 +23,7 @@ export class AdminComponentComponent implements OnInit {
   ispreferredbushidden:boolean=true;
   isupDateRoutehidden:boolean=true;
   iscusthidden:boolean=true;
-
+  isNoBooking:boolean=true;
   bookingDetails:Ticket[];
   busDetails:Bus[];
   updatedbusDetails:Bus[];
@@ -35,7 +37,13 @@ export class AdminComponentComponent implements OnInit {
   bus:Bus=new Bus();
   ticket:Ticket=new Ticket();
   user:User=new User();
-
+  busadded:Bus=new Bus();
+  updateddBus:Bus=new Bus();
+  fetchedBus:Bus=new Bus();
+  uBus:Bus=new Bus();
+  userList:User[];
+  userLists:User[];
+  mostbus:Number[];
   
 
   functionCall(){
@@ -55,6 +63,13 @@ export class AdminComponentComponent implements OnInit {
     this.isupDateRoutehidden=true;
     this.iscusthidden=true;
 
+    this.service.addorUpdateBus(this.addBus).subscribe(
+      addedBus=>{
+        this.busadded=addedBus;
+        console.log(this.busadded);
+      }
+    );
+
 
   }
 
@@ -67,28 +82,88 @@ export class AdminComponentComponent implements OnInit {
 
   }
 
-  functionCall3(){
+  functionUpdateBus(){
     this.isupDateRoutehidden=false;
     this.ispreferredbushidden=true;
     this.isAddBushidden=true;
     this.isBookinghidden=true;
     this.iscusthidden=true;
 
+    // this.service.updateBus(this.updateBus.busId,this.updateBus.source,this.updateBus.destination,this.updateBus.fare).subscribe(
+    //   updateBus =>{
+    //      this.updateddBus=updateBus;
+    //      console.log(this.updateddBus);
+    //   }
+    // );
+
+     this.busService.getBusById(this.updateBus.busId).subscribe(
+       fetchedBus =>{
+           this.fetchedBus=fetchedBus;
+           localStorage.setItem("fetchedBus", this.fetchedBus.toString());
+           console.log(this.fetchedBus);
+       }
+     );
+
+     this.updateddBus=JSON.parse(localStorage.getItem("fetchedBus"));
+     this.updateddBus.source=this.updateBus.source;
+     this.updateddBus.destination=this.updateBus.destination;
+     this.updateddBus.fare=this.updateBus.fare;
+
+    console.log(this.updateddBus);
+
+     this.service.addorUpdateBus(this.updateddBus).subscribe(
+       updatedBus=>{
+           this.uBus=updatedBus;
+           console.log(this.uBus);
+       }
+     );
+
   }
 
-  functionCall4(){
+  regCustomer(){
     this.isupDateRoutehidden=true;
     this.ispreferredbushidden=true;
     this.isAddBushidden=true;
     this.isBookinghidden=true;
-    this.iscusthidden=false
+    this.iscusthidden=false;
+    this.isNoBooking=true;
+
+    
+     this.service.viewRegisterCustomer().subscribe(
+       fetchedUser=>{
+         this.userList=fetchedUser;
+         console.log(this.userList);
+       }
+     );
+    
+  
+
+  }
+  noBooking(){
+    this.isupDateRoutehidden=true;
+    this.ispreferredbushidden=true;
+    this.isAddBushidden=true;
+    this.isBookinghidden=true;
+    this.iscusthidden=true;
+    this.isNoBooking=false;
+
+ 
+    this.service.viewRegisterCustomerWithNoBooking().subscribe(
+      fetchedUser=>{
+        this.userLists=fetchedUser;
+        console.log(this.userLists);
+      }
+    );
+    
+  
+
   }
 
   date = new Date('1995-12-17');
 
 
 
-  constructor(private service:AdminService) { 
+  constructor(private service:AdminService, private busService:BusService) { 
   //   this.bookingDetails=[{
   //     ticketId:101,travelDate:this.date,email:"aish@gmail.com",totalAmount:200 ,st:Status.cancelled,noOfPassengers:30
   //   },
@@ -116,20 +191,20 @@ export class AdminComponentComponent implements OnInit {
 
   // ]
 
-  this.updatedbusDetails=[{
+//   this.updatedbusDetails=[{
 
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
-  },
-  {
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+//     busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+//   },
+//   {
+//     busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
 
-  },
-  {
-    busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
+//   },
+//   {
+//     busId:101,busName:"Sight City Travels",noOfSeats:24,duration:"3 hrs" ,typeOfBus:"AC",timeOfArrival:"9:03 AM" ,timeOfDeparture:"20:08:10",fare:200,source:"Nashik",destination:"Nagpur"
 
-  },
+//   },
 
-]
+// ]
 this.userDetails=[{
 
   userId:1,firstName:"Aishwarya",lastName:"Chordia",email:"aishwarya@gmail.com",password:"aish@123",contactNo:"657286745",dateOfBirth:this.date,gender:"Female",wallet:200,address:"4tfhi"
@@ -182,6 +257,13 @@ this.userDetails=[{
       fetchedbuses=>{
            this.busList=fetchedbuses;
           // console.log(this.busList);
+      }
+    );
+
+    this.service.mostPerfferedBus().subscribe(
+      fetchedBus=>{
+        this.mostbus=fetchedBus;
+
       }
     );
   }
