@@ -1,5 +1,5 @@
 
-    <div class="tab">
+    <div class="tab" style="margin-bottom: 10em;">
       <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user" aria-hidden="true"></i><br>MyDashboard</button>
       <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user" aria-hidden="true"></i>Profile</button>
       <button class="tablinks" (click)="openTab($event, 'Bookings','bookbtn')" id="bookbtn"><i class="fa fa-ticket" aria-hidden="true"></i>Bookings</button>
@@ -81,7 +81,7 @@
             <h3 style="text-align: center; font-style:oblique; color:black;">Wallet</h3>
             <h2>Available Balance : 5000 <i class="fa fa-inr" aria-hidden="true"></i></h2>
       <label for="cname">Name on Card</label><br>
-      <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z]*" placeholder="Enter Name" [(ngModel)]=wallet.cardName required/>
+      <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name" [(ngModel)]=wallet.cardName required/>
       <div *ngIf="cname.invalid && (cname.dirty||cname.touched)"style='color: red; border-color: red;'>
         <div *ngIf="cname.errors.required">Name is required</div>
         <div *ngIf="cname.errors.pattern">Please enter a valid name.</div>
@@ -150,6 +150,8 @@
             </form>   
           </div>
       </div>
+
+      
   
 
   

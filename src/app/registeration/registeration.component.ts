@@ -70,18 +70,18 @@ userCPassword:string;
   checkRegister(registerationForm: NgForm) {
    // console.log("Hi");
     if (this.user.password != this.userCPassword) {
-      alert("Password is not matching")
+      document.getElementById("btn3").innerHTML="Password is not matching ";
     }
     else if (registerationForm.valid) {
-     // alert(JSON.stringify(registerationForm.value));
-     // console.log(this.user); //obj will be sent to server thru Api calls
-     var modal = document.getElementById("myModal");
+      alert(JSON.stringify(registerationForm.value));
+      console.log(this.user); //obj will be sent to server thru Api calls
+     //var modal = document.getElementById("myModal");
 
      // Get the button that opens the modal
-     var btn1 = document.getElementById("btn1");
-     btn1.onclick = function () {
-      modal.style.display = "block";
-    }
+    //  var btn1 = document.getElementById("btn1");
+    //  btn1.onclick = function () {
+    //   modal.style.display = "block";
+    // }
       this. userservice.registerUser(this.user).subscribe(
         userPersisted => {
          // console.log(userPersisted);
@@ -91,7 +91,7 @@ userCPassword:string;
      // this.router.navigate(['homeLink']); 
     }
     else {
-      alert("Please enter correct information.");
+       document.getElementById("btn2").innerHTML="Please fill the requried details";
     }
   }
 
