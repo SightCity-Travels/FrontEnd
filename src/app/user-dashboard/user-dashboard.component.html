@@ -48,7 +48,7 @@
   <div id="Bookings" class="tabcontent">
           
       <div class="card">
-          <h3 style="text-align: center;">Mumbai - Pune on March 30,2021</h3>
+          <h3 style="text-align: center;">Bookings</h3>
           
                   <table class="table">
                     <tr>
@@ -60,14 +60,14 @@
                       <th>Passengers</th>
                     </tr>
                     
-                  <tr *ngFor="let bookingdetails of bookingDetails">
+                  <tr *ngFor="let bookingdetails of tickets">
                   <td>{{bookingdetails.ticketId}}</td>
                   <td>{{bookingdetails.travelDate}}</td>
                   <td>{{bookingdetails.email}}</td>
                   <td>{{bookingdetails.totalAmount}}</td>
                   <td>{{bookingdetails.st}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
-                  <button class="btn1" style="width: 100%;" type="submit">Check</button>
+                  <button class="btn1" style="width: 100%;" type="button" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
                 </tr>
                 
               </table>
@@ -100,7 +100,7 @@
 
     <label for="expmonth">Expiry</label><br>
 
-    <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9]*"
+    <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9][0-2]*"
       placeholder="Enter month" type="text" required />
     <div *ngIf="month.invalid && (month.dirty||month.touched)" style='color: red; border-color: red;'>
       <div *ngIf="month.errors.required">Month is required</div>

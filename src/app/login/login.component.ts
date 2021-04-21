@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("userId", this.loginDto.id.toString());
             localStorage.setItem("status", true.valueOf.toString());
             // this.router.navigate(['homeLink']);
-            this.router.navigate(['homeLink'])
+            this.router.navigate(['userDashBoard'])
               .then(() => {
                 window.location.reload();
               });

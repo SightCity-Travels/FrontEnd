@@ -23,7 +23,7 @@ export class UserDashboardComponent implements OnInit {
   bookingDetails: Ticket[];
   date = '1995-12-17';
   isStatusD:boolean;
-
+ tId:number;
   isEditable: boolean = false;
   loggedInUserId: number;
   loggedInUser: User = new User();
@@ -34,11 +34,11 @@ export class UserDashboardComponent implements OnInit {
   isStatus:boolean=true;
   constructor(private userService: UserService,private router:Router) {
 
-    this.bookingDetails = [{
-      ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
+    // this.bookingDetails = [{
+    //   ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
 
-    }
-    ]
+    // }
+    // ]
   }
 
 
@@ -203,9 +203,17 @@ export class UserDashboardComponent implements OnInit {
     localStorage.clear();
     this.isStatus=false;
 
-    this.router.navigate(['homeLink'])
+    this.router.navigate(['homeLink']);
   }
 
+  trackFunction(ticketId){
+   console.log(ticketId);
+    this.tId=ticketId;
+    localStorage.setItem("ticketId",this.tId.toString());
+
+    this.router.navigate(['ticketLink']);
+    console.log(100);
+  }
 
 }
 
