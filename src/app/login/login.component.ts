@@ -70,14 +70,20 @@ export class LoginComponent implements OnInit {
                   localStorage.setItem("adminId", this.loginDto.id.toString());
                   this.router.navigate(['adminDashBoardLink']);
                 }
+                else{
+           
+                  document.getElementById("allmsg").innerHTML="Invalid password or userid";
+                }
               }
             );
           }
+         
+
         }
       );
 
     } else {
-      alert("Please enter correct information.");
+      document.getElementById("allmsg").innerHTML=" Please fill all the details";
     }
   }
 
