@@ -38,7 +38,7 @@
      
     
       <label for="pwd"><b>PASSWORD</b> &nbsp;</label><br>
-      <input type="password" #pwd="ngModel" placeholder="Enter Password" id="pwd"   name="pwd" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=user.password ><br>
+      <input type="password" #pwd="ngModel" placeholder="Enter Password" id="pwd"   name="pwd" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=user.password (change)="checkPassword()"><br>
 
       <span *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)"style='color: red; border-color: red;'>
         <span *ngIf="pwd.errors?.required">Password is required</span>
@@ -46,12 +46,12 @@
     
   
     <label for="cpwd"><b>CONFIRM PASSWORD</b> &nbsp;</label><br>
-    <input type="password" #cp="ngModel" placeholder="Confirm Password" id="cpwd" name="cpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword > <br>
+    <input type="password" #cp="ngModel" placeholder="Confirm Password" id="cpwd" name="cpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword (change)="checkPassword()" > <br>
 
-    <span *ngIf="cp.invalid && (cp.dirty||cp.touched)"style='color: red; border-color: red;'>
-      <span *ngIf="cp.errors?.required">Confirm Password is required</span>
-      <span *ngIf="cp.errors.pattern">Confirm Password is invalid</span><br>
-  </span>
+    <!-- <span *ngIf="cp.invalid && (cp.dirty||cp.touched)"style='color: red; border-color: red;'>
+      <-- <span *ngIf="cp.errors?.required">Confirm Password is required</span> -->
+      <!-- <span *ngIf="cp.errors.pattern">Confirm Password is invalid</span><br> 
+  </span> -->
 
 
   
@@ -68,10 +68,10 @@
       <span *ngIf="cn.errors?.required">Mobile number is required</span>
       <span *ngIf="cn.errors.pattern">Mobile number is invalid</span></span><br>
    
-  
+      <div id="btn2"></div>
       <div class="">
 
-        <div id="btn2"></div>
+        <div id="btn1"></div>
         <a style="text-decoration: none; color: white;"><button type="submit" class="signupbtn" id="btn1">Sign-up</button></a>
 
         <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>

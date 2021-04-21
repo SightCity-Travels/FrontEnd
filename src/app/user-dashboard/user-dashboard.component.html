@@ -1,4 +1,4 @@
-<div class="tab">
+<div class="tab" style="margin-bottom: 200px;">
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
       aria-hidden="true"></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</button>
   <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user"
@@ -48,7 +48,7 @@
   <div id="Bookings" class="tabcontent">
           
       <div class="card">
-          <h3 style="text-align: center;">Mumbai - Pune on March 30,2021</h3>
+          <h3 style="text-align: center;">BOOKINGS</h3>
           
                   <table class="table">
                     <tr>
@@ -60,7 +60,7 @@
                       <th>Passengers</th>
                     </tr>
                     
-                  <tr *ngFor="let bookingdetails of bookingDetails">
+                  <tr *ngFor="let bookingdetails of tickets">
                   <td>{{bookingdetails.ticketId}}</td>
                   <td>{{bookingdetails.travelDate}}</td>
                   <td>{{bookingdetails.email}}</td>
@@ -100,7 +100,7 @@
 
     <label for="expmonth">Expiry</label><br>
 
-    <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9]*"
+    <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9][0-2]*"
       placeholder="Enter month" type="text" required />
     <div *ngIf="month.invalid && (month.dirty||month.touched)" style='color: red; border-color: red;'>
       <div *ngIf="month.errors.required">Month is required</div>

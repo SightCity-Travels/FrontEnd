@@ -38,7 +38,7 @@
 
       <label for="expmonth">Expiry</label><br>
     
-        <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9]*" placeholder="Enter month" type="text" required/>
+        <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-1][0-9]*" placeholder="Enter month" type="text" required/>
         <div *ngIf="month.invalid && (month.dirty||month.touched)"style='color: red; border-color: red;'>
           <div *ngIf="month.errors.required">Month is required</div>
           <div *ngIf="month.errors.pattern">Please follow the pattern : (MM)</div>
