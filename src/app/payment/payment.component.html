@@ -21,6 +21,7 @@
  
     <br>
 
+
     <form >
       <label for="cname">Name on Card</label><br>
       <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name" [(ngModel)]=wallet.cardName required/>
@@ -44,9 +45,10 @@
           <div *ngIf="month.errors.pattern">Please follow the pattern : (MM)</div>
       </div><br>
 
+
       <input #year="ngModel" [(ngModel)]=wallet.expYear id="year" maxlength="2" pattern="[0-9]*" placeholder="Enter year" type="text" required/>
       <div *ngIf="year.invalid && (year.dirty||year.touched)"style='color: red; border-color: red;'>
-        <div *ngIf="year.errors.required">Yearh is required</div>
+        <div *ngIf="year.errors.required">Year is required</div>
         <div *ngIf="year.errors.pattern">Please follow the pattern : (YY)</div>
     </div><br>
       

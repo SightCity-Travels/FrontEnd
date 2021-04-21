@@ -17,8 +17,6 @@ export class RegisterationComponent implements OnInit {
   userCPassword: string;
   constructor(private userservice: UserService, private router: Router) { }
 
-
-
   ngOnInit(){
     
   }
@@ -102,6 +100,7 @@ checkPassword() {
       // Get the modal
       var modal = document.getElementById("myModal1");
 
+
       
         modal.style.display = "block";
       
@@ -115,16 +114,16 @@ checkPassword() {
 
         userPersisted => {
           console.log(userPersisted);
-
-
         }
       );
       // this.router.navigate(['homeLink']); 
     }
     else {
+
        document.getElementById("btn2").innerHTML="Please fill the requried details";
     }
   }
+
 }
 
 

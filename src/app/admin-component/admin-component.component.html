@@ -15,6 +15,8 @@
             class="fa fa-bus" aria-hidden="true"></i>Preferred Bus</button>
     <button class="tablinks" (click)="openTab($event, 'Customer','custRegisterBtn')" id="custRegisterBtn"><i
             class="fa fa-registered" aria-hidden="true"></i>Customer Registration</button>
+    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i 
+        class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</button>
 </div>
 
 <div id="AddBus" class="tabcontent">
@@ -99,6 +101,8 @@
 
     </div>
 </div>
+
+
 <div id="Booking" class="tabcontent">
 
     <div class="card">
@@ -114,22 +118,11 @@
 
             <p>Period </p>
 
-             
-      <input type="text" placeholder="CHOOSE DATE"  id="dt" name="dt"
-      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney">  
-            <!-- <input type="radio" class="accordion" name="period" required />Daily
-            <div class="panel">
-                <input type="date"><br>
-            </div>
-            <input type="radio" class="accordion" name="period" required />Weekly
-            <div class="panel">
-                <input type="week"><br>
-            </div>
-            <input type="radio" class="accordion" name="period" required />Monthly
-            <div class="panel">
-                <input type="month"><br>
-            </div><br> --><br>
-            <button type="submit" (click)="functionCall()">Check</button>
+            <input type="text" placeholder="CHOOSE DATE" id="dt" name="dt" onfocus="(this.type='date')"
+                onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]="dateOfJourney">
+            <br>
+
+            <button type="submit">Check</button>
 
         </form>
 
@@ -145,13 +138,13 @@
                     <th>Status</th>
                     <th>Number Of Passengers</th>
                 </tr>
-                <tr *ngFor="let bookingdetails of bookingDetails">
-                    <td>{{bookingdetails.ticketId}}</td>
-                    <td>{{bookingdetails.travelDate}}</td>
-                    <td>{{bookingdetails.email}}</td>
-                    <td>{{bookingdetails.totalAmount}}</td>
-                    <td>{{bookingdetails.st}}</td>
-                    <td>{{bookingdetails.noOfPassengers}}</td>
+                <tr *ngFor="let fetchedTicket of fetchedTickets">
+                    <td>{{fetchedTicket.ticketId}}</td>
+                    <td>{{fetchedTicket.travelDate}}</td>
+                    <td>{{fetchedTicket.email}}</td>
+                    <td>{{fetchedTicket.totalAmount}}</td>
+                    <td>{{fetchedTicket.st}}</td>
+                    <td>{{fetchedTicket.noOfPassengers}}</td>
                 </tr>
             </table>
         </div>
@@ -202,15 +195,17 @@
         <form #updateBusForm="ngForm" (ngSubmit)="changeBus(updateBusForm)">
             <label for="busNo1">Bus No.</label><br>
             <input type="text" id="busNo1" name="busNo1" #bn1="ngModel" placeholder="Enter Bus Id"
-                [(ngModel)]="updateBus.busId" maxlength="5" pattern="[0-9]*" required />
+                [(ngModel)]="findBusId" maxlength="5" pattern="[0-9]*" required />
             <div *ngIf="bn1.invalid && (bn1.dirty||bn1.touched)" style='color: red; border-color: red;'>
                 <div *ngIf="bn1.errors.required">Bus No. is required</div>
                 <div *ngIf="bn1.errors.pattern">Enter Only Digits</div>
             </div><br>
+            <button type="button" (click)="findBusByBusId(findBusId)">Find Bus</button><br>
+
 
             <label for="source1">Source</label><br>
             <input type="text" id="source1" name="source1" #src1="ngModel" placeholder="Enter Source"
-                [(ngModel)]="updateBus.source" pattern="[A-Za-z]*" required />
+                [(ngModel)]="fetchedBus.source" pattern="[A-Za-z]*" required />
             <div *ngIf="src1.invalid && (src1.dirty||src1.touched)" style='color: red; border-color: red;'>
                 <div *ngIf="src1.errors.required">Source is required</div>
                 <div *ngIf="src1.errors.pattern">Follow the required pattern : (Pune)</div>
@@ -218,7 +213,7 @@
 
             <label for="destination1">Destination</label><br>
             <input type="text" id="destination1" name="destination1" #dest1="ngModel" placeholder="Enter Destination"
-                [(ngModel)]="updateBus.destination" pattern="[A-Za-z]*" required />
+                [(ngModel)]="fetchedBus.destination" pattern="[A-Za-z]*" required />
             <div *ngIf="dest1.invalid && (dest1.dirty||dest1.touched)" style='color: red; border-color: red;'>
                 <div *ngIf="dest1.errors.required">Destination is required</div>
                 <div *ngIf="dest1.errors.pattern">Follow the required pattern : (Mumbai)</div>
@@ -226,12 +221,14 @@
 
             <label for="fare1">Fare</label><br>
             <input type="text" id="fare1" name="fare1" #fa1="ngModel" placeholder="Enter fare"
-                [(ngModel)]="updateBus.fare" maxlength="4" pattern="[0-9]*" required />
+                [(ngModel)]="fetchedBus.fare" maxlength="4" pattern="[0-9]*" required />
             <div *ngIf="fa1.invalid && (fa1.dirty||fa1.touched)" style='color: red; border-color: red;'>
                 <div *ngIf="fa1.errors.required">Fare is required</div>
                 <div *ngIf="fa1.errors.pattern">Enter Only Amount</div>
             </div><br>
-            <button type="submit" (click)="functionUpdateBus()">Check</button>
+
+            <div id="updateMessage"></div>
+            <button type="submit">Update</button>
         </form>
 
         <div [hidden]="isupDateRoutehidden">
@@ -288,10 +285,10 @@
         <!-- <button type="submit" (click)="functionCall2()">Check</button> -->
 
         <!-- <div [hidden]="ispreferredbushidden"> -->
-            <table id="preferrredbus">
-                <tr>
-                    <th>BusId</th>
-                    <!-- <th>Bus Name</th>
+        <table id="preferrredbus">
+            <tr>
+                <th>BusId</th>
+                <!-- <th>Bus Name</th>
                     <th>Number Of Seats</th>
                     <th>Duration</th>
                     <th>Type Of Bus</th>
@@ -302,10 +299,10 @@
                     <th>Destination</th> -->
 
 
-                </tr>
-                <tr *ngFor="let busdetails of mostbus">
-                    <td>{{busdetails}}</td>
-                    <!-- <td>{{busdetails.busName}}</td>
+            </tr>
+            <tr *ngFor="let busdetails of mostbus">
+                <td>{{busdetails}}</td>
+                <!-- <td>{{busdetails.busName}}</td>
                     <td>{{busdetails.noOfSeats}}</td>
                     <td>{{busdetails.duration}}</td>
                     <td>{{busdetails.typeOfBus}}</td>
@@ -315,8 +312,8 @@
                     <td>{{busdetails.source}}</td>
                     <td>{{busdetails.destination}}</td> -->
 
-                </tr>
-            </table>
+            </tr>
+        </table>
         <!-- </div> -->
     </div>
 </div>
@@ -326,11 +323,13 @@
 
     <div class="card">
         <h3 style="text-align: center; font-style:oblique; color:black;">Customer Registration</h3>
+
         <!-- <p>Type</p> -->
         <!-- <input type="radio" class="accordion" name="type1" value="customer" />Registered Customer<br>
         <input type="radio" class="accordion" name="type2" value="noBooking" />Registered Customer without any Bookings<br>-->
-        <button type="submit" (click)="regCustomer()" style="width: 40%;  margin: 8px;">Registered Customer</button> 
-        <button type="submit" (click)="noBooking()" style="width: 50%;  margin: 8px;">Registered Customer without any Bookings</button>
+        <button type="submit" (click)="regCustomer()" style="width: 40%;  margin: 8px;">Registered Customer</button>
+        <button type="submit" (click)="noBooking()" style="width: 50%;  margin: 8px;">Registered Customer without any
+            Bookings</button>
 
         <div [hidden]="iscusthidden">
 

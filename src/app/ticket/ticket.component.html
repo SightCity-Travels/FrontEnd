@@ -80,7 +80,7 @@
 
   <div >
     <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']" ><button type="submit" class="signupbtn" class="button" style="margin-right: 40px;">Reschedule</button></a>
-    <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" class="button" >Cancel</button></a>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/cancelLink']"><button type="button" class="cancelbtn" class="button" (click)="cancelTicketId(ticket.ticketId)" >Cancel</button></a>
     
   </div>
 </div>
