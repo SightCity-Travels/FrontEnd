@@ -9,7 +9,7 @@ body {
   float: left;
  
   background: rgba(255, 255, 255, 0.589);
-  width: 25%;
+  width: 20%;
   height: 550px;
 }
 
@@ -114,34 +114,6 @@ body {
       overflow: hidden;
     }
   
-    /* .accordion {
-     
-      cursor: pointer;
-      padding: 18px;
-      border: none;
-      outline: none;
-      font-size: 15px;
-      transition: 0.4s;
-    } */
-
-    /* css for booking */
-    .ticket {
-      border: 1px solid #ccc;
-      /* box-shadow: 1px 0px 9px 2px #ccc;  */
-      background-color:white;
-      opacity: 0.9;
-      margin: 26px;
-  }
-  .ticket table {
-      border: none
-      
-  }
-  .ticket table thead {
-      border: none;
-      background: #FCFCE0;
-      font-weight: bold
-  }
-  
 
   table {
       border-collapse: collapse;
@@ -154,3 +126,4 @@ body {
       text-align: center;
       padding: 16px;
     }
+    

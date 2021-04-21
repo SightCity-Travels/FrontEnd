@@ -45,14 +45,11 @@
 </div>
 
 
-      <div id="Bookings" class="tabcontent">
+  <div id="Bookings" class="tabcontent">
           
       <div class="card">
+          <h3 style="text-align: center;">Mumbai - Pune on March 30,2021</h3>
           
-            
-          
-            <h3 style="text-align: center;">Mumbai - Pune on March 30,2021</h3>
-              <div>
                   <table class="table">
                     <tr>
                       <th>TicketId</th>
@@ -60,43 +57,27 @@
                       <th>Email</th>
                       <th>Amount</th>
                       <th>Status</th>
-                      <th>Number Of Passengers</th>
+                      <th>Passengers</th>
                     </tr>
-                  </table>
-              </div>
-          
-          <div class="card2">
-          
-              <table class="table">
-                <tr *ngFor="let bookingdetails of bookingDetails">
+                    
+                  <tr *ngFor="let bookingdetails of bookingDetails">
                   <td>{{bookingdetails.ticketId}}</td>
                   <td>{{bookingdetails.travelDate}}</td>
                   <td>{{bookingdetails.email}}</td>
                   <td>{{bookingdetails.totalAmount}}</td>
                   <td>{{bookingdetails.st}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
+                  <button class="btn1" style="width: 100%;" type="submit">Check</button>
                 </tr>
+                
               </table>
-          
-          </div>
-              <button style="margin-left: 25em;" class="btn1" type="submit">Check</button>
+           
               
-              
-          
-      </div>
-      </div>
+        </div>
+    </div>
 
       <div id="Wallet" class="tabcontent">
-          
-          <div class="card">
-            <h3 style="text-align: center; font-style:oblique; color:black;">Wallet</h3>
-            <h2>Available Balance : 5000 <i class="fa fa-inr" aria-hidden="true"></i></h2>
-      <label for="cname">Name on Card</label><br>
-      <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name" [(ngModel)]=wallet.cardName required/>
-      <div *ngIf="cname.invalid && (cname.dirty||cname.touched)"style='color: red; border-color: red;'>
-        <div *ngIf="cname.errors.required">Name is required</div>
-        <div *ngIf="cname.errors.pattern">Please enter a valid name.</div>
-
+  
   <div class="card">
     <h1 style="text-align: center; font-style:oblique; color:black;">Wallet</h1>
     <h2>Available Balance : <i class="fa fa-inr" aria-hidden="true"></i> {{loggedInUser.wallet}}</h2>
