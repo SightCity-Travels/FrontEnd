@@ -11,7 +11,6 @@ import { BusService } from '../service/bus.service';
 
 import { UserService } from '../service/user.service';
 
-import { Wallet } from '../Wallet';
 
 
 
@@ -36,7 +35,6 @@ cvv:number;
   constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService) { }
 
 
-  wallet:Wallet=new Wallet();
   passengers:Passenger[];
   emailOfPassenger:string;
   busId:number;
