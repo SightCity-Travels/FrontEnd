@@ -5,11 +5,12 @@ import { DatePipe } from '@angular/common';
 import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
 import { Ticket } from '../Ticket';
+import { Wallet } from '../Wallet';
+
 import { BusService } from '../service/bus.service';
 
 import { UserService } from '../service/user.service';
 
-import { Wallet } from '../Wallet';
 
 
 
