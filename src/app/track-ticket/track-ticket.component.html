@@ -4,7 +4,7 @@
         <h3 style="text-align: center;">TRACK TICKET</h3>
        
         <label for="tn"><b>Ticket Id</b></label>
-        <input type="password" #tn placeholder="Enter your ticket number" id="tn" required  name="tn" >
+        <input type="password" #tn="ngModel" placeholder="Enter your ticket number" id="tn" required [(ngModel)]=ticketId  name="tn" >
         
   
         <label for="email"><b>Email</b></label>
@@ -16,8 +16,8 @@
     
         
         <div class="">
-          <a style="text-decoration: none; color: white;" [routerLink]="['/ticketLink']"><button type="submit" class="signupbtn">Track</button></a> 
-          <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
+          <a style="text-decoration: none; color: white;" (click)="trackTicket()"><button type="submit" class="signupbtn">Track</button></a> 
+          <a style="text-decoration: none; color: white;" [routerLink]="['/cancelLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
         </div>
        
       </div>

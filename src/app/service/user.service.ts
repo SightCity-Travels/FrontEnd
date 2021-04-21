@@ -57,4 +57,9 @@ export class UserService {
   changePassword(changePasswordDto:ChangePasswordDto):Observable<boolean>{
     return this.httpClient.put<boolean>("http://localhost:9090/changepassword",changePasswordDto);
   }
+
+  cancelTicket(ticketId:number):Observable<boolean>{
+    return this.httpClient.delete<boolean>("http://localhost:9090/cancelticket?ticketId="+ticketId);
+  }
+  
 }
