@@ -38,12 +38,12 @@
 
       <label for="expmonth">Expiry</label><br>
     
-      <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-9][0-2]*"
-      placeholder="Enter month" type="text" required />
-    <div *ngIf="month.invalid && (month.dirty||month.touched)" style='color: red; border-color: red;'>
-      <div *ngIf="month.errors.required">Month is required</div>
-      <div *ngIf="month.errors.pattern">Please follow the pattern : (MM)</div>
-    </div><br>
+        <input #month="ngModel" [(ngModel)]=wallet.expMonth id="month" maxlength="2" pattern="[0-1][0-9]*" placeholder="Enter month" type="text" required/>
+        <div *ngIf="month.invalid && (month.dirty||month.touched)"style='color: red; border-color: red;'>
+          <div *ngIf="month.errors.required">Month is required</div>
+          <div *ngIf="month.errors.pattern">Please follow the pattern : (MM)</div>
+      </div><br>
+
 
       <input #year="ngModel" [(ngModel)]=wallet.expYear id="year" maxlength="2" pattern="[0-9]*" placeholder="Enter year" type="text" required/>
       <div *ngIf="year.invalid && (year.dirty||year.touched)"style='color: red; border-color: red;'>
@@ -84,16 +84,17 @@
     <!-- </div> -->
     <br>
     
-    <button type="button" id="myBtn2" (click)="bookingOfTicket()">Pay</button>
+    <button type="button" id="myBtn2" (click)="bookingOfTicket()" >Pay</button>
   </div>
   <button class="accordion">Wallet</button>
   <div class="panel">
     <br>
  
     <form action="/action_page.php" >
-    <input type="radio" name="radio" /> Wallet
+    <input type="radio" name="radio"  /> Wallet
     <br>
-    <button type="button"id="myBtn3" (click)="bookingOfTicket()">Pay</button>
+    <button type="button"id="myBtn3" (click)="checkwallet()" [disabled]="isLoggedIn==false">Pay</button>
+    <div id="resultDiv"  style="color:red;"></div>
     </form>
   
 

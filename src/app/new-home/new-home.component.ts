@@ -14,20 +14,15 @@ export class NewHomeComponent implements OnInit {
   minDate = new Date();
 
 
-// <<<<<<< HEAD
-//   source: String = "";
-//   destination: String = "";
-//   isStatus:Boolean=false;
-//   constructor() { this.isStatus=Boolean(sessionStorage.getItem("status"));}
-// =======
+
   source: String;
   destination: String;
-  dateOfJourney:Date;
+  dateOfJourney: Date;
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-   console.log( localStorage.getItem("userId"));
+    console.log(localStorage.getItem("userId"));
     var myIndex = 0;
     carousel();
     function carousel() {
@@ -55,24 +50,24 @@ export class NewHomeComponent implements OnInit {
 
 
 
-  checkBus(searchBusForm:NgForm){
-    if(this.source===this.destination){
+  checkBus(searchBusForm: NgForm) {
+    if (this.source === this.destination) {
       alert("Source and Destination cannot be same or empty!");
     }
-    else if(searchBusForm.valid){
+    else if (searchBusForm.valid) {
 
-      localStorage.setItem("source",this.source.toString());
-      localStorage.setItem("destination",this.destination.toString());
-      localStorage.setItem("dateOfJourney",this.dateOfJourney.toString());
-      this.router.navigate(['searchBus']); 
+      localStorage.setItem("source", this.source.toString());
+      localStorage.setItem("destination", this.destination.toString());
+      localStorage.setItem("dateOfJourney", this.dateOfJourney.toString());
+      this.router.navigate(['searchBus']);
     }
-    else{
-     // alert("Enter valid infomation");
+    else {
+      // alert("Enter valid infomation");
     }
 
   }
 
- 
+
 }
 
 
