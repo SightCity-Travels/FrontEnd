@@ -15,8 +15,6 @@ import { User } from '../User';
 })
 export class AdminComponentComponent implements OnInit {
 
-
-
   st: string = Status[Status.booked];
   isBookinghidden: boolean = true;
   isAddBushidden: boolean = true;
@@ -70,7 +68,7 @@ export class AdminComponentComponent implements OnInit {
         console.log(this.fetchedTickets);
       }
     );
-    
+
   }
 
 

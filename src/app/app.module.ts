@@ -74,12 +74,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule
-
-
-
   ],
+
+
   providers: [DatePipe,
     MatMomentDateModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
