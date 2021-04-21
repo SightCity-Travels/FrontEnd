@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { Bus } from '../Bus';
 import { BusService } from '../service/bus.service';
 
-
-
 @Component({
   selector: 'app-searched-bus-list',
   templateUrl: './searched-bus-list.component.html',
@@ -17,7 +15,9 @@ export class SearchedBusListComponent implements OnInit {
   dateValue:any;
   busList:Bus[];
   selectedBusId:number;
+
   constructor(private busService:BusService,private router:Router) {
+
    }
 
 

@@ -1,9 +1,11 @@
+
 <div id="main_1" class="card" style="margin-top: 35px; border-radius: 30px;">
   <div class="outer" style="padding-top: 22px ; padding-bottom: 35px;">
     <h3 style="text-align: center;">BOOK YOUR BUS TODAY</h3>
 
     <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)">
       <!-- <div style="text-align: center;">
+
 
         <label for="nsleeper">
           <input type="radio" id="nsleeper" name="bus-type">
@@ -15,6 +17,7 @@
         </label><br>
       </div> -->
   
+
 
       <div class="row">
         <div class="col_s">
@@ -34,11 +37,15 @@
         <option value="Aurangabad">
         <option value="Nashik">
         <option value="Nagpur">
-        <option value="Udaipur">
-        <option value="Bengaluru">
-        <option value="Ooty">
+        <option value="Akola">
+        <option value="Akola">
+        <option value="Akola">
+
       </datalist>
     </div>
+
+
+
 
     <div class="col_s">
       <span *ngIf="(des.dirty||des.touched)" style='color:rgb(8, 55, 56);'>
@@ -58,29 +65,35 @@
         <option value="Nashik">
         <option value="Nagpur">
 
-
         <option value="Udaipur">
         <option value="Bengaluru">
         <option value="Ooty">
 
 
+
       </datalist>
     </div>
 
+     
+     
 
     <div class="col_s">
+
        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
         <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br> 
-           <!-- <mat-form-field class="dt">
+
+           <mat-form-field class="dt">
+
             <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney" required #dt="ngModel" [(ngModel)]=dateOfJourney >
             <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
             <mat-datepicker #picker ></mat-datepicker>
           </mat-form-field> 
-         -->
+
        <!-- <label for="dt" style="margin-left: 3%;">JOURNEY DATE</label>   -->
-      <input type="text" placeholder="CHOOSE TRAVEL DATE"  id="dt" name="dt"
-      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney"> 
+      <!-- <input type="text" placeholder="CHOOSE TRAVEL DATE"  id="dt" name="dt"
+      onfocus="(this.type='date')"onblur="(this.type='text')"  #dt="ngModel" required [(ngModel)]="dateOfJourney">  -->
        <!-- <input type="date" id="dt" name="dt" placeholder="Travel date">  -->
+
     </div>
   </div>
 

@@ -1,4 +1,6 @@
-<div class="tab">
+
+<div class="tab" style="margin-bottom: 25em;">
+
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
       aria-hidden="true"></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</button>
   <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user"
@@ -48,7 +50,9 @@
   <div id="Bookings" class="tabcontent">
           
       <div class="card">
+
           <h3 style="text-align: center;">Bookings</h3>
+
           
                   <table class="table">
                     <tr>
@@ -67,7 +71,7 @@
                   <td>{{bookingdetails.totalAmount}}</td>
                   <td>{{bookingdetails.st}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
-                  <button class="btn1" style="width: 100%;" type="submit">Check</button>
+                  <button class="btn1" style="width: 100%;" type="button" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
                 </tr>
                 
               </table>
@@ -174,7 +178,7 @@
       <div id="changePassword"></div>
       <button class="btn1" type="submit">Submit</button>&nbsp;
       <button class="btn2" type="reset">Reset</button>
-      <div id="resultDiv"></div>
+      <div id="resultDiv"  style="color: rgb(17, 63, 63);"></div>
     </form>
   </div>
 </div>
