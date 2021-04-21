@@ -19,7 +19,9 @@ export class RegisterationComponent implements OnInit {
 
 
 
-  ngOnInit(){}
+  ngOnInit(){
+    
+  }
    
 // =======
 //   ngOnInit() {
@@ -74,25 +76,47 @@ export class RegisterationComponent implements OnInit {
 // >>>>>>> e85d6fa807797859c24aec6ba8b7be40a2d95e88
 //   }
   
-  
+
+// checkPassword() {
+//   if (this.user.password == this.userCPassword) {
+//     //alert("Password is not matching");
+//     document.getElementById("resultDiv").innerHTML="";
+//   }
+//   else if(this.user.password != this.userCPassword){
+//     //alert("Incorrect old password");
+//     document.getElementById("resultDiv").innerHTML="Confirm Password is not matching";
+   
+//   }
+
+// }
  checkRegister(registerationForm: NgForm) {
-  // console.log("Hi");
-   if (this.user.password != this.userCPassword) {
+  // // console.log("Hi");
+  if (this.user.password == this.userCPassword) {
+       
+        document.getElementById("resultDiv").innerHTML="";
+      }
+  else if(this.user.password != this.userCPassword){
+  
+    document.getElementById("resultDiv").innerHTML="Confirm Password is not matching";
+  
+  }
+    //     // Get the modal
+    // var modal = document.getElementById("myModal");
 
+    // // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
 
-        // Get the modal
-    var modal = document.getElementById("myModal");
+    // // Get the <span> element that closes the modal
+    // var span = document.getElementsByClassName("close")[0];
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
+    // // When the user clicks the button, open the modal 
+    // btn.onclick = function() {
+    //   modal.style.display = "block";
+    // }
+    // this.router.navigate(['registerationLink'])
+    //           .then(() => {
+    //             window.location.reload();
+    //           });
 
    // When the user clicks on <span> (x), close the modal
     // span.onclick = function() {
@@ -102,7 +126,7 @@ export class RegisterationComponent implements OnInit {
     // When the user clicks anywhere outside of the modal, close it
    
     
-  }
+  
   
    else if (registerationForm.valid) {
     // alert(JSON.stringify(registerationForm.value));
@@ -115,9 +139,9 @@ export class RegisterationComponent implements OnInit {
       var span = document.getElementsByClassName("close")[0];
 
       // When the user clicks the button, open the modal 
-      btn.onclick = function() {
+      
         modal.style.display = "block";
-      }
+      
 
      
      this. userservice.registerUser(this.user).subscribe(

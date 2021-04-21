@@ -16,7 +16,7 @@ import { User } from '../User';
 })
 export class AdminComponentComponent implements OnInit {
   st: string = Status[Status.booked];
-
+  dateOfJourney:Date;
 
   isBookinghidden:boolean =true;
   isAddBushidden:boolean =true;

@@ -45,13 +45,16 @@
     
   
     <label for="cpwd"><b>CONFIRM PASSWORD</b> &nbsp;</label><br>
-    <input type="password" #cp="ngModel" placeholder="Confirm Password" id="cpwd" name="cpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword> <br>
+    <input type="password" #cp="ngModel" placeholder="Confirm Password" id="cpwd" name="cpwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword > <br>
 
     <span *ngIf="cp.invalid && (cp.dirty||cp.touched)"style='color: red; border-color: red;'>
       <span *ngIf="cp.errors?.required">Confirm Password is required</span>
       <span *ngIf="cp.errors.pattern">Confirm Password is invalid</span><br>
   </span>
+
+  
    
+  <div id="resultDiv"  style="color:red;"></div>
 
     <label for="ph"><b>CONTACT NO</b> &nbsp;</label><br>
     <input type="text" #cn="ngModel" placeholder="Enter Contact Numer" name="ph" id="ph"  pattern="^[6-9]\d{9}$" required [(ngModel)]=user.contactNo> <br>
@@ -106,8 +109,7 @@
 
     <br>
     <br>
-    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" value="Submit" class="cancelbtn" >Cancel</button></a>
-  
+ 
     <br>
     <br>
     <br>

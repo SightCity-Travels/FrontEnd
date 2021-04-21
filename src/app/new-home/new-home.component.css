@@ -87,12 +87,12 @@ label{
   margin-right: 1%;
 }
 
-.col_s {
+/* .col_s {
   float: left;
   width: 33%;
   margin-bottom: 16px;
-  /* padding: 1px; */
-}
+  /* padding: 1px; 
+} */
 
 .column {
   float: left;
