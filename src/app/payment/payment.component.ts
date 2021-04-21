@@ -6,7 +6,11 @@ import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
 import { Ticket } from '../Ticket';
 import { BusService } from '../service/bus.service';
+
 import { UserService } from '../service/user.service';
+
+import { Wallet } from '../Wallet';
+
 
 
 @Component({
@@ -17,6 +21,7 @@ import { UserService } from '../service/user.service';
 
 
 export class PaymentComponent implements OnInit {
+  wallet:Wallet=new Wallet();
 
 
 
