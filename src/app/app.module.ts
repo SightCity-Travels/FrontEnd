@@ -32,9 +32,11 @@ import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
- import { MatNativeDateModule } from '@angular/material/core';
- import { MatFormFieldModule } from '@angular/material/form-field';
- import { MatInputModule } from '@angular/material/input';
+
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -69,14 +71,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     NgxPrintModule,
-     NgbModule,
+
+    NgbModule,
+
     HttpClientModule,
 
     BrowserAnimationsModule,
     MatDatepickerModule,
-     MatNativeDateModule,
-     MatFormFieldModule,
-     MatInputModule 
+
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule 
+
 
 
     

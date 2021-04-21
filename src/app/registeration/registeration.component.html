@@ -3,6 +3,7 @@
  <div    class="card" style="width: 30%; margin-left: 35%; padding-left: 80px;">
   <form #registerForm="ngForm" (ngSubmit)="checkRegister(registerForm)">
     <div class="Rcontainer" >
+      
       <h3 style="margin-left: 25%;">REGISTRATION</h3>
 
       <label for="fname"><b>FIRST NAME </b> &nbsp;</label> <br>
@@ -51,7 +52,8 @@
       <span *ngIf="cp.errors?.required">Confirm Password is required</span>
       <span *ngIf="cp.errors.pattern">Confirm Password is invalid</span><br>
   </span>
-   
+  <div id="btn3"></div>
+  
 
     <label for="ph"><b>CONTACT NO</b> &nbsp;</label><br>
     <input type="text" #cn="ngModel" placeholder="Enter Contact Numer" name="ph" id="ph"  pattern="^[6-9]\d{9}$" required [(ngModel)]=user.contactNo> <br>
@@ -62,7 +64,10 @@
    
   
       <div class="">
-        <a style="text-decoration: none; color: white;"><button type="submit" class="signupbtn" id="myBtn">Sign-up</button></a>
+
+        <div id="btn2"></div>
+        <a style="text-decoration: none; color: white;"><button type="submit" class="signupbtn" id="btn1">Sign-up</button></a>
+
         <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
         
       </div>
