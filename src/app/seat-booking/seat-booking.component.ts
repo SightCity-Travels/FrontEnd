@@ -2,10 +2,12 @@ import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { Bus } from '../Bus';
 
 
+
 import { DatePipe } from '@angular/common';
 import { Passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-seat-booking',
@@ -23,7 +25,9 @@ export class SeatBookingComponent implements OnInit {
   busId: number;
   selectedBus: Bus;
   // alreadyBookedPassenger:passenger[];
+
   constructor(private busService: BusService, public datepipe: DatePipe, private router: Router) { }
+
 
   ngOnInit(): void {
 

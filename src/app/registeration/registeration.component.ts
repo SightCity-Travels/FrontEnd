@@ -17,9 +17,20 @@ export class RegisterationComponent implements OnInit {
   userCPassword: string;
   constructor(private userservice: UserService, private router: Router) { }
 
-
-
-  ngOnInit(){}
+  ngOnInit(){
+    
+  }
+  
+checkPassword() {
+  if (this.user.password != this.userCPassword) {
+    //alert("Password is not matching");
+    document.getElementById("resultDiv").innerHTML="Confirm Password is not matching";
+  }
+  else {
+    //alert("Incorrect old password");
+    document.getElementById("resultDiv").innerHTML="";
+   
+  }}
    
 // =======
 //   ngOnInit() {
@@ -74,66 +85,47 @@ export class RegisterationComponent implements OnInit {
 // >>>>>>> e85d6fa807797859c24aec6ba8b7be40a2d95e88
 //   }
   
-  
- checkRegister(registerationForm: NgForm) {
-  // console.log("Hi");
-   if (this.user.password != this.userCPassword) {
 
 
-        // Get the modal
-    var modal = document.getElementById("myModal");
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    btn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-   // When the user clicks on <span> (x), close the modal
-    // span.onclick = function() {
-    //   modal.style.display = "none";
+  checkRegister(registerationForm: NgForm) {
+    // console.log("Hi");
+    // if (this.user.password != this.userCPassword) {
+    //   document.getElementById("btn3").innerHTML="Password is not matching ";
     // }
+     if (registerationForm.valid) {
 
-    // When the user clicks anywhere outside of the modal, close it
-   
-    
-  }
-  
-   else if (registerationForm.valid) {
-    // alert(JSON.stringify(registerationForm.value));
-    // console.log(this.user); //obj will be sent to server thru Api calls
-    var modal = document.getElementById("myModal1");
+      // alert(JSON.stringify(registerationForm.value));
+      // console.log(this.user); //obj will be sent to server thru Api calls
+      // Get the modal
+      var modal = document.getElementById("myModal1");
 
-     var btn = document.getElementById("myBtn");
 
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
+      
+        modal.style.display = "block";
+      
 
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
+      // Get the button that opens the modal
+      var btn1 = document.getElementById("btn1");
+      btn1.onclick = function () {
         modal.style.display = "block";
       }
+      this.userservice.registerUser(this.user).subscribe(
 
-     
-     this. userservice.registerUser(this.user).subscribe(
-       userPersisted => {
-        console.log(userPersisted);
-       }
-     );
-    // this.router.navigate(['homeLink']); 
-   }
-   else {
-     alert("Please enter correct information.");
-   }
- }
+        userPersisted => {
+          console.log(userPersisted);
+        }
+      );
+      // this.router.navigate(['homeLink']); 
+    }
+    else {
 
- 
+       document.getElementById("btn2").innerHTML="Please fill the requried details";
+    }
+  }
+
 }
+
 
 
 

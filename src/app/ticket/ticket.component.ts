@@ -22,6 +22,7 @@ ticket:Ticket;
 details;
 passengerList:Passenger[];
 bus:Bus;
+cTicketId:number;
 
   constructor(private service:UserService, private busService:BusService) { }
 
@@ -69,6 +70,12 @@ bus:Bus;
       pdf.save('Ticket.pdf'); // Generated PDF   
     });  
   } 
+
+  cancelTicketId(ticketId){
+    this.cTicketId=ticketId;
+    localStorage.setItem("cancelTicketId",this.cTicketId.toString());
+  
+  }
  
 
 }

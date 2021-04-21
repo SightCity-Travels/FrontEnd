@@ -9,6 +9,11 @@ import { Wallet } from '../Wallet';
 
 import { BusService } from '../service/bus.service';
 
+import { UserService } from '../service/user.service';
+
+import { Wallet } from '../Wallet';
+
+
 
 @Component({
   selector: 'app-payment',
@@ -18,6 +23,7 @@ import { BusService } from '../service/bus.service';
 
 
 export class PaymentComponent implements OnInit {
+  wallet:Wallet=new Wallet();
 
 
 
@@ -27,7 +33,7 @@ mm:number;
 yy:number;
 cvv:number;
 
-  constructor(public datepipe: DatePipe, private busService:BusService) { }
+  constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService) { }
 
 
   wallet:Wallet=new Wallet();
@@ -37,16 +43,16 @@ cvv:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  //Status=Status;
- // let st= Status[Status.booked];
   status:Status=Status.booked;
   fetchedSeatInfo;
   numberOfPassengers:number;
   userId:number;
   bookATicket:BookaTicketDto= new BookaTicketDto();
   ticket:Ticket=new Ticket();
+  result:Boolean;
 
   finalBookedTicket:Ticket;
+  isLoggedIn:boolean;
 
 
   //list of passenger
@@ -61,7 +67,7 @@ cvv:number;
     this.totalFare= Number(localStorage.getItem("totalFare"));
     this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
-    this.userId=Number(sessionStorage.getItem("userId"));
+    this.userId=Number(localStorage.getItem("userId"));
     this.ticket.travelDate=this.dateOfJourney;
     this.ticket.totalAmount=this.totalFare;
     this.ticket.email=this.emailOfPassenger;
@@ -69,6 +75,7 @@ cvv:number;
     this.ticket.st=this.status;
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
+   
 
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -92,7 +99,7 @@ cvv:number;
     // Get the button that opens the modal
     var btn1 = document.getElementById("myBtn1");
     var btn2 = document.getElementById("myBtn2");
-    var btn3 = document.getElementById("myBtn3");
+    // var btn3 = document.getElementById("myBtn3");
 
     // Get the <span> element that closes the modal
     var span;
@@ -105,9 +112,9 @@ cvv:number;
     btn2.onclick = function () {
       modal.style.display = "block";
     }
-    btn3.onclick = function () {
-      modal.style.display = "block";
-    }
+    // btn3.onclick = function () {
+    //   modal.style.display = "block";
+    // }
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
@@ -137,7 +144,52 @@ cvv:number;
 
   }
 
+  
+  checkwallet(){
+    if( localStorage.getItem("userId") !== null){
+      this.isLoggedIn=true;
+      this.userService.payByWallet(this.userId,this.totalFare).subscribe(
+        fetchedres=>{
+          this.result=fetchedres;
+          if (this.result==true){
+            this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
+                fetchedTicket=>{
+                  this.finalBookedTicket=fetchedTicket;
+                  console.log(JSON.stringify(this.finalBookedTicket));
+                  localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
+                }
+              );
+              var modal = document.getElementById("myModal");
+              var btn3 = document.getElementById("myBtn3");
+             
+                modal.style.display = "block";
+          }
+          else{
+            document.getElementById("resultDiv").innerHTML=" Insufficient balance .Please recharge or try any other payment mode ";
+          }
+          console.log(JSON.stringify(fetchedres));
+        }
+  
+      );
+      // this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
+      //   fetchedTicket=>{
+      //     this.finalBookedTicket=fetchedTicket;
+      //     console.log(JSON.stringify(this.finalBookedTicket));
+      //     localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
+      //   }
+      // );
+  
+    }
+   else{
+     this.isLoggedIn=false;
+   }
+  }
+
+
+
   bookingOfTicket(){
+    
+
     this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
       fetchedTicket=>{
         this.finalBookedTicket=fetchedTicket;
