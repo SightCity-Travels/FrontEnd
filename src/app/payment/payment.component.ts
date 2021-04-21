@@ -34,8 +34,6 @@ cvv:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  //Status=Status;
- // let st= Status[Status.booked];
   status:Status=Status.booked;
   fetchedSeatInfo;
   numberOfPassengers:number;

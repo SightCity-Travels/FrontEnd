@@ -6,7 +6,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { MyBookingComponent } from './my-booking/my-booking.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { MyWalletComponent } from './my-wallet/my-wallet.component';
-import {AboutComponent} from './about/about.component';
+import { AboutComponent } from './about/about.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { PaymentComponent } from "./payment/payment.component";
 import { TicketComponent } from "./ticket/ticket.component";
@@ -16,25 +16,22 @@ import { SeatBookingComponent } from './seat-booking/seat-booking.component';
 import { CancelRescheduleTicketComponent } from './cancel-reschedule-ticket/cancel-reschedule-ticket.component';
 import { AdminComponentComponent } from './admin-component/admin-component.component';
 import { SearchedBusListComponent } from './searched-bus-list/searched-bus-list.component';
-import {RegisterationComponent} from './registeration/registeration.component';
-import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
-import {LoginComponent} from './login/login.component';
+import { RegisterationComponent } from './registeration/registeration.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LoginComponent } from './login/login.component';
 import { TrackTicketComponent } from './track-ticket/track-ticket.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 import { BookedTicketComponent } from './booked-ticket/booked-ticket.component';
 import { NewHomeComponent } from './new-home/new-home.component';
 import { ContactUsComponent } from './contact-us/contact-us.component'
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-// import { MatMomentDateModule } from "@angular/material-moment-adapter";
-
-
-
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatNativeDateModule } from '@angular/material/core';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatInputModule } from '@angular/material/input';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -62,26 +59,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookedTicketComponent,
     NewHomeComponent,
     ContactUsComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxPrintModule,
-    // NgbModule,
+    NgbModule,
     HttpClientModule,
 
     BrowserAnimationsModule,
-    // MatDatepickerModule,
-    // MatNativeDateModule,
-    // MatFormFieldModule,
-    // MatInputModule 
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
 
 
-    
+
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,
+    MatMomentDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
