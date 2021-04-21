@@ -6,6 +6,6 @@ export class Ticket{
 	travelDate:String;	
 	email:String;	
     totalAmount:number;
-    st:Status;
+    status:Status;
 	noOfPassengers:number;
 }

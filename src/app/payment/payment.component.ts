@@ -40,7 +40,7 @@ cvv:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  status:Status=Status.booked;
+  status:Status=Status.BOOKED;
   fetchedSeatInfo;
   numberOfPassengers:number;
   userId:number;
@@ -69,7 +69,7 @@ cvv:number;
     this.ticket.totalAmount=this.totalFare;
     this.ticket.email=this.emailOfPassenger;
     this.ticket.noOfPassengers=this.numberOfPassengers;
-    this.ticket.st=this.status;
+    this.ticket.status=this.status;
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
    

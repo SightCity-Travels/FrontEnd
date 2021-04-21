@@ -5,7 +5,7 @@
     <form  form #loginForm="ngForm" (ngSubmit)="checkLogin(loginForm)" >
       <div >
         <h1 style="margin-left: 35%;">LOGIN</h1>
-      
+        <!-- <div id="msg"></div> -->
         <label for="userId"><b>USER ID</b></label><br>
         <input type="text"#em placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> <br>
          <div *ngIf="em.invalid && (em.dirty||em.touched)"style='color: white; border-color: red;'>
@@ -15,18 +15,19 @@
     
         <label for="pwd"><b>PASSWORD</b></label><br>
         <input type="password" #pwd placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password><br>
-        <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)"style='color: red; border-color: red;'>
+        <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style="color: red; ">
           <div *ngIf="pwd.errors.required">Password is required</div>
           <div *ngIf="pwd.errors.pattern">invalid password type</div> 
          </div> 
     
        
           
-          
+         <div id="msgLogin"></div>
             <div class="">
               <button type="submit" class="signupbtn">Login</button>
               <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a>
             </div>
+            
           <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
           
           <div>

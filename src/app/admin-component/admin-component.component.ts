@@ -15,7 +15,7 @@ import { User } from '../User';
 })
 export class AdminComponentComponent implements OnInit {
 
-  st: string = Status[Status.booked];
+  status:Status= Status.BOOKED;
   isBookinghidden: boolean = true;
   isAddBushidden: boolean = true;
   ispreferredbushidden: boolean = true;

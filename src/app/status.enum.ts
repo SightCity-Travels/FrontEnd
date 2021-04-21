@@ -1,3 +1,4 @@
 export enum Status {
-    booked,cancelled
+    BOOKED=0,
+    CANCELLED=1
 }

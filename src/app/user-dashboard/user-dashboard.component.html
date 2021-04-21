@@ -42,6 +42,7 @@
       <input type="text" id="address" placeholder="Enter Address" name="add" #add="ngModel"
         [(ngModel)]="loggedInUser.address" [disabled]="!isEditable" /><br>
       <button name='edit' id="editUpdateBtn" value='edit' (click)="updateUserInfo()">Edit</button>&nbsp;
+      <div id="msg"></div>
     </form>
   </div>
 </div>
@@ -69,11 +70,11 @@
                   <td>{{bookingdetails.travelDate}}</td>
                   <td>{{bookingdetails.email}}</td>
                   <td>{{bookingdetails.totalAmount}}</td>
-                  <td>{{bookingdetails.st}}</td>
+                  <td>{{bookingdetails.status}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
-                  <button class="btn1" style="width: 100%;" type="button" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
+                  <button class="btn1" style="width: 100%;" type="button"  (click)="trackFunction(bookingdetails.ticketId)">Check</button>
                 </tr>
-                
+                <!-- [disabled]="isBooked" -->
               </table>
            
               
@@ -135,6 +136,7 @@
     </div><br>
 
     <button class="btn1" type="button" (click)="rechargeWallet()">+Add Balance</button>
+    <div id="msgWallet"></div>
   </div>
 </div>
 

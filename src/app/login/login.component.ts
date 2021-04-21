@@ -61,8 +61,9 @@ export class LoginComponent implements OnInit {
               .then(() => {
                 window.location.reload();
               });
-
+            
           } else if (loginUser == false) {
+
             this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
               loginAdmin => {
                 console.log(loginAdmin);
@@ -73,11 +74,14 @@ export class LoginComponent implements OnInit {
               }
             );
           }
+          // else {
+          //   document.getElementById("msg").innerHTML = "Invalid UserId/Password";
+          // }
         }
       );
 
     } else {
-      alert("Please enter correct information.");
+      document.getElementById("msgLogin").innerHTML = "Invalid UserId/Password";
     }
   }
 
