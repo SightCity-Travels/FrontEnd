@@ -18,8 +18,8 @@ export class TicketComponent implements OnInit {
   
    
 
-//ticketId:number;
-ticketId=Number(localStorage.getItem("ticketId"));
+ticketId:number;
+//ticketId=Number(localStorage.getItem("ticketId"));
 ticket:Ticket;
 details;
 passengerList:Passenger[];
@@ -31,19 +31,16 @@ isCancelled:boolean=false;
 
   constructor(private service:UserService, private busService:BusService,private router:Router) { }
 
-  ngOnInit(
-    
-  ): void {
 
-  
-    //window.location.reload();
+  ngOnInit(): void {
+    this.ticketId=Number(localStorage.getItem("ticketId"));
+
 
     this.service.ticketDetails(this.ticketId).subscribe(
       
       fetchedTicket=>{
         this.ticket=fetchedTicket;
-      //  console.log(this.ticket);
-      
+        console.log(this.ticket);
  
       }
     );
@@ -51,14 +48,14 @@ isCancelled:boolean=false;
     this.service.passengerList(this.ticketId).subscribe(
       fetchedPassengerList=>{
         this.passengerList=fetchedPassengerList;
-        //console.log(this.passengerList);
+        console.log(this.passengerList);
       }
     );
 
     this.busService.getBusByticketId(this.ticketId).subscribe(
       fetchedBus=>{
         this.bus=fetchedBus;
-        //console.log(this.bus);
+        console.log(this.bus);
       }
     );
 
