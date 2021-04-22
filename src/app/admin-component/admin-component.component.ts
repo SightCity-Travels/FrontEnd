@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, RadioControlValueAccessor } from '@angular/forms';
+import { Router } from '@angular/router';
 import { combineLatest } from 'rxjs';
 import { Bus } from '../Bus';
 import { AdminService } from '../service/admin.service';
@@ -15,13 +16,17 @@ import { User } from '../User';
 })
 export class AdminComponentComponent implements OnInit {
 
-  st: string = Status[Status.booked];
+  status:Status= Status.BOOKED;
   isBookinghidden: boolean = true;
   isAddBushidden: boolean = true;
   ispreferredbushidden: boolean = true;
   isupDateRoutehidden: boolean = true;
   iscusthidden: boolean = true;
   isNoBooking: boolean = true;
+  loggedInAdminId: number;
+  isStatus:boolean=true;
+
+
   bookingDetails: Ticket[];
   busDetails: Bus[];
   updatedbusDetails: Bus[];
@@ -47,7 +52,7 @@ export class AdminComponentComponent implements OnInit {
   fetchedTickets:Ticket[]=[];
   dateOfJourney:Date;
 
-  constructor(private adminService: AdminService, private busService: BusService) {
+  constructor(private adminService: AdminService, private busService: BusService,private router:Router) {
   
   }
 
@@ -305,6 +310,16 @@ export class AdminComponentComponent implements OnInit {
     }
 
   }
+
+  signOut(){
+    console.log(this.loggedInAdminId);
+    // localStorage.removeItem("userId");
+    localStorage.clear();
+    // this.isStatus=false;
+
+    this.router.navigate(['homeLink']);
+  }
+
 
 
 }

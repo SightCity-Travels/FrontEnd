@@ -5,11 +5,12 @@ import { DatePipe } from '@angular/common';
 import { Status } from '../status.enum';
 import { BookaTicketDto } from '../model/BookaTicketDto';
 import { Ticket } from '../Ticket';
+import { Wallet } from '../Wallet';
+
 import { BusService } from '../service/bus.service';
 
 import { UserService } from '../service/user.service';
 
-import { Wallet } from '../Wallet';
 
 
 
@@ -40,7 +41,7 @@ cvv:number;
   dateOfJourney;
   dateValue:any;
   totalFare:number;
-  status:Status=Status.booked;
+  status:Status=Status.BOOKED;
   fetchedSeatInfo;
   numberOfPassengers:number;
   userId:number;
@@ -69,7 +70,7 @@ cvv:number;
     this.ticket.totalAmount=this.totalFare;
     this.ticket.email=this.emailOfPassenger;
     this.ticket.noOfPassengers=this.numberOfPassengers;
-    this.ticket.st=this.status;
+    this.ticket.status=this.status;
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
    

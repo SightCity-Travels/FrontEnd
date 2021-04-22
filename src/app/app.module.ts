@@ -27,7 +27,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-import { MatMomentDateModule } from "@angular/material-moment-adapter";
+
+//import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatNativeDateModule } from '@angular/material/core';
@@ -68,23 +69,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     NgxPrintModule,
-
     NgbModule,
-
     HttpClientModule,
-
     BrowserAnimationsModule,
-    MatDatepickerModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
+     MatFormFieldModule,
+     MatInputModule,
 
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule
+
+// =======
+
+//     NgbModule,
+
+//     HttpClientModule,
+
+//     BrowserAnimationsModule,
+//     MatDatepickerModule,
+// >>>>>>> 5a6a58d6158a7cf02290a4f5d509d7f3019cb5fe
+
+//     MatNativeDateModule,
+//     MatFormFieldModule,
+//     MatInputModule
   ],
 
 
 
   providers: [DatePipe,
-    MatMomentDateModule],
+    ],
 
 
   bootstrap: [AppComponent]

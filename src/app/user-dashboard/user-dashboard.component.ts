@@ -27,10 +27,10 @@ export class UserDashboardComponent implements OnInit {
   isEditable: boolean = false;
   loggedInUserId: number;
   loggedInUser: User = new User();
-  st: string = Status[Status.booked];
+  status:Status= Status.BOOKED;
   tickets:Ticket[];
   changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
-
+  isBooked:boolean;
   isStatus:boolean=true;
   constructor(private userService: UserService,private router:Router) {
 
@@ -110,6 +110,7 @@ export class UserDashboardComponent implements OnInit {
           console.log(this.loggedInUser);
         }
       );
+      document.getElementById("msg").innerHTML = "Information Updated";
     }
 
   }
@@ -122,6 +123,7 @@ export class UserDashboardComponent implements OnInit {
         console.log(this.loggedInUser);
       }
     );
+    document.getElementById("msgWallet").innerHTML = "Wallet Updated";
   }
 
 
@@ -206,11 +208,24 @@ export class UserDashboardComponent implements OnInit {
   }
 
   trackFunction(ticketId){
-   console.log(ticketId);
+  // console.log(ticketId);
+    
     this.tId=ticketId;
-    localStorage.setItem("ticketId",this.tId.toString());
+    // this.userService.ticketDetails(ticketId).subscribe(
+    //   fetchedTicket=>{
+    //     console.log(fetchedTicket.status)
+    //     if(fetchedTicket.status == Status.BOOKED){
+    //       this.isBooked=false;
+    //       localStorage.setItem("ticketId",this.tId.toString());
+    //       this.router.navigate(['ticketLink']);
+    //     }else{
+    //       this.isBooked=true;
+    //     }
+    //   }
+    // );
+     localStorage.setItem("ticketId",this.tId.toString());
 
-    this.router.navigate(['ticketLink']);
+     this.router.navigate(['ticketLink']);
     console.log(100);
   }
 

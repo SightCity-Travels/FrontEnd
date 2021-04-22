@@ -61,8 +61,9 @@ export class LoginComponent implements OnInit {
               .then(() => {
                 window.location.reload();
               });
-
+            
           } else if (loginUser == false) {
+
             this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
               loginAdmin => {
                 console.log(loginAdmin);
@@ -70,14 +71,24 @@ export class LoginComponent implements OnInit {
                   localStorage.setItem("adminId", this.loginDto.id.toString());
                   this.router.navigate(['adminDashBoardLink']);
                 }
+                else{
+           
+                  document.getElementById("allmsg").innerHTML="Invalid password or userid";
+                }
               }
             );
           }
+
+         
+
+
         }
       );
 
     } else {
-      alert("Please enter correct information.");
+
+      document.getElementById("allmsg").innerHTML=" Please fill all the details";
+
     }
   }
 

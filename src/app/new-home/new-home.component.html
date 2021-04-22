@@ -82,6 +82,7 @@
        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
         <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br> 
 
+
            <mat-form-field class="dt">
 
             <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney" required #dt="ngModel" [(ngModel)]=dateOfJourney >

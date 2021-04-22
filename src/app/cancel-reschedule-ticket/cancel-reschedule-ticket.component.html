@@ -6,11 +6,13 @@
     <h1 style="margin-left: 20%;">Cancel Ticket</h1>
 
     <h2>Are you sure you want to cancel your ticket ?</h2>
+    <div id="resultDiv"></div>
     <div class="">
       <button type="submit" class="signupbtn" (click)="cancelFunction()">Yes</button>
       <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button"
           class="cancelbtn">No</button></a>
-      <div id="resultDiv"></div>
+          <br>
+     
     </div>
 
   </ng-template>
