@@ -32,6 +32,9 @@ export class UserDashboardComponent implements OnInit {
   changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
   isBooked:boolean;
   isStatus:boolean=true;
+  cancelTicketId:number;
+  isShown: boolean = true;
+  isclicked:boolean;
   constructor(private userService: UserService,private router:Router) {
 
     // this.bookingDetails = [{
@@ -225,10 +228,42 @@ export class UserDashboardComponent implements OnInit {
     //   }
     // );
      localStorage.setItem("ticketId",this.tId.toString());
+     var modal = document.getElementById("myModal");
 
-     this.router.navigate(['ticketLink']);
+     // Get the button that opens the modal
+     var btn1 = document.getElementById("myBtn1");
+    
+     modal.style.display = "block";
+    var span;
+     span = document.getElementsByClassName("close")[0];
+     span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+     
+    //  this.router.navigate(['ticketLink']);
     console.log(100);
   }
+
+  cancelFunction(){
+    this.cancelTicketId=Number(localStorage.getItem("ticketId"));
+    this.isclicked=true;
+     this.userService.cancelTicket(this.cancelTicketId).subscribe(
+       result=>{
+         console.log(result);
+        //  if(result==true){
+        //   this.isShown = ! this.isShown;
+        //  }
+         document.getElementById("res").innerHTML="Your ticket has been cancelled";
+       }
+     );
+    // document.getElementById("resultDiv").innerHTML="Your ticket has been cancelled";
+ 
+   }
+   close(){
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+   }
 
 }
 

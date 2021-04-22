@@ -10,6 +10,7 @@ import { Wallet } from '../Wallet';
 import { BusService } from '../service/bus.service';
 
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 
 
@@ -32,7 +33,7 @@ mm:number;
 yy:number;
 cvv:number;
 
-  constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService) { }
+  constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService, private router:Router) { }
 
 
   passengers:Passenger[];
@@ -197,4 +198,13 @@ cvv:number;
     );
   }
 
+  viewTicket(){
+    this.router.navigate(['ticketLink'])
+    // this.router.navigate(['ticketLink']).then(()=>{
+    //   window.location.reload();
+    // });
+   
+    
+
+  }
 }

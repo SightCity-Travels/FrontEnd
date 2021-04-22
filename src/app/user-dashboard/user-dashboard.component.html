@@ -29,7 +29,7 @@
         [(ngModel)]="loggedInUser.dateOfBirth" [disabled]="!isEditable" /><br>
       Gender<br>
       <input type="radio" id="male" name="gender" value="male" name="gender" #gender="ngModel"
-        [(ngModel)]="loggedInUser.gender" [disabled]="!isEditable">Male<br> <!-- doubt part-->
+        [(ngModel)]="loggedInUser.gender">Male<br> <!-- doubt part-->
       <input type="radio" id="female" name="gender" value="female" name="gender" #gender="ngModel"
         [(ngModel)]="loggedInUser.gender" [disabled]="!isEditable">Female<br><br> <!-- doubt part-->
       Email<br>
@@ -72,7 +72,7 @@
                   <td>{{bookingdetails.totalAmount}}</td>
                   <td>{{bookingdetails.status}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
-                  <button class="btn1" style="width: 100%;" type="button"  (click)="trackFunction(bookingdetails.ticketId)">Check</button>
+                  <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"   (click)="trackFunction(bookingdetails.ticketId)">Check</button>
                 </tr>
                 <!-- [disabled]="isBooked" -->
               </table>
@@ -185,3 +185,26 @@
   </div>
 </div>
 
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+<h1 style="margin-left: 20%;">Cancel Ticket</h1>
+
+    <h2>Are you sure you want to cancel your ticket ?</h2>
+    <br>
+    
+    <div class="">
+      <div id="res" style="font-size: medium;"></div>
+      <div class="buttons"  *ngIf="isShown" >
+      <button type="submit" class="signupbtn"  (click)="cancelFunction()">Yes</button>
+      <a style="text-decoration: none; color:darkred;"><button type="button"
+          class="cancelbtn" id="close" [disabled]="isclicked==true" (click)=close()>No</button></a>
+          <br>
+        </div>
+     
+    </div>
+  </div>
+</div>

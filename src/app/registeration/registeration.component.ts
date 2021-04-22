@@ -99,12 +99,8 @@ checkPassword() {
       // console.log(this.user); //obj will be sent to server thru Api calls
       // Get the modal
       var modal = document.getElementById("myModal1");
-
-
-      
         modal.style.display = "block";
-      
-
+    
       // Get the button that opens the modal
       var btn1 = document.getElementById("btn1");
       btn1.onclick = function () {
