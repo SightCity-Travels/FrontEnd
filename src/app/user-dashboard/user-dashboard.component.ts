@@ -45,6 +45,9 @@ export class UserDashboardComponent implements OnInit {
   ngOnInit(): void {
     
     this.loggedInUserId = Number(localStorage.getItem("userId"));
+    if(this.loggedInUserId ==0){
+      this.router.navigate(['loginLink']);
+    }
     console.log(this.loggedInUserId+" of current user");
     this.userService.getUserByUserId(this.loggedInUserId).subscribe(
       fetchedUser => {
