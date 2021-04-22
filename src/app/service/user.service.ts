@@ -67,4 +67,7 @@ export class UserService {
     return this.httpClient.get<boolean>("http://localhost:9090/paythroughwallet?userId="+userId+"&amount="+fare);
   }
 
+  sendEmail(ticketId:number):Observable<boolean>{
+    return this.httpClient.get<boolean>("http://localhost:9090/sendEmail?ticketId="+ticketId);
+  }
 }
