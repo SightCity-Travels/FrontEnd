@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
 
  
 
- isStatus:Boolean;
-
+ isStatus:Boolean=true;
+ status:boolean;
 userId:number;
  
   constructor(private service:UserService, private router:Router) { 
@@ -30,7 +30,8 @@ userId:number;
   }
   ngOnInit(): void {
   
-  
+
+   
   }
 
   signOut(){
@@ -38,7 +39,8 @@ userId:number;
     // localStorage.clear();
 
     localStorage.removeItem("userId");
-    localStorage.setItem("status",false.valueOf.toString())
+ //   this.status=false;
+  //  localStorage.setItem("status",false.valueOf.toString())
 
     this.isStatus=false;
     console.log(this.userId);

@@ -76,6 +76,6 @@ cTicketId:number;
     localStorage.setItem("cancelTicketId",this.cTicketId.toString());
   
   }
- 
+    
 
 }
