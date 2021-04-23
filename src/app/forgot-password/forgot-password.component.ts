@@ -31,8 +31,8 @@ export class ForgotPasswordComponent implements OnInit {
         reset=>{
           console.log(reset);
           if (reset!=null) {
-            localStorage.setItem("Id", this.loginforgetdto.id.toString());
-            localStorage.setItem("email", this.loginforgetdto.email.toString());
+            sessionStorage.setItem("Id", this.loginforgetdto.id.toString());
+            sessionStorage.setItem("email", this.loginforgetdto.email.toString());
             document.getElementById("emaillink").innerHTML="A link has been sent to your mail";
 
             // this.router.navigate(['homeLink']);
