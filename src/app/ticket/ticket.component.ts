@@ -19,7 +19,7 @@ export class TicketComponent implements OnInit {
    
 
 ticketId:number;
-//ticketId=Number(localStorage.getItem("ticketId"));
+//ticketId=Number(sessionStorage.getItem("ticketId"));
 ticket:Ticket;
 details;
 passengerList:Passenger[];
@@ -34,7 +34,7 @@ isLoggedIn:boolean;
 
 
   ngOnInit(): void {
-    this.ticketId=Number(localStorage.getItem("ticketId"));
+    this.ticketId=Number(sessionStorage.getItem("ticketId"));
 
 
     this.service.ticketDetails(this.ticketId).subscribe(
@@ -84,11 +84,12 @@ isLoggedIn:boolean;
     });  
   } 
 
-  // cancelTicketId(ticketId){
-  //   this.cTicketId=ticketId;
-  //   localStorage.setItem("cancelTicketId",this.cTicketId.toString());
+  cancelTicketId(ticketId){
+    this.cTicketId=ticketId;
+    sessionStorage.setItem("cancelTicketId",this.cTicketId.toString());
+  }
   
-  // }
+ 
  cancelfn(){
   
   var modal = document.getElementById("myModal");

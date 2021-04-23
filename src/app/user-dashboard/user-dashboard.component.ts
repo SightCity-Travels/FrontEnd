@@ -47,8 +47,7 @@ export class UserDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
-    this.loggedInUserId = Number(localStorage.getItem("userId"));
+    this.loggedInUserId = Number(sessionStorage.getItem("userId"));
     console.log(this.loggedInUserId+" of current user");
     this.userService.getUserByUserId(this.loggedInUserId).subscribe(
       fetchedUser => {
@@ -197,7 +196,7 @@ export class UserDashboardComponent implements OnInit {
 
   // signOut(){
   //  this.isStatusD=false;
-  //  localStorage.setItem("isStatusD",this.isStatusD.toString());
+  //  sessionStorage.setItem("isStatusD",this.isStatusD.toString());
   //  this.router.navigate(['homeLink'])
   //  .then(() => {
   //    window.location.reload();
@@ -205,10 +204,9 @@ export class UserDashboardComponent implements OnInit {
   // }
   signOut(){
     console.log(this.loggedInUserId);
-    // localStorage.removeItem("userId");
-    localStorage.clear();
+    // sessionStorage.removeItem("userId");
+    sessionStorage.clear();
     this.isStatus=false;
-
     this.router.navigate(['homeLink']);
     
   }
@@ -222,15 +220,16 @@ export class UserDashboardComponent implements OnInit {
     //     console.log(fetchedTicket.status)
     //     if(fetchedTicket.status == Status.BOOKED){
     //       this.isBooked=false;
-    //       localStorage.setItem("ticketId",this.tId.toString());
+    //       sessionStorage.setItem("ticketId",this.tId.toString());
     //       this.router.navigate(['ticketLink']);
     //     }else{
     //       this.isBooked=true;
     //     }
     //   }
     // );
-     localStorage.setItem("ticketId",this.tId.toString());
-    //  var modal = document.getElementById("myModal");
+
+    sessionStorage.setItem("ticketId",this.tId.toString());
+
 
     //  // Get the button that opens the modal
     //  var btn1 = document.getElementById("myBtn1");

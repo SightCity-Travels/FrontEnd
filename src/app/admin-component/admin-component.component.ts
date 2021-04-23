@@ -156,12 +156,13 @@ export class AdminComponentComponent implements OnInit {
     // this.busService.getBusById(this.updateBus.busId).subscribe(
     //   fetchedBus => {
     //     this.fetchedBus = fetchedBus;
-    //     localStorage.setItem("fetchedBus", this.fetchedBus.toString());
+    //     sessionStorage.setItem("fetchedBus", this.fetchedBus.toString());
     //     console.log(this.fetchedBus);
     //   }
     // );
 
-    // this.updateddBus = JSON.parse(localStorage.getItem("fetchedBus"));
+    
+    // this.updateddBus = JSON.parse(sessionStorage.getItem("fetchedBus"));
     // this.updateddBus.source = this.updateBus.source;
     // this.updateddBus.destination = this.updateBus.destination;
     // this.updateddBus.fare = this.updateBus.fare;
@@ -232,7 +233,7 @@ export class AdminComponentComponent implements OnInit {
 
  
 
-  adminId = Number(localStorage.getItem("adminId"));
+  adminId = Number(sessionStorage.getItem("adminId"));
   busList: Bus[];
 
   ngOnInit(): void {
@@ -313,8 +314,8 @@ export class AdminComponentComponent implements OnInit {
 
   signOut(){
     console.log(this.loggedInAdminId);
-    // localStorage.removeItem("userId");
-    localStorage.clear();
+    // sessionStorage.removeItem("userId");
+    sessionStorage.clear();
     // this.isStatus=false;
 
     this.router.navigate(['homeLink']);

@@ -22,9 +22,9 @@ export class SearchedBusListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.source=String(localStorage.getItem('source'));
-    this.destination=String(localStorage.getItem('destination'));
-    this.dateValue=Date.parse(localStorage.getItem('dateOfJourney'));
+    this.source=String(sessionStorage.getItem('source'));
+    this.destination=String(sessionStorage.getItem('destination'));
+    this.dateValue=Date.parse(sessionStorage.getItem('dateOfJourney'));
     this.dateOfJourney= new Date(this.dateValue).toLocaleDateString();
   
     this.busService.searchBusList(this.source,this.destination).subscribe(
@@ -39,7 +39,7 @@ export class SearchedBusListComponent implements OnInit {
   busSelect(busID){
     // console.log(busID);
     this.selectedBusId=busID;
-    localStorage.setItem("selectedBusId",this.selectedBusId.toString());
+    sessionStorage.setItem("selectedBusId",this.selectedBusId.toString());
   
     this.router.navigate(['seatBookingLink']).then(()=>{
       window.location.reload();

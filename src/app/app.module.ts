@@ -36,6 +36,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 
 
@@ -62,6 +63,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookedTicketComponent,
     NewHomeComponent,
     ContactUsComponent,
+    ResetpasswordComponent,
 
   ],
   imports: [

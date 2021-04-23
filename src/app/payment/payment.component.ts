@@ -33,7 +33,9 @@ mm:number;
 yy:number;
 cvv:number;
 
-  constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService, private router:Router) { }
+
+  constructor(public datepipe: DatePipe, private busService:BusService, private userService:UserService,private router:Router) { }
+
 
 
   passengers:Passenger[];
@@ -58,15 +60,16 @@ cvv:number;
   //ticket info
 
   ngOnInit() {
-    this.passengers=JSON.parse(localStorage.getItem("listOfPassenger"));
-    this.emailOfPassenger=localStorage.getItem("emailOfPassenger");
-    this.busId=Number(localStorage.getItem("selectedBusId"));
-    this.dateValue = (localStorage.getItem('dateOfJourney'));
+    
+    this.passengers=JSON.parse(sessionStorage.getItem("listOfPassenger"));
+    this.emailOfPassenger=sessionStorage.getItem("emailOfPassenger");
+    this.busId=Number(sessionStorage.getItem("selectedBusId"));
+    this.dateValue = (sessionStorage.getItem('dateOfJourney'));
     this.dateOfJourney = String(this.datepipe.transform(this.dateValue, 'yyyy-MM-dd'));
-    this.totalFare= Number(localStorage.getItem("totalFare"));
-    this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
+    this.totalFare= Number(sessionStorage.getItem("totalFare"));
+    this.fetchedSeatInfo = JSON.parse(sessionStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
-    this.userId=Number(localStorage.getItem("userId"));
+    this.userId=Number(sessionStorage.getItem("userId"));
     this.ticket.travelDate=this.dateOfJourney;
     this.ticket.totalAmount=this.totalFare;
     this.ticket.email=this.emailOfPassenger;
@@ -74,7 +77,9 @@ cvv:number;
     this.ticket.status=this.status;
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
-   
+    if(this.userId ==0){
+      this.router.navigate(['loginLink']);
+    }
 
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -145,7 +150,7 @@ cvv:number;
 
   
   checkwallet(){
-    if( localStorage.getItem("userId") !== null){
+    if( sessionStorage.getItem("userId") !== null){
       this.isLoggedIn=true;
       this.userService.payByWallet(this.userId,this.totalFare).subscribe(
         fetchedres=>{
@@ -162,7 +167,7 @@ cvv:number;
                     );
                   }
                   console.log(JSON.stringify(this.finalBookedTicket));
-                  localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
+                  sessionStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
                 }
               );
               var modal = document.getElementById("myModal");
@@ -181,7 +186,7 @@ cvv:number;
       //   fetchedTicket=>{
       //     this.finalBookedTicket=fetchedTicket;
       //     console.log(JSON.stringify(this.finalBookedTicket));
-      //     localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
+      //     sessionStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
       //   }
       // );
   
@@ -207,7 +212,7 @@ cvv:number;
             );
           }
         console.log(JSON.stringify(this.finalBookedTicket));
-        localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
+        sessionStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
       }
     );
   }
