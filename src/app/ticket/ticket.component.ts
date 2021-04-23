@@ -8,6 +8,7 @@ import { BusService } from '../service/bus.service';
 import { Bus } from '../Bus';
 import { Ticket } from '../Ticket';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ticket',
@@ -27,8 +28,13 @@ bus:Bus;
 cTicketId:number;
 isclicked:boolean;
 isLoggedIn:boolean;
-//isCancelled:boolean=false;
 
+//isCancelled:boolean=false;
+control = new FormControl();
+
+minDate = new Date();
+
+dateOfJourney: Date;
 
   constructor(private service:UserService, private busService:BusService,private router:Router) { }
 
@@ -103,7 +109,7 @@ isLoggedIn:boolean;
       
     }
 
-  if( localStorage.getItem("userId") !== null){
+  if( sessionStorage.getItem("userId") !== null){
     this.isLoggedIn=true;
     
   }else{
@@ -133,6 +139,17 @@ cancelFunction(){
 close(){
   var modal = document.getElementById("myModal");
   modal.style.display = "none";
+ }
+
+ reschedule(){
+  var modal = document.getElementById("myModal1");
+  modal.style.display = "block";
+  var span;
+  span = document.getElementsByClassName("close")[1];
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
  }
 
 }
