@@ -2,11 +2,11 @@
   <div id="downloadPdf">
     <button (click)="captureScreen()">Download as Pdf</button>
   </div>
- 
+
   <div class="ticketContainer" id="printThisTicket">
     <img class="logo" src="../assets/logo for ticket.png" width="100px" height="80px">
     <p>Contact Us. +91 1234 567 890</p>
- 
+
     <br><br><br><br>
     <hr>
     <br>
@@ -17,20 +17,20 @@
         <th>Ticket Id : {{ticket.ticketId}}</th>
       </tr>
     </table>
- 
+
     <div class="passengerDiv">
       <table>
         <div class="titlePassenger">
-          <tr >
+          <tr>
             <th>Passenger Name</th>
             <th>Seat Number</th>
             <th>Age</th>
             <th>Passenger Id</th>
           </tr>
         </div>
-      
-        <div class="listPassenger" >
-          <tr  *ngFor="let p of passengerList">
+
+        <div class="listPassenger">
+          <tr *ngFor="let p of passengerList">
             <td>{{p.passengerName}}</td>
             <td> {{p.seatNo}} </td>
             <td> {{p.passengerAge}} </td>
@@ -53,7 +53,7 @@
             <td> 22 </td>
             <td> 3001</td>
           </tr>
-        </div> --> 
+        </div> -->
       </table>
     </div>
     <div class="busInfoBar">
@@ -65,7 +65,7 @@
         </tr>
       </table>
     </div>
- 
+
     <div class="jouneyInfoBar">
       <table>
         <tr>
@@ -75,13 +75,23 @@
         </tr>
       </table>
     </div>
- 
+
   </div>
 
-  <div >
-    <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']" ><button type="submit" class="signupbtn" class="button" style="margin-right: 40px;">Reschedule</button></a>
-    <a style="text-decoration: none; color: white;" id="myBtn"><button type="button" class="cancelbtn" class="button" (click)="cancelfn()" >Cancel</button></a>
-    
+  <div>
+    <a style="text-decoration: none; color: white;" ><button type="submit" class="signupbtn" (click)="modal()" class="button" style="margin-right: 40px;">Reschedule</button></a>
+    <a style="text-decoration: none; color: white;" id="myBtn"><button type="button" class="cancelbtn" class="button"
+        (click)="cancelfn()">Cancel</button></a>
+     <!-- <div id="date">
+      <mat-form-field class="dt">
+
+        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE to Reschedule"
+          name="dateOfJourney" required #dt="ngModel" [(ngModel)]=dateOfReschedule>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button type="submit">Okay</button>
+    </div>  -->
   </div>
 </div>
 <div style="margin-top:60px ;"></div>
@@ -91,115 +101,136 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span> 
+    <span class="close">&times;</span>
 
-    
+
     <div *ngIf=" isLoggedIn then loggedIn else notRegistered">
       <div *ngIf=" isCancelled then cancel else loggedIn">
 
       </div>
     </div>
-  <ng-template #loggedIn>
-    <h1 style="margin-left: 20%;">Cancel Ticket</h1>
+    <ng-template #loggedIn>
+      <h1 style="margin-left: 20%;">Cancel Ticket</h1>
 
-    <h2>Are you sure you want to cancel your ticket ?</h2>
-    <div id="resultDiv"></div>
-    <div >
+      <h2>Are you sure you want to cancel your ticket ?</h2>
+      <div id="resultDiv"></div>
+      <div>
+        <br>
+        <button type="button" class="button" [disabled]="isclicked==true" (click)="close()">No</button>
+        <button type="submit" class="button" (click)="cancelFunction()">Yes</button>
+
+        <br><br>
+        <!-- //(click)="close()" -->
+      </div>
+
+    </ng-template>
+    <ng-template #notRegistered>
+      <h1 style="margin-left: 20%;">Cancel Ticket</h1>
+      <!-- <span style="margin-left: 15%;"> -->
+      <h2>Are you sure you want to cancel your ticket ?</h2>
+      <h3><b>Please Login to get your refund in your wallet.</b></h3>
+      <!-- </span> -->
       <br>
-      <button type="button"class="button" [disabled]="isclicked==true"  (click)="close()">No</button>
-      <button type="submit" class="button"  (click)="cancelFunction()">Yes</button>
-     
-          <br><br>
-          <!-- //(click)="close()" -->
-    </div>
+      <br>
+      <div class="">
 
-  </ng-template>
-  <ng-template #notRegistered>
-    <h1 style="margin-left: 20%;">Cancel Ticket</h1>
-    <!-- <span style="margin-left: 15%;"> -->
-    <h2>Are you sure you want to cancel your ticket ?</h2>
-    <h3><b>Please Login to get your refund in your wallet.</b></h3>
-  <!-- </span> -->
-  <br>
-  <br>
-    <div class="">
-    
-      <a style="text-decoration: none; color: white;"><button type="button"
-          class="button" (click)="close()">Cancel</button></a>
-          <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
-    </div>
-    <br>
-    <br>
-    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+        <a style="text-decoration: none; color: white;"><button type="button" class="button"
+            (click)="close()">Cancel</button></a>
+        <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
+      </div>
+      <br>
+      <br>
+      <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
 
-    <!-- <div>
+      <!-- <div>
  <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
   </div> -->
 
-    <br>
+      <br>
 
-    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" 
+      <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" 
         style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>-->
 
-  </ng-template>
+    </ng-template>
 
-  <ng-template #cancel>
-    <h2>Your ticket has been cancelled</h2>
+    <ng-template #cancel>
+      <h2>Your ticket has been cancelled</h2>
       <br>
-      <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button >OK</button></a>
-  </ng-template>
+      <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button>OK</button></a>
+    </ng-template>
+
+
+    <div id="myModal1" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+
+
+        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
+          <span style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br>
+        <mat-form-field class="dt">
+          <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney"
+            required #dt="ngModel" [(ngModel)]=dateOfReschedule>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+    </div> 
+
+  <!-- </div>
+</div> -->
+
 
 </div>
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Your ticket has been cancelled</h2>
+    <br>
+    <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button>OK</button></a>
   </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div id="myModal" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Your ticket has been cancelled</h2>
-      <br>
-      <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button >OK</button></a>
-    </div>
-    </div>
-  
 
 
 <div style="margin-top:150px ;"></div>

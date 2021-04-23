@@ -75,4 +75,9 @@ export class UserService {
   reset(loginforgetdto:LoginForgetDto):Observable<User>{
     return this.httpClient.post<User>("http://localhost:9090/loginforgetpassword",loginforgetdto);
   }
+
+  reschedule(ticketId:number,travelDate:Date,seats:String[]):Observable<Ticket>{
+    return this.httpClient.put<Ticket>("http://localhost:9090/reschedule?ticketId="+ticketId+"&travelDate="+travelDate,seats);
+  }
+
 }

@@ -13,6 +13,7 @@ import { PassengerDetailsComponent } from './passenger-details/passenger-details
 import { PaymentComponent } from './payment/payment.component';
 
 import { RegisterationComponent } from './registeration/registeration.component';
+import { RescheduleSeatBookingComponent } from './reschedule-seat-booking/reschedule-seat-booking.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { SearchedBusListComponent } from './searched-bus-list/searched-bus-list.component';
 import { SeatBookingComponent } from './seat-booking/seat-booking.component';
@@ -82,6 +83,9 @@ const routes: Routes = [
 },
 {
   path:'forgotLink',component:ResetpasswordComponent
+},
+{
+  path:'rescheduleSeat', component:RescheduleSeatBookingComponent
 }
 
 ];

@@ -1,21 +1,18 @@
-import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
-import { Bus } from '../Bus';
-
-
-
 import { DatePipe } from '@angular/common';
-import { Passenger } from '../passenger';
-import { BusService } from '../service/bus.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
-
+import { Bus } from '../model/Bus';
+import { Ticket } from '../model/Ticket';
+import { BusService } from '../service/bus.service';
+import { UserService } from '../service/user.service';
 
 @Component({
-  selector: 'app-seat-booking',
-  templateUrl: './seat-booking.component.html',
-  styleUrls: ['./seat-booking.component.css']
+  selector: 'app-reschedule-seat-booking',
+  templateUrl: './reschedule-seat-booking.component.html',
+  styleUrls: ['./reschedule-seat-booking.component.css']
 })
-export class SeatBookingComponent implements OnInit {
+export class RescheduleSeatBookingComponent implements OnInit {
+
   bookedSeats: string[] = [];
   selectedSeatCount: number = 0;
   isSeatSelected: boolean = true;
@@ -26,17 +23,35 @@ export class SeatBookingComponent implements OnInit {
   dateOfJourney;
   busId: number;
   selectedBus: Bus;
+  rescheduleTicketId: number;
+  rescheduleTicket: Ticket;
+  noOfPassengers:number;
   // alreadyBookedPassenger:passenger[];
 
-  constructor(private busService: BusService, public datepipe: DatePipe, private router: Router) { }
+  constructor(private busService: BusService, public datepipe: DatePipe, private router: Router, private userService: UserService) { }
 
 
   ngOnInit(): void {
-    
+    this.rescheduleTicketId = Number(sessionStorage.getItem("rescheduleTicketId"));
+
+    console.log(this.rescheduleTicketId);
+    this.userService.ticketDetails(this.rescheduleTicketId).subscribe(
+      fetchedTicket => {
+        this.rescheduleTicket = fetchedTicket;
+        sessionStorage.setItem("noOfPassengers",this.rescheduleTicket.noOfPassengers.toString());
+        console.log(this.rescheduleTicket.noOfPassengers)
+      }
+    );
+
+    this.noOfPassengers=Number(sessionStorage.getItem("noOfPassengers"));
+    // this.selectedSeatCount = this.rescheduleTicket.noOfPassengers;
+
+
     // if(Number(sessionStorage.getItem("rescheduleTicketId")) != 0){
     // this.selectedSeatsList.size 
     // }
     this.busId = Number(sessionStorage.getItem("selectedBusId"));
+    console.log(this.busId);
     // this.dateValue=Date.parse
 
     this.dateValue = (sessionStorage.getItem('dateOfJourney'));
@@ -76,23 +91,23 @@ export class SeatBookingComponent implements OnInit {
     if (selectedSeat.classList.contains("selected")) {
       selectedSeat.classList.remove("selected");
       this.selectedSeatCount--;
-  
-      
+ // console.log(this.selectedSeatCount);
+
     }
     else if (selectedSeat.classList.contains("occupied")) {
-          
+
     }
     else {
       selectedSeat.classList.toggle("selected");
       this.selectedSeatCount++;
-    //  console.log(2);
+   //    console.log(this.selectedSeatCount);
     }
 
-   
+
 
     if (selectedSeat.classList.contains("selected")) {
       this.selectedSeatsList.add(selectedSeat.id);
-    //  console.log(3);
+      //  console.log(3);
 
     }
     else if (selectedSeat.classList.contains("occupied")) {
@@ -100,7 +115,7 @@ export class SeatBookingComponent implements OnInit {
     }
     else {
       this.selectedSeatsList.delete(selectedSeat.id);
-    //  console.log(4);
+      //  console.log(4);
     }
 
 
@@ -109,25 +124,16 @@ export class SeatBookingComponent implements OnInit {
 
     console.log(this.totalAmount);
 
-
-  //  this.loopB=true;
-
-      
- // console.log(this.loop);
-  
+    console.log(this.noOfPassengers);
+    console.log(this.selectedSeatCount);
     
-      
-
     //this code is to disable button until and unless the seat is selected
-    if (this.selectedSeatCount != 0) {
+    if (this.selectedSeatCount == this.noOfPassengers) {
+      this.isSeatSelected = false;
 
-
-        this.isSeatSelected = false;
-         
-         
-      }else {
+    } else {
       this.isSeatSelected = true;
-     }
+    }
 
   }
 
@@ -137,16 +143,26 @@ export class SeatBookingComponent implements OnInit {
 
   //this function is to set passenger number and route to passenger page
   sendDataOfSeats() {
-    
-      const selectedSeatsArray = Array.from(this.selectedSeatsList);
-      //selectedSeatsArray.length = 3;
-      sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
-      sessionStorage.setItem("totalFare", this.totalAmount.toString());
 
-      this.router.navigate(['passengerDetailsLink']);
+    const selectedSeatsArray = Array.from(this.selectedSeatsList);
+    //selectedSeatsArray.length = 3;
+    sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
+    sessionStorage.setItem("totalFare", this.totalAmount.toString());
     
+   // this.router.navigate(['passengerDetailsLink']);
+    this.userService.reschedule(this.rescheduleTicketId,this.dateOfJourney,selectedSeatsArray).subscribe(
+     returnedTicket=>{
+       console.log(returnedTicket);
+       this.router.navigate(['ticketLink']);
+     }
 
-    
+    );
+     
+
   }
+   
+  // if (ticket.getTravelDate().isBefore(LocalDate.now())) {
+  //   return false;
+  // } else {
 
 }

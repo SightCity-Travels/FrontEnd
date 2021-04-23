@@ -251,7 +251,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   cancelFunction(){
-    this.cancelTicketId=Number(localStorage.getItem("ticketId"));
+    this.cancelTicketId=Number(sessionStorage.getItem("ticketId"));
     this.isclicked=true;
     
      this.userService.cancelTicket(this.cancelTicketId).subscribe(

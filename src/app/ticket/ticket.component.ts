@@ -19,6 +19,7 @@ export class TicketComponent implements OnInit {
    
 
 ticketId:number;
+rescheduleTicketId:number;
 //ticketId=Number(sessionStorage.getItem("ticketId"));
 ticket:Ticket;
 details;
@@ -28,6 +29,8 @@ cTicketId:number;
 isclicked:boolean;
 isLoggedIn:boolean;
 //isCancelled:boolean=false;
+dateOfReschedule:Date;
+minDate = new Date();
 
 
   constructor(private service:UserService, private busService:BusService,private router:Router) { }
@@ -35,7 +38,9 @@ isLoggedIn:boolean;
 
   ngOnInit(): void {
     this.ticketId=Number(sessionStorage.getItem("ticketId"));
-
+    this.rescheduleTicketId=Number(sessionStorage.getItem("ticketId"));
+   console.log(this.rescheduleTicketId)
+   sessionStorage.setItem("rescheduleTicketId",this.rescheduleTicketId.toString());
 
     this.service.ticketDetails(this.ticketId).subscribe(
       
@@ -104,7 +109,7 @@ isLoggedIn:boolean;
       
     }
 
-  if( localStorage.getItem("userId") !== null){
+  if( sessionStorage.getItem("userId") !== null){
     this.isLoggedIn=true;
     
   }else{
@@ -136,5 +141,34 @@ close(){
   modal.style.display = "none";
  }
 
+ reschedule(){
+   
+  // var modal = document.getElementById("myModal1");
+  // modal.style.display = "block";
+  // var span;
+  // span = document.getElementsByClassName("close")[0];
+  // span.onclick = function() {
+  //   modal.style.display = "none";
+  // }
+ // document.getElementById("date");
+  sessionStorage.setItem("dateOfJourney",this.dateOfReschedule.toString());
+  sessionStorage.setItem("selectedBusId",this.bus.busId.toString());
+  this.router.navigate(['rescheduleSeat']);
 
-}
+  // var modal = document.getElementById("myModal1");
+  // var btn3 = document.getElementById("rescheduleBtn");
+ 
+  //   modal.style.display = "block";
+  //   var span;
+  //    span = document.getElementsByClassName("close")[0];
+  //    span.onclick = function () {
+  //    modal.style.display = "none";
+      
+    }
+
+ // this.dateOfReschedule='2021-04-25';
+
+ }
+
+
+
