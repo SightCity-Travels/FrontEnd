@@ -31,22 +31,22 @@ export class SeatBookingComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.busId = Number(localStorage.getItem("selectedBusId"));
+    this.busId = Number(sessionStorage.getItem("selectedBusId"));
     // this.dateValue=Date.parse
 
-    this.dateValue = (localStorage.getItem('dateOfJourney'));
+    this.dateValue = (sessionStorage.getItem('dateOfJourney'));
     this.dateOfJourney = this.datepipe.transform(this.dateValue, 'yyyy-MM-dd');
     // console.log(this.dateOfJourney);
 
     this.busService.fetchBookedSeats(this.dateOfJourney, this.busId).subscribe(
       fetchedSeatList => {
         this.bookedSeats = fetchedSeatList;
-        localStorage.setItem("seatList", JSON.stringify(this.bookedSeats))
+        sessionStorage.setItem("seatList", JSON.stringify(this.bookedSeats))
       }
     );
 
 
-    this.bookedSeats = JSON.parse(localStorage.getItem("seatList"));
+    this.bookedSeats = JSON.parse(sessionStorage.getItem("seatList"));
     //console.log(this.bookedSeats);
   
 
@@ -112,8 +112,8 @@ export class SeatBookingComponent implements OnInit {
   //this function is to set passenger number and route to passenger page
   sendDataOfSeats() {
     const selectedSeatsArray = Array.from(this.selectedSeatsList);
-    localStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
-    localStorage.setItem("totalFare", this.totalAmount.toString());
+    sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
+    sessionStorage.setItem("totalFare", this.totalAmount.toString());
   
     this.router.navigate(['passengerDetailsLink']);
   }

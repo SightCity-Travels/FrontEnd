@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
         loginUser => {
           console.log(loginUser);
           if (loginUser == true) {
-            localStorage.setItem("userId", this.loginDto.id.toString());
-            localStorage.setItem("status", true.valueOf.toString());
+            sessionStorage.setItem("userId", this.loginDto.id.toString());
+            sessionStorage.setItem("status", true.valueOf.toString());
             // this.router.navigate(['homeLink']);
             this.router.navigate(['userDashBoard'])
               .then(() => {
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
               loginAdmin => {
                 console.log(loginAdmin);
                 if (loginAdmin == true) {
-                  localStorage.setItem("adminId", this.loginDto.id.toString());
+                  sessionStorage.setItem("adminId", this.loginDto.id.toString());
                   this.router.navigate(['adminDashBoardLink']);
                 }
                 else{

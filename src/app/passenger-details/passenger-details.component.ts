@@ -20,7 +20,7 @@ export class PassengerDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchedSeatInfo = JSON.parse(localStorage.getItem("seatsOfPassengers"));
+    this.fetchedSeatInfo = JSON.parse(sessionStorage.getItem("seatsOfPassengers"));
     this.numberOfPassengers = this.fetchedSeatInfo.length;
     for (let i = 0; i < this.numberOfPassengers; i++) {
       console.log(this.fetchedSeatInfo[i]);
@@ -51,8 +51,8 @@ export class PassengerDetailsComponent implements OnInit {
 
   proceedToPay(contactForm: NgForm) {
     if (contactForm.valid &&  this.numberOfPassengers<=0) {
-      localStorage.setItem("emailOfPassenger", this.emailOfPassenger);
-      localStorage.setItem("listOfPassenger", JSON.stringify(this.allPassengerList));
+      sessionStorage.setItem("emailOfPassenger", this.emailOfPassenger);
+      sessionStorage.setItem("listOfPassenger", JSON.stringify(this.allPassengerList));
       this.router.navigate(['paymentLink']);
     }
     else {

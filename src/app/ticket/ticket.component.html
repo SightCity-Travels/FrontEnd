@@ -80,8 +80,126 @@
 
   <div >
     <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']" ><button type="submit" class="signupbtn" class="button" style="margin-right: 40px;">Reschedule</button></a>
-    <a style="text-decoration: none; color: white;" [routerLink]="['/cancelLink']"><button type="button" class="cancelbtn" class="button" (click)="cancelTicketId(ticket.ticketId)" >Cancel</button></a>
+    <a style="text-decoration: none; color: white;" id="myBtn"><button type="button" class="cancelbtn" class="button" (click)="cancelfn()" >Cancel</button></a>
     
   </div>
 </div>
 <div style="margin-top:60px ;"></div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span> 
+
+    
+    <div *ngIf=" isLoggedIn then loggedIn else notRegistered">
+      <div *ngIf=" isCancelled then cancel else loggedIn">
+
+      </div>
+    </div>
+  <ng-template #loggedIn>
+    <h1 style="margin-left: 20%;">Cancel Ticket</h1>
+
+    <h2>Are you sure you want to cancel your ticket ?</h2>
+    <div id="resultDiv"></div>
+    <div >
+      <br>
+      <button type="button"class="button" [disabled]="isclicked==true"  (click)="close()">No</button>
+      <button type="submit" class="button"  (click)="cancelFunction()">Yes</button>
+     
+          <br><br>
+          <!-- //(click)="close()" -->
+    </div>
+
+  </ng-template>
+  <ng-template #notRegistered>
+    <h1 style="margin-left: 20%;">Cancel Ticket</h1>
+    <!-- <span style="margin-left: 15%;"> -->
+    <h2>Are you sure you want to cancel your ticket ?</h2>
+    <h3><b>Please Login to get your refund in your wallet.</b></h3>
+  <!-- </span> -->
+  <br>
+  <br>
+    <div class="">
+    
+      <a style="text-decoration: none; color: white;"><button type="button"
+          class="button" (click)="close()">Cancel</button></a>
+          <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
+    </div>
+    <br>
+    <br>
+    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+
+    <!-- <div>
+ <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
+  </div> -->
+
+    <br>
+
+    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" 
+        style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>-->
+
+  </ng-template>
+
+  <ng-template #cancel>
+    <h2>Your ticket has been cancelled</h2>
+      <br>
+      <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button >OK</button></a>
+  </ng-template>
+
+</div>
+
+    
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Your ticket has been cancelled</h2>
+      <br>
+      <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button >OK</button></a>
+    </div>
+    </div>
+  
+
+
+<div style="margin-top:150px ;"></div>

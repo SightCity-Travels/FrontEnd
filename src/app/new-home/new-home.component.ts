@@ -22,7 +22,7 @@ export class NewHomeComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem("userId"));
+    console.log(sessionStorage.getItem("userId"));
     var myIndex = 0;
     carousel();
     function carousel() {
@@ -56,9 +56,9 @@ export class NewHomeComponent implements OnInit {
     }
     else if (searchBusForm.valid) {
 
-      localStorage.setItem("source", this.source.toString());
-      localStorage.setItem("destination", this.destination.toString());
-      localStorage.setItem("dateOfJourney", this.dateOfJourney.toString());
+      sessionStorage.setItem("source", this.source.toString());
+      sessionStorage.setItem("destination", this.destination.toString());
+      sessionStorage.setItem("dateOfJourney", this.dateOfJourney.toString());
       this.router.navigate(['searchBus']);
     }
     else {
