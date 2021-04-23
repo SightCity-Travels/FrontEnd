@@ -15,7 +15,7 @@ export class TrackTicketComponent implements OnInit {
   }
 
   trackTicket(){
-    localStorage.setItem("ticketId",this.ticketId.toString());
+    sessionStorage.setItem("ticketId",this.ticketId.toString());
     this.router.navigate(['ticketLink']);
   }
 

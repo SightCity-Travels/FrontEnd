@@ -7,6 +7,7 @@ import { Passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
 import { Bus } from '../Bus';
 import { Ticket } from '../Ticket';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket',
@@ -17,17 +18,17 @@ export class TicketComponent implements OnInit {
   
 
 ticketId:number;
-//ticketId=Number(localStorage.getItem("ticketId"));
+//ticketId=Number(sessionStorage.getItem("ticketId"));
 ticket:Ticket;
 details;
 passengerList:Passenger[];
 bus:Bus;
 cTicketId:number;
 
-  constructor(private service:UserService, private busService:BusService) { }
+  constructor(private service:UserService, private busService:BusService,private router:Router) { }
 
   ngOnInit(): void {
-    this.ticketId=Number(localStorage.getItem("ticketId"));
+    this.ticketId=Number(sessionStorage.getItem("ticketId"));
 
     this.service.ticketDetails(this.ticketId).subscribe(
       fetchedTicket=>{
@@ -73,7 +74,7 @@ cTicketId:number;
 
   cancelTicketId(ticketId){
     this.cTicketId=ticketId;
-    localStorage.setItem("cancelTicketId",this.cTicketId.toString());
+    sessionStorage.setItem("cancelTicketId",this.cTicketId.toString());
   
   }
  
