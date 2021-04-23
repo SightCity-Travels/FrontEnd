@@ -362,6 +362,15 @@
     
     padding-bottom: 20px;
   }
+  .columns {
+    float: left;
+    width: 30%;
+    margin-bottom: 16px;
+    margin-left: 40px;
+    /* padding: 1px; */
+  }
+  
+
   
 
 html, body { height: 100%; }
