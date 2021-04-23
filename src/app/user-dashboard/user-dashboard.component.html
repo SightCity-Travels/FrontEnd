@@ -1,5 +1,5 @@
 
-<div class="tab" style="margin-bottom: 25em;">
+<div class="tab" style="margin-bottom: 20em" >
 
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
       aria-hidden="true"></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</button>
@@ -29,7 +29,7 @@
         [(ngModel)]="loggedInUser.dateOfBirth" [disabled]="!isEditable" /><br>
       Gender<br>
       <input type="radio" id="male" name="gender" value="male" name="gender" #gender="ngModel"
-        [(ngModel)]="loggedInUser.gender" [disabled]="!isEditable">Male<br> <!-- doubt part-->
+        [(ngModel)]="loggedInUser.gender">Male<br> <!-- doubt part-->
       <input type="radio" id="female" name="gender" value="female" name="gender" #gender="ngModel"
         [(ngModel)]="loggedInUser.gender" [disabled]="!isEditable">Female<br><br> <!-- doubt part-->
       Email<br>
@@ -48,7 +48,7 @@
 </div>
 
 
-  <div id="Bookings" class="tabcontent">
+  <div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
           
       <div class="card">
 
@@ -72,13 +72,14 @@
                   <td>{{bookingdetails.totalAmount}}</td>
                   <td>{{bookingdetails.status}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
-                  <button class="btn1" style="width: 100%;" type="button"  (click)="trackFunction(bookingdetails.ticketId)">Check</button>
+                  <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
                 </tr>
                 <!-- [disabled]="isBooked" -->
               </table>
            
               
         </div>
+      
     </div>
 
       <div id="Wallet" class="tabcontent">

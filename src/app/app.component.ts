@@ -22,8 +22,8 @@ userId:number;
   constructor(private service:UserService, private router:Router) { 
    // this.isStatus=Boolean(sessionStorage.getItem("status"));
 
-   this.isStatus=Boolean(localStorage.getItem("status"));
-   this.userId=Number(localStorage.getItem("userId"));
+   this.isStatus=Boolean(sessionStorage.getItem("status"));
+   this.userId=Number(sessionStorage.getItem("userId"));
 
 
    
@@ -35,10 +35,10 @@ userId:number;
 
   signOut(){
     console.log(this.userId);
-    // localStorage.clear();
+    sessionStorage.clear();
 
-    localStorage.removeItem("userId");
-    localStorage.setItem("status",false.valueOf.toString())
+    // sessionStorage.removeItem("userId");
+    // sessionStorage.setItem("status",false.valueOf.toString())
 
     this.isStatus=false;
     console.log(this.userId);

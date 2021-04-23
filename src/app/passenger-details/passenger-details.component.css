@@ -94,3 +94,9 @@ input[type=text], select, textarea {
   .phonebtn:hover {
     opacity:1;
   }
+  button:disabled
+{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
