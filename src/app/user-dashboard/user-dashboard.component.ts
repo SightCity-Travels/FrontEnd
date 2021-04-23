@@ -205,6 +205,7 @@ export class UserDashboardComponent implements OnInit {
     this.isStatus=false;
 
     this.router.navigate(['homeLink']);
+    
   }
 
   trackFunction(ticketId){

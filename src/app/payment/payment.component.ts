@@ -153,6 +153,13 @@ cvv:number;
             this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
                 fetchedTicket=>{
                   this.finalBookedTicket=fetchedTicket;
+                  if(this.finalBookedTicket != null){
+                    this.userService.sendEmail(this.finalBookedTicket.ticketId).subscribe(
+                      result=>{
+                        console.log(result);
+                      }
+                    );
+                  }
                   console.log(JSON.stringify(this.finalBookedTicket));
                   localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
                 }
@@ -191,10 +198,18 @@ cvv:number;
     this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
       fetchedTicket=>{
         this.finalBookedTicket=fetchedTicket;
+          if(this.finalBookedTicket != null){
+            this.userService.sendEmail(this.finalBookedTicket.ticketId).subscribe(
+              result=>{
+                console.log(result);
+              }
+            );
+          }
         console.log(JSON.stringify(this.finalBookedTicket));
         localStorage.setItem("ticketId",this.finalBookedTicket.ticketId.toString());
       }
     );
   }
+
 
 }

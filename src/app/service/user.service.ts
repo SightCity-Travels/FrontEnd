@@ -7,6 +7,7 @@ import { LoginDto } from '../model/LoginDto';
 import { Ticket } from '../Ticket';
 import { Passenger } from '../passenger';
 import { ChangePasswordDto } from '../model/ChangePasswordDto';
+import { LoginForgetDto } from '../model/LoginForgetDto';
 
 
 @Injectable({
@@ -66,4 +67,11 @@ export class UserService {
     return this.httpClient.get<boolean>("http://localhost:9090/paythroughwallet?userId="+userId+"&amount="+fare);
   }
 
+  sendEmail(ticketId:number):Observable<boolean>{
+    return this.httpClient.get<boolean>("http://localhost:9090/sendEmail?ticketId="+ticketId);
+  }
+
+  reset(loginforgetdto:LoginForgetDto):Observable<User>{
+    return this.httpClient.post<User>("http://localhost:9090/loginforgetpassword",loginforgetdto);
+  }
 }
