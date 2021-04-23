@@ -35,6 +35,7 @@ export class UserDashboardComponent implements OnInit {
   cancelTicketId:number;
   isShown: boolean = true;
   isclicked:boolean;
+  isCancelled:boolean;
   constructor(private userService: UserService,private router:Router) {
 
     // this.bookingDetails = [{
@@ -229,17 +230,17 @@ export class UserDashboardComponent implements OnInit {
     //   }
     // );
      localStorage.setItem("ticketId",this.tId.toString());
-     var modal = document.getElementById("myModal");
+    //  var modal = document.getElementById("myModal");
 
-     // Get the button that opens the modal
-     var btn1 = document.getElementById("myBtn1");
+    //  // Get the button that opens the modal
+    //  var btn1 = document.getElementById("myBtn1");
     
-     modal.style.display = "block";
-    var span;
-     span = document.getElementsByClassName("close")[0];
-     span.onclick = function () {
-      modal.style.display = "none";
-    }
+    //  modal.style.display = "block";
+    // var span;
+    //  span = document.getElementsByClassName("close")[0];
+    //  span.onclick = function () {
+    //   modal.style.display = "none";
+    // }
 
      
     //  this.router.navigate(['ticketLink']);
@@ -249,6 +250,7 @@ export class UserDashboardComponent implements OnInit {
   cancelFunction(){
     this.cancelTicketId=Number(localStorage.getItem("ticketId"));
     this.isclicked=true;
+    
      this.userService.cancelTicket(this.cancelTicketId).subscribe(
        result=>{
          console.log(result);

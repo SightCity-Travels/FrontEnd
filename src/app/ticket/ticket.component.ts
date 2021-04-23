@@ -27,7 +27,8 @@ bus:Bus;
 cTicketId:number;
 isclicked:boolean;
 isLoggedIn:boolean;
-isCancelled:boolean=false;
+//isCancelled:boolean=false;
+
 
   constructor(private service:UserService, private busService:BusService,private router:Router) { }
 
@@ -112,7 +113,8 @@ isCancelled:boolean=false;
 }
 
 cancelFunction(){
-  this.isclicked==true
+  this.isclicked=true;
+
    this.service.cancelTicket(this.ticketId).subscribe(
      result=>{
        console.log(result);

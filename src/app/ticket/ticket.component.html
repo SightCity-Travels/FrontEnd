@@ -91,7 +91,7 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
+    <span class="close">&times;</span> 
 
     
     <div *ngIf=" isLoggedIn then loggedIn else notRegistered">
@@ -104,11 +104,12 @@
 
     <h2>Are you sure you want to cancel your ticket ?</h2>
     <div id="resultDiv"></div>
-    <div class="">
-      <button type="submit" class="signupbtn"  (click)="cancelFunction()"id="okBtn">Yes</button>
-      <a style="text-decoration: none; color: white;"><button type="button"
-          class="cancelbtn"  [disabled]="isclicked==true">No</button></a> 
-          <br>
+    <div >
+      <br>
+      <button type="button"class="button" [disabled]="isclicked==true"  (click)="close()">No</button>
+      <button type="submit" class="button"  (click)="cancelFunction()">Yes</button>
+     
+          <br><br>
           <!-- //(click)="close()" -->
     </div>
 
@@ -117,13 +118,18 @@
     <h1 style="margin-left: 20%;">Cancel Ticket</h1>
     <!-- <span style="margin-left: 15%;"> -->
     <h2>Are you sure you want to cancel your ticket ?</h2>
-    <h3><b>Please Login/Register to get your refund in your wallet.</b></h3>
+    <h3><b>Please Login to get your refund in your wallet.</b></h3>
   <!-- </span> -->
+  <br>
+  <br>
     <div class="">
-      <button type="submit" class="signupbtn" [routerLink]="['/loginLink']">Login</button>
+    
       <a style="text-decoration: none; color: white;"><button type="button"
-          class="cancelbtn" (click)="close()">Cancel</button></a>
+          class="button" (click)="close()">Cancel</button></a>
+          <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
     </div>
+    <br>
+    <br>
     <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
 
     <!-- <div>
@@ -132,8 +138,8 @@
 
     <br>
 
-    <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button"
-        style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>
+    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/registerationLink']"><button type="button" 
+        style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>-->
 
   </ng-template>
 
