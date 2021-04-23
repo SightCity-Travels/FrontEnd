@@ -8,6 +8,7 @@ import { BusService } from '../service/bus.service';
 import { Bus } from '../Bus';
 import { Ticket } from '../Ticket';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ticket',
@@ -28,10 +29,17 @@ bus:Bus;
 cTicketId:number;
 isclicked:boolean;
 isLoggedIn:boolean;
+
 //isCancelled:boolean=false;
-dateOfReschedule:Date;
+// <<<<<<< HEAD
+// dateOfReschedule:Date;
+// =======
+control = new FormControl();
+
+
 minDate = new Date();
 
+dateOfJourney: Date;
 
   constructor(private service:UserService, private busService:BusService,private router:Router) { }
 
@@ -142,33 +150,47 @@ close(){
  }
 
  reschedule(){
+// <<<<<<< HEAD
    
-  // var modal = document.getElementById("myModal1");
-  // modal.style.display = "block";
-  // var span;
-  // span = document.getElementsByClassName("close")[0];
-  // span.onclick = function() {
-  //   modal.style.display = "none";
-  // }
- // document.getElementById("date");
-  sessionStorage.setItem("dateOfJourney",this.dateOfReschedule.toString());
-  sessionStorage.setItem("selectedBusId",this.bus.busId.toString());
-  this.router.navigate(['rescheduleSeat']);
+//   // var modal = document.getElementById("myModal1");
+//   // modal.style.display = "block";
+//   // var span;
+//   // span = document.getElementsByClassName("close")[0];
+//   // span.onclick = function() {
+//   //   modal.style.display = "none";
+//   // }
+//  // document.getElementById("date");
+//   sessionStorage.setItem("dateOfJourney",this.dateOfReschedule.toString());
+//   sessionStorage.setItem("selectedBusId",this.bus.busId.toString());
+//   this.router.navigate(['rescheduleSeat']);
 
-  // var modal = document.getElementById("myModal1");
-  // var btn3 = document.getElementById("rescheduleBtn");
+//   // var modal = document.getElementById("myModal1");
+//   // var btn3 = document.getElementById("rescheduleBtn");
  
-  //   modal.style.display = "block";
-  //   var span;
-  //    span = document.getElementsByClassName("close")[0];
-  //    span.onclick = function () {
-  //    modal.style.display = "none";
+//   //   modal.style.display = "block";
+//   //   var span;
+//   //    span = document.getElementsByClassName("close")[0];
+//   //    span.onclick = function () {
+//   //    modal.style.display = "none";
       
-    }
+//     }
 
- // this.dateOfReschedule='2021-04-25';
+//  // this.dateOfReschedule='2021-04-25';
+
+//  }
+
+
+
+// =======
+  var modal = document.getElementById("myModal1");
+  modal.style.display = "block";
+  var span;
+  span = document.getElementsByClassName("close")[1];
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
 
  }
 
-
+}
 

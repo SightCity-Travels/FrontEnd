@@ -78,11 +78,12 @@
 
   </div>
 
+<!-- <<<<<<< HEAD
   <div>
     <a style="text-decoration: none; color: white;" ><button type="submit" class="signupbtn" (click)="modal()" class="button" style="margin-right: 40px;">Reschedule</button></a>
     <a style="text-decoration: none; color: white;" id="myBtn"><button type="button" class="cancelbtn" class="button"
         (click)="cancelfn()">Cancel</button></a>
-     <!-- <div id="date">
+      <div id="date">
       <mat-form-field class="dt">
 
         <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE to Reschedule"
@@ -92,6 +93,12 @@
       </mat-form-field>
       <button type="submit">Okay</button>
     </div>  -->
+
+  <div >
+    <a style="text-decoration: none; color: white;" (click)="reschedule()"><button type="submit" class="signupbtn" class="button" style="margin-right: 40px;">Reschedule</button></a>
+    <a style="text-decoration: none; color: white;" id="myBtn"><button type="button" class="cancelbtn" class="button" (click)="cancelfn()" >Cancel</button></a>
+    
+
   </div>
 </div>
 <div style="margin-top:60px ;"></div>
@@ -134,13 +141,37 @@
       <br>
       <div class="">
 
+<!-- <<<<<<< HEAD
         <a style="text-decoration: none; color: white;"><button type="button" class="button"
             (click)="close()">Cancel</button></a>
         <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
       </div>
       <br>
       <br>
-      <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+       <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+
+  </ng-template>
+  <ng-template #notRegistered>
+    <h1 style="margin-left: 20%;">Cancel Ticket</h1>
+    <!-- <span style="margin-left: 15%;"> -->
+    <h2>Kindly login to cancel your ticket </h2>
+    
+  <!-- </span> -->
+  <br>
+  <br>
+    <div class="">
+    
+      <a style="text-decoration: none; color: white;"><button type="button"
+          class="button" [routerLink]="['/registerationLink']">Register</button></a>
+          <button type="submit" class="button" [routerLink]="['/loginLink']">Login</button>
+         
+          <h3>Not a registered user? Kindly register</h3>
+         
+    </div>
+    <br>
+    <br>
+    <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
+
 
       <!-- <div>
  <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
@@ -152,9 +183,15 @@
         style="width: 72%;  background-color:rgb(11, 89, 92);">Register</button></a>-->
 
     </ng-template>
-
+<!-- 
+<<<<<<< HEAD
     <ng-template #cancel>
       <h2>Your ticket has been cancelled</h2>
+======= -->
+  <ng-template #cancel>
+    <h2>Your ticket has been cancelled</h2>
+    <h2>Refund is transferred to your wallet</h2>
+
       <br>
       <a style="text-decoration: none; color: white;" [routerLink]="['/userDashBoard']"><button>OK</button></a>
     </ng-template>
@@ -185,6 +222,27 @@
 
 </div>
 
+
+
+  <div id="myModal1" class="modal">
+ 
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      
+      <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
+        <span  style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br> 
+           <mat-form-field class="dt">
+            <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney" required #dt="ngModel" [(ngModel)]=dateOfJourney >
+            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+          </mat-form-field> 
+        
+
+      </div>
+    </div>
+  
 
 
 
