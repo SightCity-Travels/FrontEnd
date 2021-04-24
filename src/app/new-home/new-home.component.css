@@ -100,6 +100,16 @@ label{
   margin-bottom: 16px;
   /* padding: 1px; */
 }
+.columns {
+  float: left;
+  width: 30%;
+  margin-bottom: 16px;
+  margin-left: 40px;
+  /* padding: 1px; */
+}
+p{
+  font-size: large;
+}
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
