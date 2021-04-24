@@ -30,7 +30,6 @@ isclicked:boolean;
 isLoggedIn:boolean;
 
 //isCancelled:boolean=false;
-control = new FormControl();
 
 minDate = new Date();
 
