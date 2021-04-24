@@ -18,6 +18,7 @@ import { FormControl } from '@angular/forms';
 export class TicketComponent implements OnInit {
 
   ticketId: number;
+  rescheduleTicketId: number;
   //ticketId=Number(sessionStorage.getItem("ticketId"));
   ticket: Ticket;
   details;
@@ -25,7 +26,24 @@ export class TicketComponent implements OnInit {
   bus: Bus;
   cTicketId: number;
   isclicked: boolean;
+  dateOfReschedule: Date;
   isLoggedIn: boolean;
+
+  //isCancelled:boolean=false;
+  // <<<<<<< HEAD
+  // dateOfReschedule:Date;
+  // =======
+  //control = new FormControl()
+  // ticketId: number;
+  // //ticketId=Number(sessionStorage.getItem("ticketId"));
+  // ticket: Ticket;
+  // details;
+  // passengerList: Passenger[];
+  // bus: Bus;
+  // cTicketId: number;
+  // isclicked: boolean;
+  // isLoggedIn: boolean;
+
 
 
   //isCancelled:boolean=false;
@@ -33,18 +51,20 @@ export class TicketComponent implements OnInit {
 
   minDate = new Date();
 
+//isCancelled:boolean=false;
 
   dateOfJourney: Date;
-
-
-
-
   constructor(private service: UserService, private busService: BusService, private router: Router) { }
 
 
   ngOnInit(): void {
-    this.ticketId = Number(sessionStorage.getItem("ticketId"));
 
+    this.ticketId = Number(sessionStorage.getItem("ticketId"));
+    this.rescheduleTicketId = Number(sessionStorage.getItem("ticketId"));
+    console.log(this.rescheduleTicketId)
+    sessionStorage.setItem("rescheduleTicketId", this.rescheduleTicketId.toString());
+
+    //  this.ticketId = Number(sessionStorage.getItem("ticketId"));
 
     this.service.ticketDetails(this.ticketId).subscribe(
 
@@ -98,10 +118,12 @@ export class TicketComponent implements OnInit {
   }
 
 
+
   cancelfn() {
 
     var modal = document.getElementById("myModal");
     var btn3 = document.getElementById("myBtn");
+
 
     modal.style.display = "block";
     var span;
@@ -137,15 +159,56 @@ export class TicketComponent implements OnInit {
             this.router.navigate(['userDashBoard']);
           }, 4000);
         }
-      }
+      });
+    }
 
-    );
-
-  }
   close() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
   }
+
+  //  reschedule(){
+  //    console.log("shxsa");
+  // // <<<<<<< HEAD
+
+  // //   // var modal = document.getElementById("myModal1");
+  // //   // modal.style.display = "block";
+  // //   // var span;
+  // //   // span = document.getElementsByClassName("close")[0];
+  // //   // span.onclick = function() {
+  // //   //   modal.style.display = "none";
+  // //   // }
+  // //  // document.getElementById("date");
+  // //   sessionStorage.setItem("dateOfJourney",this.dateOfReschedule.toString());
+  // //   sessionStorage.setItem("selectedBusId",this.bus.busId.toString());
+  // //   this.router.navigate(['rescheduleSeat']);
+
+  // //   // var modal = document.getElementById("myModal1");
+  // //   // var btn3 = document.getElementById("rescheduleBtn");
+
+  // //   //   modal.style.display = "block";
+  // //   //   var span;
+  // //   //    span = document.getElementsByClassName("close")[0];
+  // //   //    span.onclick = function () {
+  // //   //    modal.style.display = "none";
+
+  // //     }
+
+  // //  // this.dateOfReschedule='2021-04-25';
+
+  // //  }
+
+
+
+  // // =======
+  //   var modal1 = document.getElementById("myModal1");
+  //   modal1.style.display = "block";
+  //   console.log("hjsahb");
+  //   var span;
+  //   span = document.getElementsByClassName("close")[1];
+  //   span.onclick = function() {
+  //     modal1.style.display = "none";
+  //   }
 
   reschedule() {
     var modal = document.getElementById("myModal1");
@@ -157,5 +220,35 @@ export class TicketComponent implements OnInit {
     }
 
   }
-
+  changeSeats() {
+    document.getElementById("date");
+    sessionStorage.setItem("dateOfJourney", this.dateOfReschedule.toString());
+    sessionStorage.setItem("selectedBusId", this.bus.busId.toString());
+    this.router.navigate(['rescheduleSeat']).then(() => {
+      window.location.reload();
+    });
+  }
 }
+// =======
+//     );
+
+//   }
+//   close() {
+//     var modal = document.getElementById("myModal");
+//     modal.style.display = "none";
+//   }
+
+//   reschedule() {
+//     var modal = document.getElementById("myModal1");
+//     modal.style.display = "block";
+//     var span;
+//     span = document.getElementsByClassName("close")[1];
+//     span.onclick = function () {
+//       modal.style.display = "none";
+//     }
+
+//   }
+// >>>>>>> 2e65cbb526bc2ca6d13d00526a43c7a910a009ee
+
+
+
