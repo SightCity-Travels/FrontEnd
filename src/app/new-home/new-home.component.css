@@ -102,9 +102,9 @@ label{
 }
 .columns {
   float: left;
-  width: 30%;
+  width: 25%;
   margin-bottom: 16px;
-  margin-left: 40px;
+  margin-left: 80px;
   /* padding: 1px; */
 }
 p{
