@@ -82,7 +82,7 @@ checkPassword() {
 //         modal.style.display = "none";
 //       }
 //     }
-// >>>>>>> e85d6fa807797859c24aec6ba8b7be40a2d95e88
+//
 //   }
   
 
@@ -109,7 +109,23 @@ checkPassword() {
       this.userservice.registerUser(this.user).subscribe(
 
         userPersisted => {
+          if(userPersisted.userId!=0){
+            this.userservice.sendMailOnRegistration(userPersisted.userId).subscribe(
+              fetchedBoolean=>{
+                console.log("Mail Sent"+fetchedBoolean);
+              }
+            );
+
+          }
           console.log(userPersisted);
+          const ticketId= Number(sessionStorage.getItem("ticketId"));
+          if(ticketId!=0){
+            this.userservice.addTicketToUser(ticketId,userPersisted.userId).subscribe(
+              fetchedTicket=>{
+                console.log(fetchedTicket);
+              }
+            );
+          }
         }
       );
       // this.router.navigate(['homeLink']); 

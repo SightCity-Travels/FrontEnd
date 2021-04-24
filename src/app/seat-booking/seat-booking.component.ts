@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { Passenger } from '../passenger';
 import { BusService } from '../service/bus.service';
 import { Router } from '@angular/router';
+import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class SeatBookingComponent implements OnInit {
   selectedSeatCount: number = 0;
   isSeatSelected: boolean = true;
   selectedSeatsList: Set<string> = new Set();
+
   totalAmount: number = 0;
   dateValue: any;
   dateOfJourney;
@@ -30,7 +32,10 @@ export class SeatBookingComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    
+    // if(Number(sessionStorage.getItem("rescheduleTicketId")) != 0){
+    // this.selectedSeatsList.size 
+    // }
     this.busId = Number(sessionStorage.getItem("selectedBusId"));
     // this.dateValue=Date.parse
 
@@ -48,7 +53,7 @@ export class SeatBookingComponent implements OnInit {
 
     this.bookedSeats = JSON.parse(sessionStorage.getItem("seatList"));
     //console.log(this.bookedSeats);
-  
+
 
     const disabledSeats = this.bookedSeats.map((element) => {
       const bookedSeat1 = document.getElementById(element);
@@ -65,43 +70,64 @@ export class SeatBookingComponent implements OnInit {
 
 
   selectSeat(seat: string) {
+
     const selectedSeat = document.getElementById(seat);
+
     if (selectedSeat.classList.contains("selected")) {
       selectedSeat.classList.remove("selected");
       this.selectedSeatCount--;
+  
+      
     }
     else if (selectedSeat.classList.contains("occupied")) {
-
+          
     }
     else {
       selectedSeat.classList.toggle("selected");
       this.selectedSeatCount++;
+    //  console.log(2);
     }
 
-
+   
 
     if (selectedSeat.classList.contains("selected")) {
       this.selectedSeatsList.add(selectedSeat.id);
+    //  console.log(3);
+
     }
     else if (selectedSeat.classList.contains("occupied")) {
 
     }
     else {
       this.selectedSeatsList.delete(selectedSeat.id);
+    //  console.log(4);
     }
+
 
 
     this.totalAmount = this.selectedSeatsList.size * this.selectedBus.fare;
+
+    console.log(this.totalAmount);
+
+
+  //  this.loopB=true;
+
+      
+ // console.log(this.loop);
+  
     
-   console.log(this.totalAmount);
+      
 
     //this code is to disable button until and unless the seat is selected
     if (this.selectedSeatCount != 0) {
-      this.isSeatSelected = false;
-    }
-    else {
+
+
+        this.isSeatSelected = false;
+         
+         
+      }else {
       this.isSeatSelected = true;
-    }
+     }
 
   }
 
@@ -111,11 +137,16 @@ export class SeatBookingComponent implements OnInit {
 
   //this function is to set passenger number and route to passenger page
   sendDataOfSeats() {
-    const selectedSeatsArray = Array.from(this.selectedSeatsList);
-    sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
-    sessionStorage.setItem("totalFare", this.totalAmount.toString());
-  
-    this.router.navigate(['passengerDetailsLink']);
+    
+      const selectedSeatsArray = Array.from(this.selectedSeatsList);
+      //selectedSeatsArray.length = 3;
+      sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
+      sessionStorage.setItem("totalFare", this.totalAmount.toString());
+
+      this.router.navigate(['passengerDetailsLink']);
+    
+
+    
   }
 
 }
