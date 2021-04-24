@@ -77,9 +77,6 @@ cvv:number;
     this.ticket.status=this.status;
     this.bookATicket.ticket=this.ticket;
     this.bookATicket.passengers=this.passengers;
-    if(this.userId ==0){
-      this.router.navigate(['loginLink']);
-    }
 
     var acc = document.getElementsByClassName("accordion");
     var i;
