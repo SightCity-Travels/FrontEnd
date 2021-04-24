@@ -76,8 +76,19 @@ export class UserService {
     return this.httpClient.post<User>("http://localhost:9090/loginforgetpassword",loginforgetdto);
   }
 
+
   reschedule(ticketId:number,travelDate:Date,seats:String[]):Observable<Ticket>{
     return this.httpClient.put<Ticket>("http://localhost:9090/reschedule?ticketId="+ticketId+"&travelDate="+travelDate,seats);
+  }
+
+
+  addTicketToUser(ticketId:number,userId:number):Observable<Ticket>{
+    return this.httpClient.get<Ticket>("http://localhost:9090/addtickettouser?ticketId="+ticketId+"&userId="+userId);
+  }
+
+
+  sendMailOnRegistration(userId:number):Observable<boolean>{
+    return this.httpClient.get<boolean>("http://localhost:9090/sendmailonregistration?userId="+userId);
   }
 
 }
