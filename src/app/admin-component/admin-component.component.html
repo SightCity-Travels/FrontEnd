@@ -76,12 +76,12 @@
                 <div *ngIf="st.errors.required">Start Time is required</div>
                 <div *ngIf="st.errors.pattern">Follow the required pattern : (24:00)</div>
             </div><br>
-            <label for="stime">Time of Arrival</label><br>
-            <input type="text" id="stime" name="stime" #st="ngModel" placeholder="Enter Start Time"
+            <label for="stime1">Time of Arrival</label><br>
+            <input type="text" id="stime1" name="stime1" #st1="ngModel" placeholder="Enter Start Time"
                 [(ngModel)]="addBus.timeOfArrival" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required />
-            <div *ngIf="st.invalid && (st.dirty||st.touched)" style='color: red; border-color: red;'>
-                <div *ngIf="st.errors.required">Start Time is required</div>
-                <div *ngIf="st.errors.pattern">Follow the required pattern : (24:00)</div>
+            <div *ngIf="st1.invalid && (st1.dirty||st1.touched)" style='color: red; border-color: red;'>
+                <div *ngIf="st1.errors.required">Start Time is required</div>
+                <div *ngIf="st1.errors.pattern">Follow the required pattern : (24:00)</div>
             </div><br>
 
             <label for="duration">Duration</label><br>
