@@ -17,7 +17,7 @@ export class RescheduleSeatBookingComponent implements OnInit {
   selectedSeatCount: number = 0;
   isSeatSelected: boolean = true;
   selectedSeatsList: Set<string> = new Set();
-
+  isclicked:boolean;
   totalAmount: number = 0;
   dateValue: any;
   dateOfJourney;
@@ -137,6 +137,12 @@ export class RescheduleSeatBookingComponent implements OnInit {
 
   }
 
+  close(){
+    // var modal = document.getElementById("myModal1");
+    // modal.style.display = "none";
+    this.router.navigate(['homeLink']);
+   }
+
   //selectSeatsList have the seats selected by the user
   //bookedSeats hace the seats already booked in the bus
 
@@ -144,6 +150,22 @@ export class RescheduleSeatBookingComponent implements OnInit {
   //this function is to set passenger number and route to passenger page
   sendDataOfSeats() {
 
+    var modal = document.getElementById("myModal1");
+    var btn3 = document.getElementById("myBtn");
+   
+      modal.style.display = "block";
+      var span;
+       span = document.getElementsByClassName("close")[0];
+       span.onclick = function () {
+       modal.style.display = "none";
+        
+      }
+  
+     
+
+  }
+   rescheduleFunction(){
+         
     const selectedSeatsArray = Array.from(this.selectedSeatsList);
     //selectedSeatsArray.length = 3;
     sessionStorage.setItem("seatsOfPassengers", JSON.stringify(selectedSeatsArray));
@@ -157,10 +179,8 @@ export class RescheduleSeatBookingComponent implements OnInit {
      }
 
     );
-     
-
-  }
-   
+   }
+  
   // if (ticket.getTravelDate().isBefore(LocalDate.now())) {
   //   return false;
   // } else {

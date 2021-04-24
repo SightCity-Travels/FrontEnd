@@ -65,4 +65,23 @@
 
     </div>
 </div>
+<div id="myModal1" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <h1 style="margin-left: 20%;">Reschedule Ticket</h1>
+ 
+      <h2>Are you sure you want to reschedule your ticket ?</h2>
+      <div id="resultDiv"></div>
+      <div >
+        <br>
+        <button type="submit" class="button"  (click)="rescheduleFunction()">Yes</button>
+        <button type="button"class="button" [disabled]="isclicked==true"  (click)="close()">No</button>
+        
+       
+            <br><br>
+      </div>
+      </div>
 <div style="margin-top:100px ;"></div>
