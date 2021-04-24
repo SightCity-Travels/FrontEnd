@@ -26,12 +26,12 @@ export class ForgotPasswordComponent implements OnInit {
   resetPassword(forgotForm:NgForm):void{
 
     if(forgotForm.valid){
-
+console.log(JSON.stringify(this.loginforgetdto));
       this.service.reset(this.loginforgetdto).subscribe(
         reset=>{
           console.log(reset);
           if (reset!=null) {
-            sessionStorage.setItem("Id", this.loginforgetdto.id.toString());
+            localStorage.setItem("Id", this.loginforgetdto.id.toString());
             sessionStorage.setItem("email", this.loginforgetdto.email.toString());
             document.getElementById("emaillink").innerHTML="A link has been sent to your mail";
 
