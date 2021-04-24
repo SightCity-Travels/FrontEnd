@@ -8,6 +8,7 @@ import { BusService } from '../service/bus.service';
 import { Bus } from '../Bus';
 import { Ticket } from '../Ticket';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-ticket',
@@ -15,8 +16,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./ticket.component.css']
 })
 export class TicketComponent implements OnInit {
-
-
 
   ticketId: number;
   //ticketId=Number(sessionStorage.getItem("ticketId"));
@@ -27,7 +26,17 @@ export class TicketComponent implements OnInit {
   cTicketId: number;
   isclicked: boolean;
   isLoggedIn: boolean;
+
+
   //isCancelled:boolean=false;
+
+
+  minDate = new Date();
+
+
+  dateOfJourney: Date;
+
+
 
 
   constructor(private service: UserService, private busService: BusService, private router: Router) { }
@@ -102,16 +111,15 @@ export class TicketComponent implements OnInit {
 
     }
 
+
     if (sessionStorage.getItem("userId") !== null) {
       this.isLoggedIn = true;
 
     } else {
       this.isLoggedIn = false;
+
     }
-
-
   }
-
   cancelFunction() {
     this.isclicked = true;
 
@@ -137,6 +145,17 @@ export class TicketComponent implements OnInit {
   close() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
+  }
+
+  reschedule() {
+    var modal = document.getElementById("myModal1");
+    modal.style.display = "block";
+    var span;
+    span = document.getElementsByClassName("close")[1];
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
   }
 
 }

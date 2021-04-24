@@ -264,13 +264,13 @@ export class UserDashboardComponent implements OnInit {
     console.log(100);
   }
 
-  cancelFunction() {
-    this.cancelTicketId = Number(sessionStorage.getItem("ticketId"));
-    this.isclicked = true;
-
-    this.userService.cancelTicket(this.cancelTicketId).subscribe(
-      result => {
-        console.log(result);
+  cancelFunction(){
+    this.cancelTicketId=Number(sessionStorage.getItem("ticketId"));
+    this.isclicked=true;
+    
+     this.userService.cancelTicket(this.cancelTicketId).subscribe(
+       result=>{
+         console.log(result);
         //  if(result==true){
         //   this.isShown = ! this.isShown;
         //  }
