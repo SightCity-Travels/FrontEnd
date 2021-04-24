@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { ChangePasswordDto } from '../model/ChangePasswordDto';
@@ -17,26 +17,28 @@ import { Wallet } from '../Wallet';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
+  today = new Date().toLocaleDateString();
+  dateOfJourney = this.datepipe.transform(this.today, 'yyyy-MM-dd');
   password: Password = new Password()
   wallet: Wallet = new Wallet();
   bookingDetails: Ticket[];
   date = '1995-12-17';
-  isStatusD:boolean;
- tId:number;
+  isStatusD: boolean;
+  tId: number;
   isEditable: boolean = false;
   loggedInUserId: number;
   loggedInUser: User = new User();
-  status:Status= Status.BOOKED;
-  tickets:Ticket[];
-  changePasswordDto:ChangePasswordDto= new ChangePasswordDto();
-  isBooked:boolean;
-  isStatus:boolean=true;
-  cancelTicketId:number;
+  status: Status = Status.BOOKED;
+  tickets: Ticket[];
+  changePasswordDto: ChangePasswordDto = new ChangePasswordDto();
+  isBooked: boolean;
+  isStatus: boolean = true;
+  cancelTicketId: number;
   isShown: boolean = true;
-  isclicked:boolean;
-  isCancelled:boolean;
-  constructor(private userService: UserService,private router:Router) {
+  isclicked: boolean;
+  isCancelled: boolean;
+  isDisabled:boolean;
+  constructor(private userService: UserService, private router: Router, public datepipe: DatePipe) {
 
     // this.bookingDetails = [{
     //   ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
@@ -48,11 +50,12 @@ export class UserDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedInUserId = Number(sessionStorage.getItem("userId"));
-    if(this.loggedInUserId===0){
+    if (this.loggedInUserId === 0) {
       this.router.navigate(['loginLink']);
     }
 
-    console.log(this.loggedInUserId+" of current user");
+
+    console.log(this.loggedInUserId + " of current user");
     this.userService.getUserByUserId(this.loggedInUserId).subscribe(
       fetchedUser => {
         this.loggedInUser = fetchedUser;
@@ -62,11 +65,22 @@ export class UserDashboardComponent implements OnInit {
 
 
     this.userService.getTicketsBookedByUserId(this.loggedInUserId).subscribe(
-        fetchedTickets=>{
-          this.tickets=fetchedTickets;
-          console.log(this.tickets);
-        }
+      fetchedTickets => {
+        this.tickets = fetchedTickets;
+        localStorage.setItem("tickets",JSON.stringify(this.tickets))
+        // console.log(this.tickets);
+      }
     );
+
+    this.tickets=JSON.parse(localStorage.getItem("tickets"));
+    console.log(this.tickets)
+
+    for(let i=0;i<this.tickets.length;i++){
+      const ticketDate = new Date(this.tickets[i].travelDate.toString()); 
+      const todayDate = new Date(this.today);
+      this.isDisabled=(ticketDate<todayDate);
+      console.log(this.isDisabled)
+    }
 
 
 
@@ -124,10 +138,10 @@ export class UserDashboardComponent implements OnInit {
   }
 
 
-  rechargeWallet(){
-    this.userService.rechargeWallet(this.loggedInUserId,this.wallet.amount).subscribe(
-      fetchedUser=>{
-        this.loggedInUser=fetchedUser;
+  rechargeWallet() {
+    this.userService.rechargeWallet(this.loggedInUserId, this.wallet.amount).subscribe(
+      fetchedUser => {
+        this.loggedInUser = fetchedUser;
         console.log(this.loggedInUser);
       }
     );
@@ -139,30 +153,30 @@ export class UserDashboardComponent implements OnInit {
   checkPassword(passwordForm: NgForm) {
     if (this.password.newPassword != this.password.confirmPassword) {
       //alert("Password is not matching");
-      document.getElementById("changePassword").innerHTML="Confirm Password is not matching";
-      document.getElementById("oldPassword").innerHTML="";
+      document.getElementById("changePassword").innerHTML = "Confirm Password is not matching";
+      document.getElementById("oldPassword").innerHTML = "";
     }
-    else if(this.password.oldPassword!=this.loggedInUser.password){
+    else if (this.password.oldPassword != this.loggedInUser.password) {
       //alert("Incorrect old password");
-      document.getElementById("changePassword").innerHTML="";
-      document.getElementById("oldPassword").innerHTML="Old Password is incorrect";
+      document.getElementById("changePassword").innerHTML = "";
+      document.getElementById("oldPassword").innerHTML = "Old Password is incorrect";
     }
     else if (passwordForm.valid) {
-      document.getElementById("oldPassword").innerHTML="";
-      document.getElementById("changePassword").innerHTML="";
+      document.getElementById("oldPassword").innerHTML = "";
+      document.getElementById("changePassword").innerHTML = "";
       // alert(JSON.stringify(passwordForm.value));
       console.log(this.password); //obj will be sent to server thru Api calls
-      this.changePasswordDto.userId=this.loggedInUserId;
-      this.changePasswordDto.password=this.password.confirmPassword;
+      this.changePasswordDto.userId = this.loggedInUserId;
+      this.changePasswordDto.password = this.password.confirmPassword;
       console.log(this.changePasswordDto);
 
       this.userService.changePassword(this.changePasswordDto).subscribe(
-        fetchedString=>{
-          if(fetchedString){
-            document.getElementById("resultDiv").innerHTML="Password Changed Successfully";
+        fetchedString => {
+          if (fetchedString) {
+            document.getElementById("resultDiv").innerHTML = "Password Changed Successfully";
           }
-          else{
-            document.getElementById("resultDiv").innerHTML="Could not change the password";
+          else {
+            document.getElementById("resultDiv").innerHTML = "Could not change the password";
           }
         }
       );
@@ -206,19 +220,19 @@ export class UserDashboardComponent implements OnInit {
   //    window.location.reload();
 
   // }
-  signOut(){
+  signOut() {
     console.log(this.loggedInUserId);
     // sessionStorage.removeItem("userId");
     sessionStorage.clear();
-    this.isStatus=false;
+    this.isStatus = false;
     this.router.navigate(['homeLink']);
-    
+
   }
 
-  trackFunction(ticketId){
-  // console.log(ticketId);
-    
-    this.tId=ticketId;
+  trackFunction(ticketId) {
+    // console.log(ticketId);
+
+    this.tId = ticketId;
     // this.userService.ticketDetails(ticketId).subscribe(
     //   fetchedTicket=>{
     //     console.log(fetchedTicket.status)
@@ -232,12 +246,12 @@ export class UserDashboardComponent implements OnInit {
     //   }
     // );
 
-    sessionStorage.setItem("ticketId",this.tId.toString());
+    sessionStorage.setItem("ticketId", this.tId.toString());
 
 
     //  // Get the button that opens the modal
     //  var btn1 = document.getElementById("myBtn1");
-    
+
     //  modal.style.display = "block";
     // var span;
     //  span = document.getElementsByClassName("close")[0];
@@ -245,31 +259,31 @@ export class UserDashboardComponent implements OnInit {
     //   modal.style.display = "none";
     // }
 
-     
+
     //  this.router.navigate(['ticketLink']);
     console.log(100);
   }
 
-  cancelFunction(){
-    this.cancelTicketId=Number(localStorage.getItem("ticketId"));
-    this.isclicked=true;
-    
-     this.userService.cancelTicket(this.cancelTicketId).subscribe(
-       result=>{
-         console.log(result);
+  cancelFunction() {
+    this.cancelTicketId = Number(sessionStorage.getItem("ticketId"));
+    this.isclicked = true;
+
+    this.userService.cancelTicket(this.cancelTicketId).subscribe(
+      result => {
+        console.log(result);
         //  if(result==true){
         //   this.isShown = ! this.isShown;
         //  }
-         document.getElementById("res").innerHTML="Your ticket has been cancelled";
-       }
-     );
+        document.getElementById("res").innerHTML = "Your ticket has been cancelled";
+      }
+    );
     // document.getElementById("resultDiv").innerHTML="Your ticket has been cancelled";
- 
-   }
-   close(){
+
+  }
+  close() {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
-   }
+  }
 
 }
 

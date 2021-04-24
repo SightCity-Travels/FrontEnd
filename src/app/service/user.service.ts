@@ -75,4 +75,13 @@ export class UserService {
   reset(loginforgetdto:LoginForgetDto):Observable<User>{
     return this.httpClient.post<User>("http://localhost:9090/loginforgetpassword",loginforgetdto);
   }
+
+  addTicketToUser(ticketId:number,userId:number):Observable<Ticket>{
+    return this.httpClient.get<Ticket>("http://localhost:9090/addtickettouser?ticketId="+ticketId+"&userId="+userId);
+  }
+
+
+  sendMailOnRegistration(userId:number):Observable<boolean>{
+    return this.httpClient.get<boolean>("http://localhost:9090/sendmailonregistration?userId="+userId);
+  }
 }
