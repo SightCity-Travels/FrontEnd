@@ -6,7 +6,7 @@
 
         <h3 style="margin-left: 21%;font-family: 'IM Fell DW Pica SC';font-weight: bolder;font-size: 1.6em;">REGISTRATION</h3>
 
-        <label for="fname"><b>FIRST NAME </b> &nbsp;</label> <br>
+        <label for="fname">FIRST NAME</label> <br>
         <input type="text" #fnm="ngModel" placeholder="Enter First Name" name="fname" id="fname" pattern="[A-Za-z]*" required
 
           [(ngModel)]=user.firstName> <br>
@@ -18,7 +18,7 @@
 
 
 
-        <label for="lname"><b>LAST NAME </b> &nbsp;</label><br>
+        <label for="lname">LAST NAME</label><br>
         <input type="text" #lnm="ngModel" placeholder="Enter Last Name" name="lname" id="lname" pattern="[A-Za-z]*" required
           [(ngModel)]=user.lastName> <br>
 

@@ -16,7 +16,7 @@ import { User } from '../User';
 })
 export class AdminComponentComponent implements OnInit {
 
-  status:Status= Status.BOOKED;
+  status: Status = Status.BOOKED;
   isBookinghidden: boolean = true;
   isAddBushidden: boolean = true;
   ispreferredbushidden: boolean = true;
@@ -24,7 +24,7 @@ export class AdminComponentComponent implements OnInit {
   iscusthidden: boolean = true;
   isNoBooking: boolean = true;
   loggedInAdminId: number;
-  isStatus:boolean=true;
+  isStatus: boolean = true;
 
 
   bookingDetails: Ticket[];
@@ -47,18 +47,19 @@ export class AdminComponentComponent implements OnInit {
   userList: User[];
   userLists: User[];
   mostbus: Number[];
-  findBusId:number;
-  
-  fetchedTickets:Ticket[]=[];
-  dateOfJourney:Date;
+  mostPreferredBusses: Bus[] = [];
+  findBusId: number;
 
-  constructor(private adminService: AdminService, private busService: BusService,private router:Router) {
-  
+  fetchedTickets: Ticket[] = [];
+  dateOfJourney: Date;
+
+  constructor(private adminService: AdminService, private busService: BusService, private router: Router) {
+
   }
 
 
   bookingBus(bookBusForm: NgForm) {
-    if(bookBusForm.valid){
+    if (bookBusForm.valid) {
       this.isAddBushidden = true;
       this.isBookinghidden = false;
       this.ispreferredbushidden = true;
@@ -66,10 +67,10 @@ export class AdminComponentComponent implements OnInit {
       this.iscusthidden = true;
       this.isNoBooking = true;
     }
-   
-    this.adminService.getTicketBasedOnBusAndDate(this.bookBus.busId,this.dateOfJourney).subscribe(
-      fetchedTicketList=>{
-        this.fetchedTickets=fetchedTicketList;
+
+    this.adminService.getTicketBasedOnBusAndDate(this.bookBus.busId, this.dateOfJourney).subscribe(
+      fetchedTicketList => {
+        this.fetchedTickets = fetchedTicketList;
         console.log(this.fetchedTickets);
       }
     );
@@ -77,7 +78,7 @@ export class AdminComponentComponent implements OnInit {
   }
 
 
-    
+
 
 
 
@@ -110,10 +111,10 @@ export class AdminComponentComponent implements OnInit {
 
   }
 
-  findBusByBusId(findBusId){
+  findBusByBusId(findBusId) {
     this.busService.getBusById(findBusId).subscribe(
-      fetchedBus=>{
-        this.fetchedBus=fetchedBus;
+      fetchedBus => {
+        this.fetchedBus = fetchedBus;
         console.log(this.fetchedBus);
       }
     );
@@ -128,23 +129,23 @@ export class AdminComponentComponent implements OnInit {
       this.iscusthidden = true;
       this.isNoBooking = true;
     }
-    else{
-      this.adminService.updateBus(this.fetchedBus.busId,this.fetchedBus.source,this.fetchedBus.destination,this.fetchedBus.fare).subscribe(
-        updatedResult=>{
-         if(updatedResult==0){
-          document.getElementById("updateMessage").innerHTML="Bus not Updated";
-         }
-         else{
-          document.getElementById("updateMessage").innerHTML="Bus  Updated";
-         }
+    else {
+      this.adminService.updateBus(this.fetchedBus.busId, this.fetchedBus.source, this.fetchedBus.destination, this.fetchedBus.fare).subscribe(
+        updatedResult => {
+          if (updatedResult == 0) {
+            document.getElementById("updateMessage").innerHTML = "Bus not Updated";
+          }
+          else {
+            document.getElementById("updateMessage").innerHTML = "Bus  Updated";
+          }
         }
       );
 
-      
+
     }
 
 
-   
+
 
     // this.service.updateBus(this.updateBus.busId,this.updateBus.source,this.updateBus.destination,this.updateBus.fare).subscribe(
     //   updateBus =>{
@@ -161,7 +162,7 @@ export class AdminComponentComponent implements OnInit {
     //   }
     // );
 
-    
+
     // this.updateddBus = JSON.parse(sessionStorage.getItem("fetchedBus"));
     // this.updateddBus.source = this.updateBus.source;
     // this.updateddBus.destination = this.updateBus.destination;
@@ -181,13 +182,13 @@ export class AdminComponentComponent implements OnInit {
 
 
 
-  
 
 
 
 
 
-  
+
+
   regCustomer() {
     this.isupDateRoutehidden = true;
     this.ispreferredbushidden = true;
@@ -230,11 +231,9 @@ export class AdminComponentComponent implements OnInit {
   date = new Date('1995-12-17');
 
 
-
- 
-
   adminId = Number(sessionStorage.getItem("adminId"));
   busList: Bus[];
+
 
   ngOnInit(): void {
 
@@ -279,6 +278,15 @@ export class AdminComponentComponent implements OnInit {
         this.mostbus = fetchedBus;
         
 
+        this.mostbus=fetchedBus;
+        for (let i = 0; i < fetchedBus.length; i++) {
+         this.busService.getBusById(fetchedBus[i]).subscribe(
+           fetchedBusById=>{
+             this.mostPreferredBusses.push(fetchedBusById);
+           }
+         );
+        }
+
       }
     );
   }
@@ -313,7 +321,7 @@ export class AdminComponentComponent implements OnInit {
 
   }
 
-  signOut(){
+  signOut() {
     console.log(this.loggedInAdminId);
     // sessionStorage.removeItem("userId");
     sessionStorage.clear();
