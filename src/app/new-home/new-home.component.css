@@ -103,7 +103,7 @@ label{
 }
 .columns {
   float: left;
-  width: 25%;
+  width: 5%;
   margin-bottom: 16px;
 
   margin-left: 95px;
@@ -111,6 +111,7 @@ label{
   /* padding: 1px; */
   font-family: 'IM Fell DW Pica SC', serif;
 }
+
 p{
   font-size: large;
 }
@@ -372,10 +373,10 @@ p{
 
 .columns {
   float: left;
-  width: 30%;
+  width: 28%;
   margin-bottom: 16px;
   margin-left: 40px;
-  /* padding: 1px; */
+   padding: 1px; 
 }
 
 p{
