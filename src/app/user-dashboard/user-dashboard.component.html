@@ -48,47 +48,45 @@
 </div>
 
 
-<div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
+  <div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
+          
+      <div class="card">
 
-  <div class="card">
+          <h3 style="text-align: center;">BOOKINGS</h3>
 
-    <h3 style="text-align: center;">BOOKINGS</h3>
+          
+                  <table class="table">
+                    <tr>
+                      <th>TicketId</th>
+                      <th>TravelDate</th>
+                      <th>Email</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Passengers</th>
+                    </tr>
+                    
+                  <tr *ngFor="let bookingdetails of tickets">
+                  <td>{{bookingdetails.ticketId}}</td>
+                  <td>{{bookingdetails.travelDate}}</td>
+                  <td>{{bookingdetails.email}}</td>
+                  <td>{{bookingdetails.totalAmount}}</td>
+                  <td>{{bookingdetails.status}}</td>
+                  <td>{{bookingdetails.noOfPassengers}}</td>
 
+                  <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
+                
 
-    <table class="table">
-      <tr>
-        <th>TicketId</th>
-        <th>TravelDate</th>
-        <th>Email</th>
-        <th>Amount</th>
-        <th>Status</th>
-        <th>Passengers</th>
-      </tr>
+                  <!-- <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="isDisabled"  (click)="trackFunction(bookingdetails.ticketId)">Check</button> -->
 
-      <tr *ngFor="let bookingdetails of tickets">
-        <td>{{bookingdetails.ticketId}}</td>
-        <td>{{bookingdetails.travelDate}}</td>
-        <td>{{bookingdetails.email}}</td>
-        <td>{{bookingdetails.totalAmount}}</td>
-        <td>{{bookingdetails.status}}</td>
-        <td>{{bookingdetails.noOfPassengers}}</td>
+                </tr>
+                <!-- [disabled]="isBooked" -->
+              </table>
+           
+              
+        </div>
+      
+    </div>
 
-        <!-- <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button> -->
-
-
-        <button class="btn1" style="width: 100%;" type="button" [routerLink]="['/ticketLink']" [disabled]="isDisabled"
-          (click)="trackFunction(bookingdetails.ticketId)">Check</button>
-
-      </tr>
-      <!-- [disabled]="isBooked" -->
-    </table>
-
-
-  </div>
-
-</div>
-
-<div id="Wallet" class="tabcontent">
 
   <div class="card">
     <h1 style="text-align: center; font-style:oblique; color:black;">Wallet</h1>

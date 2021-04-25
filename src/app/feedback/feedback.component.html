@@ -1,8 +1,8 @@
 <div id="main_1">
 <div class="card" style="width: 45%; margin-left: 25%;   background: rgba(204, 223, 228, 0.7);">
   <br>
-  <h1 class="top"><b>Your Feedback </b></h1>
-  <h3 style="text-align: center;"> We would like to hear from you!!!!</h3>
+  <h1 class="top" style=" font-family: 'IM Fell DW Pica SC', serif; margin-left: 12%; font-size:25px; font-weight: bold;">Your Feedback</h1>
+  <h3 style="text-align: center;  font-family: 'IM Fell DW Pica SC', serif; font-size: 20px;"> We would like to hear from you!!!!</h3>
 
     <div class="logo" >
      
@@ -12,21 +12,23 @@
       <form #myform="ngForm" class="form form-register">
 
         <div class="quest" >
-          <h3 style="text-align: center;"><b> What do you feel about SightCity Bus services? </b></h3>
+          <h3 style="text-align: center; font-family: 'IM Fell DW Pica SC', serif; font-weight: bold; font-size: 20px;"> What do you feel about SightCity Bus services?</h3>
         </div>
 
         <div class="container1">
             <div class="item">
               <label for="0">
               <input class="radio" type="radio" name="feedback" id="0" value="0">
-              <span>🤬</span>
+              <span>😍</span>
+             
             </label>
             </div>
         
             <div class="item">
               <label for="1">
               <input class="radio" type="radio" name="feedback" id="1" value="1">
-              <span>🙁</span>
+              <span>😁</span>
+             
             </label>
             </div>
         
@@ -40,14 +42,14 @@
             <div class="item">
               <label for="3">
               <input class="radio" type="radio" name="feedback" id="3" value="3">
-              <span>😁</span>
+              <span>🙁</span>
             </label>
             </div>
         
             <div class="item">
               <label for="4">
               <input class="radio" type="radio" name="feedback" id="4" value="4">
-              <span>😍</span>
+              <span>🤬</span>
             </label>
             </div>
         
@@ -55,10 +57,10 @@
           
 
             <div class="quest">
-              <h3 style="text-align: center;"> Tell Us About Your Experience</h3></div>
+              <h3 style="text-align: center; font-family: 'IM Fell DW Pica SC', serif; font-size: 18px; font-weight: bold;"> Tell Us About Your Experience</h3></div>
         <textarea rows="7" cols="50" name="comment"  class="form-input" id="length" placeholder=" Enter text here..." ngModel required>
          </textarea>
-          <button type="button" style=" border-radius: 8px;">Submit</button>
+          <button type="button" style=" border-radius: 8px;" [routerLink]="['/homeLink']">Submit</button>
        
       </form>
     </div>

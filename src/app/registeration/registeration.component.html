@@ -10,17 +10,21 @@
         <input type="text" #fnm="ngModel" placeholder="Enter First Name" name="fname" id="fname" minlength="4" required
           [(ngModel)]=user.firstName> <br>
 
-        <span *ngIf="fnm.invalid && (fnm.dirty||fnm.touched)" style='color: red; border-color: red;'>
-          <span *ngIf="fnm.errors?.required"> First Name Is Required</span>
-          <span *ngIf="fnm.errors.minlength">Name Must Contain Atleast 4 Character</span> </span><br>
+
+        <span *ngIf="fnm.invalid && (fnm.dirty||fnm.touched)" style='color: red; '>
+          <span *ngIf="fnm.errors?.required"> First Name is required</span>
+          <span *ngIf="fnm.errors.minlength">Name must contain atleast 4 character</span> </span><br>
+
 
 
         <label for="lname">LAST NAME</label><br>
         <input type="text" #lnm="ngModel" placeholder="Enter Last Name" name="lname" id="lname" required
           [(ngModel)]=user.lastName> <br>
 
-        <span *ngIf="(lnm.dirty||lnm.touched)" style='color: red; border-color: red;'>
-          <span *ngIf="lnm.errors?.required">Last Name Is Required</span></span><br>
+
+        <span *ngIf="(lnm.dirty||lnm.touched)" style='color: red;'>
+          <span *ngIf="lnm.errors?.required">Last Name is required</span></span><br>
+
 
 
 
