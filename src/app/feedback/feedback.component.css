@@ -1,8 +1,15 @@
+h3,h2,p,h1,button,th{
+  font-weight: 30px;
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+
 .app {
     width: 90%;
     max-width: 500px;
     
   }
+  
 /* 
 .container_f {
     background:rgba(2, 60, 117, 0.5);
