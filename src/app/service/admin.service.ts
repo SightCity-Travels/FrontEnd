@@ -39,8 +39,8 @@ export class AdminService {
 
   }
 
-  mostPerfferedBus(): Observable<Number[]> {
-    return this.httpClient.get<Number[]>("http://localhost:9090/mostpreferredbus");
+  mostPerfferedBus(): Observable<number[]> {
+    return this.httpClient.get<number[]>("http://localhost:9090/mostpreferredbus");
   }
 
   updateBus(busId:number,source:string,destination:string,fare:number):Observable<number>{

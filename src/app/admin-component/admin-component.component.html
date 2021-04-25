@@ -15,8 +15,8 @@
             class="fa fa-bus" aria-hidden="true"></i>Preferred Bus</button>
     <button class="tablinks" (click)="openTab($event, 'Customer','custRegisterBtn')" id="custRegisterBtn"><i
             class="fa fa-registered" aria-hidden="true"></i>Customer Registration</button>
-    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i 
-        class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</button>
+    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i
+            class="fa fa-sign-out" aria-hidden="true"></i>Sign Out</button>
 </div>
 
 <div id="AddBus" class="tabcontent">
@@ -116,7 +116,7 @@
                 <div *ngIf="bn2.errors.pattern">Enter Only Digits</div>
             </div><br>
 
-            
+
             <label for="dt">Period</label><br>
             <input type="text" placeholder="CHOOSE DATE" id="dt" name="dt" onfocus="(this.type='date')"
                 onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]="dateOfJourney">
@@ -288,29 +288,29 @@
         <table id="preferrredbus">
             <tr>
                 <th>BusId</th>
-                <!-- <th>Bus Name</th>
-                    <th>Number Of Seats</th>
-                    <th>Duration</th>
-                    <th>Type Of Bus</th>
-                    <th>Time of Arrival</th>
-                    <th>Time of Departure</th>
-                    <th>Fare</th>
-                    <th>Source</th>
-                    <th>Destination</th> -->
+                <th>Bus Name</th>
+                <th>Number Of Seats</th>
+                <th>Duration</th>
+                <th>Type Of Bus</th>
+                <th>Time of Arrival</th>
+                <th>Time of Departure</th>
+                <th>Fare</th>
+                <th>Source</th>
+                <th>Destination</th>
 
 
             </tr>
-            <tr *ngFor="let busdetails of mostbus">
-                <td>{{busdetails}}</td>
-                <!-- <td>{{busdetails.busName}}</td>
-                    <td>{{busdetails.noOfSeats}}</td>
-                    <td>{{busdetails.duration}}</td>
-                    <td>{{busdetails.typeOfBus}}</td>
-                    <td>{{busdetails.timeOfArrival}}</td>
-                    <td>{{busdetails.timeOfDeparture}}</td>
-                    <td>{{busdetails.fare}}</td>
-                    <td>{{busdetails.source}}</td>
-                    <td>{{busdetails.destination}}</td> -->
+            <tr *ngFor="let busdetails of mostPreferredBusses">
+                <td>{{busdetails.busId}}</td>
+                <td>{{busdetails.busName}}</td>
+                <td>{{busdetails.noOfSeats}}</td>
+                <td>{{busdetails.duration}}</td>
+                <td>{{busdetails.typeOfBus}}</td>
+                <td>{{busdetails.timeOfArrival}}</td>
+                <td>{{busdetails.timeOfDeparture}}</td>
+                <td>{{busdetails.fare}}</td>
+                <td>{{busdetails.source}}</td>
+                <td>{{busdetails.destination}}</td>
 
             </tr>
         </table>
@@ -322,7 +322,8 @@
 <div id="Customer" class="tabcontent">
 
     <div class="card">
-        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Customer Registration</h1>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Customer Registration
+        </h1>
 
         <!-- <p>Type</p> -->
         <!-- <input type="radio" class="accordion" name="type1" value="customer" />Registered Customer<br>
