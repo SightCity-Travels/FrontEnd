@@ -75,10 +75,14 @@
                   <td>{{bookingdetails.status}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
 
+<!-- <<<<<<< HEAD
+                   <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button> 
+=======
                   <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button>
-                
+>>>>>>> a4f3a9145478ebe739b803d3acdc1a3b187879d5
+                 -->
 
-                  <!-- <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="isDisabled"  (click)="trackFunction(bookingdetails.ticketId)">Check</button> -->
+                  <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="isDisabled"  (click)="trackFunction(bookingdetails.ticketId)">Check</button> 
 
                 </tr>
                 <!-- [disabled]="isBooked" -->

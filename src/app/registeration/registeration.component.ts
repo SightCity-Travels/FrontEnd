@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
 import { User } from '../User';
@@ -13,6 +13,10 @@ import { User } from '../User';
 
 
 export class RegisterationComponent implements OnInit {
+  control = new FormControl();
+
+  minDate = new Date();
+
   user: User = new User();
   userCPassword: string;
   constructor(private userservice: UserService, private router: Router) { }

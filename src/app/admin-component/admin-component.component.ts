@@ -275,6 +275,9 @@ export class AdminComponentComponent implements OnInit {
 
     this.adminService.mostPerfferedBus().subscribe(
       fetchedBus => {
+        this.mostbus = fetchedBus;
+        
+
         this.mostbus=fetchedBus;
         for (let i = 0; i < fetchedBus.length; i++) {
          this.busService.getBusById(fetchedBus[i]).subscribe(
@@ -283,6 +286,7 @@ export class AdminComponentComponent implements OnInit {
            }
          );
         }
+
       }
     );
   }

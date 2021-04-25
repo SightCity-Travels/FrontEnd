@@ -31,11 +31,19 @@
 
 
         <label for="dt">DATE OF BIRTH</label><br>
-        <input type="text" placeholder="Choose Date Of Birth" id="dt" name="dt" onfocus="(this.type='date')"
-          onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]=user.dateOfBirth><br>
-        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
-          <span *ngIf="dt.errors?.required">Travel Date Is Required</span></span><br>
+        <!-- <input type="text" placeholder="Choose Date Of Birth" id="dt" name="dt" onfocus="(this.type='date')"
+          onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]=user.dateOfBirth><br> -->
+          
+          <mat-form-field class="dt">
 
+            <input matInput [matDatepicker]="picker" [max]="minDate" placeholder="Choose DOB " name="dt" required #dt="ngModel" [(ngModel)]=user.dateOfBirth >
+            <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+          </mat-form-field> <br>
+
+        <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
+          <span *ngIf="dt.errors?.required">Date of Birth Is Required</span></span><br>
+        
 
         <label for="email">EMAIL</label><br>
         <input type="text" #em="ngModel" placeholder="Enter Email" id="email" name="email" required
