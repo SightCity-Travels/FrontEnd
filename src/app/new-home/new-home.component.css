@@ -101,6 +101,7 @@ label{
   margin-bottom: 16px;
   /* padding: 1px; */
 }
+
 .columns {
   float: left;
   width: 25%;
@@ -372,7 +373,7 @@ p{
 
 .columns {
   float: left;
-  width: 30%;
+  width: 29%;
   margin-bottom: 16px;
   margin-left: 40px;
   /* padding: 1px; */
