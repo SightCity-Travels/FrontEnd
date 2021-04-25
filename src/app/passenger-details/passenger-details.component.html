@@ -34,7 +34,7 @@
         <div class="containers">
             <h2>Contact Details</h2>
             <hr>
-            <label for="email"><b>Email Id</b></label>
+            <label for="email">Email Id</label><br>
             <input type="text" placeholder="Enter Email" name="email" id="email" #em=ngModel required
                 pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=emailOfPassenger>&nbsp;
             <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: red; border-color: red;'>
