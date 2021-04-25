@@ -11,9 +11,8 @@
       aria-hidden="true"></i><label>Wallet</label></button>
   <button class="tablinks" (click)="openTab($event, 'Changepass','passbtn')" id="passbtn"><i class="fa fa-key"
       aria-hidden="true"></i><label>Change Password</label></button>
-  <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']">
-    <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
-        aria-hidden="true"></i><label>Sign Out</label></button></a>
+      <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i
+        class="fa fa-sign-out" aria-hidden="true"></i><a style="text-decoration: none;">Sign Out</a></button>
       
 
 </div>

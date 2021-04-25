@@ -227,6 +227,7 @@ export class UserDashboardComponent implements OnInit {
       window.location.reload()
     })
   }
+  
 
   trackFunction(ticketId) {
     // console.log(ticketId);
