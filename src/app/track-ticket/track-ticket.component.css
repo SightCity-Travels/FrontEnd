@@ -8,19 +8,20 @@ input[type=text], input[type=password],input[type=date]{
   }
   
 button {
-  background-color: #4CAF50;
+  background-color: rgb(8, 55, 56);;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 50%;
+  width: 30%;
+  margin: 0px 20px;
   opacity: 0.9;
   float: left;
 }
 .cancelbtn {
     
-    background-color: #f44336;
+    background-color: rgb(221, 105, 105);
   }
  
   .outer {
@@ -36,5 +37,10 @@ button {
      
     /* background: rgba(155, 149, 238, 0.3); */
      background: rgba(254, 254, 254, 0.4);
+  }
+  label{
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-weight: bold;
+    font-size: 18px;
   }
  

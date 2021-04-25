@@ -10,7 +10,7 @@ export class TrackTicketComponent implements OnInit {
 
   constructor(private router:Router) { }
   ticketId:number;
-
+  email:string;
   ngOnInit(): void {
   }
 
