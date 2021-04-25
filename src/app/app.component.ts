@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
 
  
 
- isStatus:Boolean;
-
+ isStatus:Boolean=true;
+ status:boolean;
 userId:number;
  
   constructor(private service:UserService, private router:Router) { 
@@ -30,12 +30,14 @@ userId:number;
   }
   ngOnInit(): void {
   
-  
+
+   
   }
 
   signOut(){
     console.log(this.userId);
     sessionStorage.clear();
+
 
     // sessionStorage.removeItem("userId");
     // sessionStorage.setItem("status",false.valueOf.toString())

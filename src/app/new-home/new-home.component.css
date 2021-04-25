@@ -269,11 +269,6 @@ p{
   background: #222222;
 }
 
-
-
-
-
-
 .mySlides {display: none;}
 img {vertical-align: middle;
 }
@@ -453,8 +448,7 @@ ul {
   padding: 60px 0;
   /* min-height: 100vh; */
 }
-.features-div {
-}
+
 .feature-back:hover {
   color: #fff !important;
   background-color: #ffffff1c;
