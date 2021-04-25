@@ -105,7 +105,9 @@ label{
   float: left;
   width: 25%;
   margin-bottom: 16px;
+
   margin-left: 95px;
+
   /* padding: 1px; */
   font-family: 'IM Fell DW Pica SC', serif;
 }
@@ -113,11 +115,10 @@ p{
   font-size: large;
 }
 
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
  
-}
-
+} */
 
 
 .containers {
@@ -369,4 +370,88 @@ p{
   font-family: 'IM Fell DW Pica SC', serif;
 }
 
+.columns {
+  float: left;
+  width: 30%;
+  margin-bottom: 16px;
+  margin-left: 40px;
+  /* padding: 1px; */
+}
 
+p{
+font-size: large;
+}
+
+
+/*************************************************************/
+h1, h2, h3, h4, h5, h6 {
+  color:black;
+}
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.col{
+    float: left;
+    width: 30%;
+    margin-bottom: 16px;
+    margin-left: 40px;
+    /* padding: 1px; */
+  }
+
+.heading {
+  margin-top: 0px;
+  text-align: center;
+}
+.separator {
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+.separator:after,
+.separator:before {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #353535;
+  top: 50%;
+}
+
+.separator i {
+  color: #353535;
+}
+
+.separator:after {
+  right: 140%;
+}
+
+.separator:before {
+  left: 140%;
+}
+.heading-main-white {
+  color: #fff;
+}
+
+.heading-main-white .separator {
+  color: #fff;
+}
+
+.heading-main-white .separator:before, .heading-main-white .separator:after {
+  background: #d45725;
+}
+
+.heading-main-white .separator i {
+  color: #d45725;
+}
+
+
+
+   

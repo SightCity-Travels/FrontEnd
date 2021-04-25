@@ -155,7 +155,7 @@ cvv:number;
           if (this.result==true){
             this.busService.bookATicket(this.bookATicket,this.userId,this.busId).subscribe(
                 fetchedTicket=>{
-                  this.finalBookedTicket=fetchedTicket;
+                  this.finalBookedTicket=fetchedTicket; 
                   if(this.finalBookedTicket != null){
                     this.userService.sendEmail(this.finalBookedTicket.ticketId).subscribe(
                       result=>{

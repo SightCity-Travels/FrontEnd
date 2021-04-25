@@ -37,7 +37,7 @@ export class UserDashboardComponent implements OnInit {
   isShown: boolean = true;
   isclicked: boolean;
   isCancelled: boolean;
-  isDisabled:boolean;
+  isDisabled: boolean;
   constructor(private userService: UserService, private router: Router, public datepipe: DatePipe) {
 
     // this.bookingDetails = [{
@@ -67,18 +67,18 @@ export class UserDashboardComponent implements OnInit {
     this.userService.getTicketsBookedByUserId(this.loggedInUserId).subscribe(
       fetchedTickets => {
         this.tickets = fetchedTickets;
-        localStorage.setItem("tickets",JSON.stringify(this.tickets))
+        localStorage.setItem("tickets", JSON.stringify(this.tickets))
         // console.log(this.tickets);
       }
     );
 
-    this.tickets=JSON.parse(localStorage.getItem("tickets"));
+    this.tickets = JSON.parse(localStorage.getItem("tickets"));
     console.log(this.tickets)
 
-    for(let i=0;i<this.tickets.length;i++){
-      const ticketDate = new Date(this.tickets[i].travelDate.toString()); 
+    for (let i = 0; i < this.tickets.length; i++) {
+      const ticketDate = new Date(this.tickets[i].travelDate.toString());
       const todayDate = new Date(this.today);
-      this.isDisabled=(ticketDate<todayDate);
+      this.isDisabled = (ticketDate < todayDate);
       console.log(this.isDisabled)
     }
 
@@ -221,13 +221,13 @@ export class UserDashboardComponent implements OnInit {
 
   // }
   signOut() {
-    console.log(this.loggedInUserId);
-    // sessionStorage.removeItem("userId");
     sessionStorage.clear();
-    this.isStatus = false;
-    this.router.navigate(['homeLink']);
-
+    this.isStatus=false;
+    this.router.navigate(['homeLink']).then(()=>{
+      window.location.reload()
+    })
   }
+  
 
   trackFunction(ticketId) {
     // console.log(ticketId);
@@ -264,13 +264,13 @@ export class UserDashboardComponent implements OnInit {
     console.log(100);
   }
 
-  cancelFunction(){
-    this.cancelTicketId=Number(sessionStorage.getItem("ticketId"));
-    this.isclicked=true;
-    
-     this.userService.cancelTicket(this.cancelTicketId).subscribe(
-       result=>{
-         console.log(result);
+  cancelFunction() {
+    this.cancelTicketId = Number(sessionStorage.getItem("ticketId"));
+    this.isclicked = true;
+
+    this.userService.cancelTicket(this.cancelTicketId).subscribe(
+      result => {
+        console.log(result);
         //  if(result==true){
         //   this.isShown = ! this.isShown;
         //  }

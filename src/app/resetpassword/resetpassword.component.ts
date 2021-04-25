@@ -44,6 +44,7 @@ export class ResetpasswordComponent implements OnInit {
       document.getElementById("changePassword").innerHTML="";
       // alert(JSON.stringify(passwordForm.value));
       console.log(this.password); //obj will be sent to server thru Api calls
+      this.changePasswordDto.userId=Number(localStorage.getItem("Id"));
       this.changePasswordDto.userId=this.loggedInUser;
       this.changePasswordDto.password=this.password.confirmPassword;
       console.log(this.changePasswordDto);

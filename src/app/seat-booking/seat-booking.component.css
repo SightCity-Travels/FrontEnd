@@ -1,3 +1,8 @@
+h2,p,h1,button{
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+
 /* CSS related to seat and seat Container */
 #seat-container{
     background-color: rgb(236, 236, 229); 
