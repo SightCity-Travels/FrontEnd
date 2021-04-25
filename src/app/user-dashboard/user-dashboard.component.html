@@ -75,10 +75,10 @@
                   <td>{{bookingdetails.status}}</td>
                   <td>{{bookingdetails.noOfPassengers}}</td>
 
-                  <!-- <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button> -->
+                   <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="bookingdetails.status=='CANCELLED'" (click)="trackFunction(bookingdetails.ticketId)">Check</button> 
                 
 
-                  <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="isDisabled"  (click)="trackFunction(bookingdetails.ticketId)">Check</button>
+                  <!-- <button class="btn1" style="width: 100%;" type="button"  [routerLink]="['/ticketLink']"  [disabled]="isDisabled"  (click)="trackFunction(bookingdetails.ticketId)">Check</button> -->
 
                 </tr>
                 <!-- [disabled]="isBooked" -->
@@ -88,7 +88,7 @@
         </div>
       
     </div>
-<div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
+<div id="Wallet" class="tabcontent" style="margin-bottom: 100em">
 
   <div class="card">
     <h1 style="text-align: center; font-style:oblique; color:black;"><label>Wallet</label></h1>

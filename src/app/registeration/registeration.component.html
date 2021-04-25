@@ -34,7 +34,7 @@
         <input type="text" placeholder="Choose Date Of Birth" id="dt" name="dt" onfocus="(this.type='date')"
           onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]=user.dateOfBirth><br>
         <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
-          <span *ngIf="dt.errors?.required">Travel Date Is Required</span></span><br>
+          <span *ngIf="dt.errors?.required">Date of Birth Is Required</span></span><br>
 
 
         <label for="email">EMAIL</label><br>

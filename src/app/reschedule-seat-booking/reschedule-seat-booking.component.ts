@@ -176,6 +176,11 @@ export class RescheduleSeatBookingComponent implements OnInit {
      returnedTicket=>{
        console.log(returnedTicket);
        this.router.navigate(['ticketLink']);
+       this.userService.sendEmail(returnedTicket.ticketId).subscribe(
+         result=>{
+           console.log(result);
+         }
+       );
      }
 
     );
