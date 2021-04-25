@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
-import { MyBookingComponent } from './my-booking/my-booking.component';
-import { MyProfileComponent } from './my-profile/my-profile.component';
-import { MyWalletComponent } from './my-wallet/my-wallet.component';
 import { AboutComponent } from './about/about.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { PaymentComponent } from "./payment/payment.component";
@@ -45,9 +42,7 @@ import { RescheduleSeatBookingComponent } from './reschedule-seat-booking/resche
   declarations: [
     AppComponent,
     UserDashboardComponent,
-    MyBookingComponent,
-    MyProfileComponent,
-    MyWalletComponent,
+    
     AboutComponent,
     FeedbackComponent,
     PaymentComponent,

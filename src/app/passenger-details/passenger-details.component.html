@@ -5,17 +5,19 @@
         <h2>Passengers Information</h2>
         <form action="" #passenger="ngForm">
             <label for="name">Name</label><br>
-            <input type="text" id="name" name="Name" placeholder="Name" #name="ngModel" required
-                [(ngModel)]="passengerDetail.passengerName">
+            <input type="text" id="name" name="name" placeholder="Name" #name="ngModel" required
+                [(ngModel)]="passengerDetail.passengerName" pattern="[A-Za-z -]*" maxlength="25">
             <span *ngIf="name.invalid && (name.touched || name.dirty)" style="color: red;border-color:red;">
                 <span *ngIf=name.errors.required>Name is required</span>
+                <span *ngIf=name.errors.pattern>Please enter a valid name</span>
             </span>
             <br>
             <label for="Age">Age</label><br>
             <input type="text" id="age" name="age" placeholder="Age" #age="ngModel" required
-                [(ngModel)]="passengerDetail.passengerAge">
+                [(ngModel)]="passengerDetail.passengerAge" pattern="[0-9]*" maxlength="2">
             <span *ngIf="age.invalid && (age.touched || age.dirty)" style="color: red;border-color:red;">
                 <span *ngIf=age.errors.required>Age is required</span>
+                <span *ngIf=age.errors.pattern>Please enter a valid age</span>
             </span>
             <br>
             <label for="Gender">Gender</label><br><br>
@@ -34,7 +36,7 @@
         <div class="containers">
             <h2>Contact Details</h2>
             <hr>
-            <label for="email"><b>Email Id</b></label>
+            <label for="email">Email Id</label><br>
             <input type="text" placeholder="Enter Email" name="email" id="email" #em=ngModel required
                 pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=emailOfPassenger>&nbsp;
             <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: red; border-color: red;'>

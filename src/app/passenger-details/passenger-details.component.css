@@ -1,4 +1,10 @@
 /* Style inputs with type="text", select elements and textareas */
+
+h2,p,h1,button,th,label{
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+
 input[type=text], select, textarea {
     width: 70% ;/* Full width */
     padding: 12px; /* Some padding */ 

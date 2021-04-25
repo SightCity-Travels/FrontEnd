@@ -51,8 +51,6 @@ export class TicketComponent implements OnInit {
 
   minDate = new Date();
 
-//isCancelled:boolean=false;
-
   dateOfJourney: Date;
   constructor(private service: UserService, private busService: BusService, private router: Router) { }
 

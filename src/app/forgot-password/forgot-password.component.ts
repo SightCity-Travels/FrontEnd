@@ -27,13 +27,15 @@ export class ForgotPasswordComponent implements OnInit {
 
     if(forgotForm.valid){
 console.log(JSON.stringify(this.loginforgetdto));
+      
+
       this.service.reset(this.loginforgetdto).subscribe(
         reset=>{
           console.log(reset);
           if (reset!=null) {
             localStorage.setItem("Id", this.loginforgetdto.id.toString());
-          //  console.log(Number(sessionStorage.getItem("Id")));
-            sessionStorage.setItem("email", this.loginforgetdto.email.toString());
+            console.log(Number(sessionStorage.getItem("Id")));
+            localStorage.setItem("email", this.loginforgetdto.email.toString());
             document.getElementById("emaillink").innerHTML="A link has been sent to your mail";
             setTimeout(() => {
               this.router.navigate(['loginLink']);

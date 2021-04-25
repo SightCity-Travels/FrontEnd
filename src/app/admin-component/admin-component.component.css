@@ -9,7 +9,7 @@ body {
   float: left;
   background: rgba(255, 255, 255, 0.589);
   width: 25%;
-  height: 625px;
+  height: 720px;
 }
 
 /* Style the buttons inside the tab */
@@ -26,6 +26,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
   font-size: 20px;
+  font-family:'IM Fell DW Pica SC', 'serif' ;
 }
 
 /* Change background color of buttons on hover */
@@ -73,7 +74,7 @@ body {
   
     /* Set a style for all buttons */
     button {
-      background-color: darkblue;
+      background-color:rgb(11, 89, 92);
       
       color: white;
       padding: 14px 20px;
@@ -81,6 +82,7 @@ body {
       border: none;
       cursor: pointer;
       width: 20%;
+      border-radius: 10px;
       box-shadow: 0px 3px 6px #00000029;
     }
   
@@ -149,7 +151,19 @@ body {
       
     }
     
-    th, td {
+    th {
       text-align: center;
       padding: 16px;
+      font-family:'IM Fell DW Pica SC', 'serif' ;
+      font-size: larger;
+      
+    }
+   td {
+      text-align: center;
+      padding: 16px;
+      
+    }
+    label{
+      font-family:'IM Fell DW Pica SC', 'serif' ;
+      font-size: larger;
     }

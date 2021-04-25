@@ -23,7 +23,7 @@
 
     <div class="card">
 
-        <h3 style="text-align: center; font-style:oblique; color:black;">Add Bus</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Add Bus</h1>
         <form #addBusForm="ngForm" (ngSubmit)="checkBus(addBusForm)">
 
             <label for="name">Bus Name</label><br>
@@ -76,12 +76,12 @@
                 <div *ngIf="st.errors.required">Start Time is required</div>
                 <div *ngIf="st.errors.pattern">Follow the required pattern : (24:00)</div>
             </div><br>
-            <label for="stime">Time of Arrival</label><br>
-            <input type="text" id="stime" name="stime" #st="ngModel" placeholder="Enter Start Time"
+            <label for="stime1">Time of Arrival</label><br>
+            <input type="text" id="stime1" name="stime1" #st1="ngModel" placeholder="Enter Start Time"
                 [(ngModel)]="addBus.timeOfArrival" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" required />
-            <div *ngIf="st.invalid && (st.dirty||st.touched)" style='color: red; border-color: red;'>
-                <div *ngIf="st.errors.required">Start Time is required</div>
-                <div *ngIf="st.errors.pattern">Follow the required pattern : (24:00)</div>
+            <div *ngIf="st1.invalid && (st1.dirty||st1.touched)" style='color: red; border-color: red;'>
+                <div *ngIf="st1.errors.required">Start Time is required</div>
+                <div *ngIf="st1.errors.pattern">Follow the required pattern : (24:00)</div>
             </div><br>
 
             <label for="duration">Duration</label><br>
@@ -106,7 +106,7 @@
 <div id="Booking" class="tabcontent">
 
     <div class="card">
-        <h3 style="text-align: center; font-style:oblique; color:black;">Booking</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Booking</h1>
         <form #bookBusForm="ngForm" (ngSubmit)="bookingBus(bookBusForm)">
             <label for="busNo2">Bus No.</label><br>
             <input type="text" id="busNo2" name="busNo2" #bn2="ngModel" placeholder="Enter Bus Id"
@@ -116,8 +116,8 @@
                 <div *ngIf="bn2.errors.pattern">Enter Only Digits</div>
             </div><br>
 
-            <p>Period </p>
-
+            
+            <label for="dt">Period</label><br>
             <input type="text" placeholder="CHOOSE DATE" id="dt" name="dt" onfocus="(this.type='date')"
                 onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]="dateOfJourney">
             <br>
@@ -154,7 +154,7 @@
 <div id="View" class="tabcontent">
 
     <div class="card">
-        <h3 style="text-align: center; font-style:oblique; color:black;">View Buses</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">View Buses</h1>
 
         <table id="viewbuses">
             <tr>
@@ -191,7 +191,7 @@
 <div id="Route" class="tabcontent">
 
     <div class="card">
-        <h3 style="text-align: center; font-style:oblique; color:black;">Update Route</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Update Route</h1>
         <form #updateBusForm="ngForm" (ngSubmit)="changeBus(updateBusForm)">
             <label for="busNo1">Bus No.</label><br>
             <input type="text" id="busNo1" name="busNo1" #bn1="ngModel" placeholder="Enter Bus Id"
@@ -272,7 +272,7 @@
 <div id="Frequency" class="tabcontent">
 
     <div class="card">
-        <h3 style="text-align: center; font-style:oblique; color:black;">Preferred Bus</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Preferred Bus</h1>
         <!-- <p>Period </p>
         <input type="radio" class="accordion" name="period" />Weekly
         <div class="panel">
@@ -322,7 +322,7 @@
 <div id="Customer" class="tabcontent">
 
     <div class="card">
-        <h3 style="text-align: center; font-style:oblique; color:black;">Customer Registration</h3>
+        <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Customer Registration</h1>
 
         <!-- <p>Type</p> -->
         <!-- <input type="radio" class="accordion" name="type1" value="customer" />Registered Customer<br>

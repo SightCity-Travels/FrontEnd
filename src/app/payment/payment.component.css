@@ -1,3 +1,10 @@
+
+h2,p,h1,button,th,label{
+  font-family: 'IM Fell DW Pica SC', serif;
+}
+
+
+
 card {
   background-color:white;
   opacity: 0.9;
