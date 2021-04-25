@@ -24,7 +24,7 @@ export class RegisterationComponent implements OnInit {
 checkPassword() {
   if (this.user.password != this.userCPassword) {
     //alert("Password is not matching");
-    document.getElementById("resultDiv").innerHTML="Confirm Password is not matching";
+    document.getElementById("resultDiv").innerHTML="Confirm Password Is Not Matching";
   }
   else {
     //alert("Incorrect old password");
