@@ -113,11 +113,10 @@ p{
   font-size: large;
 }
 
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
  
-}
-
+} */
 
 
 .containers {
@@ -451,60 +450,6 @@ ul {
   color: #d45725;
 }
 
-.feature-section {
-  background-image: url(https://i.ibb.co/7W0kvSy/feature-section-image.jpg);
-  background-position: 50% 50%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 60px 0;
-  /* min-height: 100vh; */
-}
 
-.feature-back:hover {
-  color: #fff !important;
-  background-color: #ffffff1c;
-  border-radius: 11px;
-}
-.feature-back {
-  color: #fff !important;
-  padding: 18px;
-}
-.features-title {
-  
-  font-size: 30px;
-  letter-spacing: 0.5px;
-  text-align: center;
-  color: #fff;
-}
-.below-line-feature {
-  border-top: 2px solid #fff;
-  display: inline-block;
-  bottom: auto;
-  left: auto;
-  margin: auto auto auto 0;
-  font-size: 16px;
-  color: #fff;
-  padding-left: 50px;
-  padding-top: 4px;
-}
-.features-div i {
-  color: #d45725;
-  font-size: 48px !important;
-  float: left;
-  padding-right: 18px;
-  padding-top: 15px;
-  font-size: larger;
-  
-}
-.features-heading {
-  font-size: 19.98px;
-  letter-spacing: 0.5px;
-}
 
-.features-div p {
-  font-size: 14px;
-  color: #fff;
-  padding-left: 70px;
-  line-height: 2;
-}
    
