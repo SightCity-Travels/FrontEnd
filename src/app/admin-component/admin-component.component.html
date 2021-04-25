@@ -1,8 +1,8 @@
 <!-- <div style="margin-top: 100px;"> -->
-<div class="tab" style="margin-bottom: 30em;">
+<div class="tab" style="margin-bottom: 210em;">
 
     <button style="text-align: center;"> <i style="font-size:5em;" class="fas fa-user-cog"
-            aria-hidden="true"></i><br>MyAdmin</button>
+            aria-hidden="true"></i><br>My Admin</button>
     <button class="tablinks" (click)="openTab($event, 'Booking','bookBtn')" id="bookBtn"><i class="fa fa-ticket"
             aria-hidden="true"></i>Bookings</button>
     <button class="tablinks" (click)="openTab($event, 'AddBus','addBusBtn')" id="addBusBtn"><i
@@ -51,8 +51,8 @@
 
 
             <label>Type</label><br>
-            <input type="radio" id="ac" name="type" value="ac" [(ngModel)]="addBus.typeOfBus">AC<br>
-            <input type="radio" id="nonac" name="type" value="nonac" [(ngModel)]="addBus.typeOfBus">NON-AC<br>
+            <input type="radio" id="ac" name="type" value="AC" [(ngModel)]="addBus.typeOfBus">AC<br>
+            <input type="radio" id="nonac" name="type" value="NON-AC" [(ngModel)]="addBus.typeOfBus">NON-AC<br>
             <br>
             <!-- <label for="capacity">Capacity</label><br>
         <input type="text" id="capacity" name="capacity" #cap="ngModel" placeholder="Enter Capacity" [(ngModel)]="addBus.noOfSeats" maxlength="2" pattern="[0-9]*" required/>
@@ -92,7 +92,7 @@
                 <div *ngIf="du.errors.pattern">Follow the required pattern : (2h43m)</div>
             </div><br>
 
-            <button type="reset" (click)="functionCall1()">Add</button>
+            <button type="submit" (click)="functionCall1()">Add</button>
 
             <div [hidden]="isAddBushidden">
                 <p>Bus Details added successfully </p>
