@@ -1,5 +1,5 @@
 
-<div class="tab" style="margin-bottom: 20em;" >
+<div class="tab" style="margin-bottom: 20em">
 
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
       aria-hidden="true"></i><br><label>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</label></button>
@@ -15,6 +15,7 @@
     <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
         aria-hidden="true"></i><label>Sign Out</label></button></a>
       
+
 </div>
 
 <div id="Profile" class="tabcontent">
@@ -47,6 +48,7 @@
     </form>
   </div>
 </div>
+
 
 
   <div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
@@ -87,9 +89,8 @@
         </div>
       
     </div>
+<div id="Bookings" class="tabcontent" style="margin-bottom: 100em">
 
-      <div id="Wallet" class="tabcontent">
-  
   <div class="card">
     <h1 style="text-align: center; font-style:oblique; color:black;"><label>Wallet</label></h1>
     <label  style="font-size: 25px;"> Available Balance :</label><i class="fa fa-inr" aria-hidden="true" style="font-size: 30px;">{{loggedInUser.wallet}}</i><br><br>
@@ -144,8 +145,14 @@
 
     <button class="btn1" type="button" (click)="rechargeWallet()">+Add Balance</button>
     <div id="msgWallet"></div>
+
   </div>
+
 </div>
+
+
+
+
 
 <div id="Changepass" class="tabcontent">
 
@@ -187,8 +194,7 @@
       <div id="changePassword"></div>
       <button class="btn1" type="submit">Submit</button>&nbsp;
       <button class="btn2" type="reset">Reset</button>
-      <div id="resultDiv"  style="color: rgb(17, 63, 63);"></div>
+      <div id="resultDiv" style="color: rgb(17, 63, 63);"></div>
     </form>
   </div>
 </div>
-

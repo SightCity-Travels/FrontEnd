@@ -4,15 +4,18 @@
 
       <div class="Rcontainer">
 
-        <h3 style="margin-left: 25%;">REGISTRATION</h3>
+        <h3 style="margin-left: 21%;font-family: 'IM Fell DW Pica SC';font-weight: bolder;font-size: 1.6em;">REGISTRATION</h3>
 
         <label for="fname"><b>FIRST NAME </b> &nbsp;</label> <br>
         <input type="text" #fnm="ngModel" placeholder="Enter First Name" name="fname" id="fname" pattern="[A-Za-z]*" required
+
           [(ngModel)]=user.firstName> <br>
 
-        <span *ngIf="fnm.invalid && (fnm.dirty||fnm.touched)" style='color: red; border-color: red;'>
+
+        <span *ngIf="fnm.invalid && (fnm.dirty||fnm.touched)" style='color: red; '>
           <span *ngIf="fnm.errors?.required"> First Name is required</span>
           <span *ngIf="fnm.errors.pattern">Please follow the pattern:(John)</span> </span><br>
+
 
 
         <label for="lname"><b>LAST NAME </b> &nbsp;</label><br>
@@ -25,14 +28,16 @@
 
 
 
+
+
         <label for="dt">DATE OF BIRTH</label><br>
-        <input type="text" placeholder="CHOOSE DATE OF BIRTH" id="dt" name="dt" onfocus="(this.type='date')"
+        <input type="text" placeholder="Choose Date Of Birth" id="dt" name="dt" onfocus="(this.type='date')"
           onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]=user.dateOfBirth><br>
         <span *ngIf="(dt.dirty||dt.touched)" style='color:rgb(8, 55, 56);'>
-          <span *ngIf="dt.errors?.required">Travel date is required</span></span><br>
+          <span *ngIf="dt.errors?.required">Travel Date Is Required</span></span><br>
 
 
-        <label for="email"><b>EMAIL</b> &nbsp;</label><br>
+        <label for="email">EMAIL</label><br>
         <input type="text" #em="ngModel" placeholder="Enter Email" id="email" name="email" required
           pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=user.email> <br>
 
@@ -41,7 +46,8 @@
           <span *ngIf="em.errors.pattern">Please enter a valid email</span></span><br>
 
 
-        <label for="pwd"><b>PASSWORD</b> &nbsp;</label><br>
+
+        <label for="pwd">PASSWORD</label><br>
         <input type="password" #pwd="ngModel" placeholder="Enter Password" id="pwd" name="pwd" required
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=user.password
           (change)="checkPassword()"><br>
@@ -54,29 +60,24 @@
             <li>A special character (@,#,$,&)</li></span> </span><br>
 
 
-        <label for="cpwd"><b>CONFIRM PASSWORD</b> &nbsp;</label><br>
+        <label for="cpwd">CONFIRM PASSWORD</label><br>
         <input type="password" #cp="ngModel" placeholder="Confirm Password" id="cpwd" name="cpwd" required
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword
           (change)="checkPassword()"> <br>
 
-
-
-
-
-
-        <div id="resultDiv" style="color:red;"></div>
+        <div id="resultDiv" style="color:rgb(11, 89, 92); font-family: 'IM Fell DW Pica SC', 'serif'; font-size: 15px;"></div>
 
         <div id="btn3"></div>
 
 
-        <label for="ph"><b>CONTACT NO</b> &nbsp;</label><br>
+        <label for="ph">CONTACT NO</label><br>
         <input type="text" #cn="ngModel" placeholder="Enter Contact Numer" name="ph" id="ph" pattern="^[6-9]\d{9}$"
           required [(ngModel)]=user.contactNo> <br>
 
         <span *ngIf="cn.invalid && (cn.dirty||cn.touched)" style='color: red; border-color: red;'>
+
           <span *ngIf="cn.errors?.required">Mobile number is required</span>
           <span *ngIf="cn.errors.pattern">Please enter valid mobile number</span></span><br>
-
         <div id="btn2"></div>
         <div class="">
 
