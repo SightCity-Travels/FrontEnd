@@ -7,20 +7,21 @@
         <h3 style="margin-left: 25%;">REGISTRATION</h3>
 
         <label for="fname"><b>FIRST NAME </b> &nbsp;</label> <br>
-        <input type="text" #fnm="ngModel" placeholder="Enter First Name" name="fname" id="fname" minlength="4" required
+        <input type="text" #fnm="ngModel" placeholder="Enter First Name" name="fname" id="fname" pattern="[A-Za-z]*" required
           [(ngModel)]=user.firstName> <br>
 
         <span *ngIf="fnm.invalid && (fnm.dirty||fnm.touched)" style='color: red; border-color: red;'>
           <span *ngIf="fnm.errors?.required"> First Name is required</span>
-          <span *ngIf="fnm.errors.minlength">Name must contain atleast 4 character</span> </span><br>
+          <span *ngIf="fnm.errors.pattern">Please follow the pattern:(John)</span> </span><br>
 
 
         <label for="lname"><b>LAST NAME </b> &nbsp;</label><br>
-        <input type="text" #lnm="ngModel" placeholder="Enter Last Name" name="lname" id="lname" required
+        <input type="text" #lnm="ngModel" placeholder="Enter Last Name" name="lname" id="lname" pattern="[A-Za-z]*" required
           [(ngModel)]=user.lastName> <br>
 
         <span *ngIf="(lnm.dirty||lnm.touched)" style='color: red; border-color: red;'>
-          <span *ngIf="lnm.errors?.required">Last Name is required</span></span><br>
+          <span *ngIf="lnm.errors?.required">Last Name is required</span>
+          <span *ngIf="lnm.errors.pattern">Please follow the pattern:(Peterson)</span> </span><br>
 
 
 
@@ -37,7 +38,7 @@
 
         <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: red; border-color: red;'>
           <span *ngIf="em.errors?.required">Email is required</span>
-          <span *ngIf="em.errors.pattern">invalid email type</span></span><br>
+          <span *ngIf="em.errors.pattern">Please enter a valid email</span></span><br>
 
 
         <label for="pwd"><b>PASSWORD</b> &nbsp;</label><br>
@@ -47,7 +48,10 @@
 
         <span *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style='color: red; border-color: red;'>
           <span *ngIf="pwd.errors?.required">Password is required</span>
-          <span *ngIf="pwd.errors.pattern">invalid password type</span> </span><br>
+          <span *ngIf="pwd.errors.pattern">Password must contain:<li>A uppercase (A)</li>
+            <li>A lowercase (a)</li>
+            <li>A digit (0-9)</li>
+            <li>A special character (@,#,$,&)</li></span> </span><br>
 
 
         <label for="cpwd"><b>CONFIRM PASSWORD</b> &nbsp;</label><br>
@@ -71,7 +75,7 @@
 
         <span *ngIf="cn.invalid && (cn.dirty||cn.touched)" style='color: red; border-color: red;'>
           <span *ngIf="cn.errors?.required">Mobile number is required</span>
-          <span *ngIf="cn.errors.pattern">Mobile number is invalid</span></span><br>
+          <span *ngIf="cn.errors.pattern">Please enter valid mobile number</span></span><br>
 
         <div id="btn2"></div>
         <div class="">

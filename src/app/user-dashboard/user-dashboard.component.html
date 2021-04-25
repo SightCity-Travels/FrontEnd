@@ -1,44 +1,45 @@
 
-<div class="tab" style="margin-bottom: 20em" >
+<div class="tab" style="margin-bottom: 20em;" >
 
   <button style="text-align: center;"><i style="font-size:5em;" class="fa fa-user"
-      aria-hidden="true"></i><br>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</button>
+      aria-hidden="true"></i><br><label>{{loggedInUser.firstName}} {{loggedInUser.lastName}}</label></button>
   <button class="tablinks" (click)="openTab($event, 'Profile','profilebtn')" id="profilebtn"><i class="fa fa-user"
-      aria-hidden="true"></i>Profile</button>
+      aria-hidden="true"></i><label>Profile</label></button>
   <button class="tablinks" (click)="openTab($event, 'Bookings','bookbtn')" id="bookbtn"><i class="fa fa-ticket"
-      aria-hidden="true"></i>Bookings</button>
+      aria-hidden="true"></i><label>Bookings</label></button>
   <button class="tablinks" (click)="openTab($event, 'Wallet','walletbtn')" id="walletbtn"><i class="fa fa-google-wallet"
-      aria-hidden="true"></i>Wallet</button>
+      aria-hidden="true"></i><label>Wallet</label></button>
   <button class="tablinks" (click)="openTab($event, 'Changepass','passbtn')" id="passbtn"><i class="fa fa-key"
-      aria-hidden="true"></i>Change Password</button>
+      aria-hidden="true"></i><label>Change Password</label></button>
   <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']">
     <button class="tablinks" (click)="signOut()" (click)="openTab($event, 'Signout','signbtn')" id="signbtn"><i class="fa fa-sign-out"
-        aria-hidden="true"></i>Sign Out</button></a>
+        aria-hidden="true"></i><label>Sign Out</label></button></a>
+      
 </div>
 
 <div id="Profile" class="tabcontent">
 
   <div class="card">
-    <h1 style="text-align: center; font-style:oblique; color:black;">Personal Details</h1>
+    <h1 style="text-align: center;  color:black; "><label>Personal Details</label></h1>
     <form action="" method="POST">
-      Name<br>
+      <label for="name">Name</label><br>
       <input type="text" id="name" value="" placeholder="Enter Name" name="username" #userName="ngModel"
         [(ngModel)]="loggedInUser.firstName" [disabled]="!isEditable" /><br>
-      DOB<br>
+      <label for="dob">DOB</label><br>
       <input type="date" id="dob" value="" placeholder="Enter DOB" name="dob" #dob="ngModel"
         [(ngModel)]="loggedInUser.dateOfBirth" [disabled]="!isEditable" /><br>
-      Gender<br>
+        <label for="">Gender</label><br>
       <input type="radio" id="male" name="gender" value="male" name="gender" #gender="ngModel"
         [(ngModel)]="loggedInUser.gender">Male<br> <!-- doubt part-->
       <input type="radio" id="female" name="gender" value="female" name="gender" #gender="ngModel"
         [(ngModel)]="loggedInUser.gender" [disabled]="!isEditable">Female<br><br> <!-- doubt part-->
-      Email<br>
+        <label for="email">Email</label><br>
       <input type="text" id="email" placeholder="Enter Email" name="em" #em="ngModel" [(ngModel)]="loggedInUser.email"
         [disabled]="!isEditable" /><br>
-      Mobile<br>
+        <label for="mobile">Phone</label><br>
       <input type="text" id="mobile" placeholder="Enter Mobile" name="cn" #cn="ngModel"
         [(ngModel)]="loggedInUser.contactNo" [disabled]="!isEditable" /><br>
-      Address<br>
+        <label for="address">Address</label><br>
       <input type="text" id="address" placeholder="Enter Address" name="add" #add="ngModel"
         [(ngModel)]="loggedInUser.address" [disabled]="!isEditable" /><br>
       <button name='edit' id="editUpdateBtn" value='edit' (click)="updateUserInfo()">Edit</button>&nbsp;
@@ -52,7 +53,7 @@
           
       <div class="card">
 
-          <h3 style="text-align: center;">Bookings</h3>
+          <h1 style="text-align: center;"><label>Bookings</label></h1>
 
           
                   <table class="table">
@@ -90,8 +91,8 @@
       <div id="Wallet" class="tabcontent">
   
   <div class="card">
-    <h1 style="text-align: center; font-style:oblique; color:black;">Wallet</h1>
-    <h2>Available Balance : <i class="fa fa-inr" aria-hidden="true"></i> {{loggedInUser.wallet}}</h2>
+    <h1 style="text-align: center; font-style:oblique; color:black;"><label>Wallet</label></h1>
+    <label  style="font-size: 25px;"> Available Balance :</label><i class="fa fa-inr" aria-hidden="true" style="font-size: 30px;">{{loggedInUser.wallet}}</i><br><br>
     <label for="cname">Name on Card</label><br>
     <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name"
       [(ngModel)]=wallet.cardName required />
@@ -149,7 +150,7 @@
 <div id="Changepass" class="tabcontent">
 
   <div class="card">
-    <h1 style="text-align: center; font-style:oblique; color:black;">Change Password</h1>
+    <h1 style="text-align: center; font-style:oblique; color:black;"><label>Change Password</label></h1>
 
 
     <form #passwordForm="ngForm" (ngSubmit)="checkPassword(passwordForm)">

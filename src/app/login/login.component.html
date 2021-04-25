@@ -13,9 +13,10 @@
       
 
         <label for="userId"><b>USER ID</b></label><br>
-        <input type="text"#em="ngModel" placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> <br>
+        <input type="text"#em="ngModel" placeholder="Enter UserId" id="userId" name="userId" maxlength="4" pattern="[0-9]*" required [(ngModel)]=loginDto.id> <br>
          <div *ngIf="em.invalid && (em.dirty||em.touched)" style="color: darkred;">
           <span *ngIf="em.errors.required">UserId is required</span>
+          <span *ngIf="em.errors.pattern">Please enter a valid UserId</span>
          </div> 
     
         <label for="pwd"><b>PASSWORD</b></label><br>
@@ -23,7 +24,7 @@
         <input type="password" #pwd="ngModel" placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password><br>
         <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style="color:darkred;">
           <span *ngIf="pwd.errors.required">Password is required</span>
-          <span *ngIf="pwd.errors.pattern">invalid password type</span> 
+          <span *ngIf="pwd.errors.pattern">Please enter a valid password</span> 
 
          </div> 
     
