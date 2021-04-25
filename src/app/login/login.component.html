@@ -6,19 +6,19 @@
       <div >
         
 
-        <h1 style="margin-left: 35%;">LOGIN</h1>
+        <h1 style="margin-left: 35%;  font-family: 'IM Fell DW Pica SC', serif;">LOGIN</h1>
 
         <br>
         <div id="allmsg" style="color:red;"></div>
       
 
-        <label for="userId"><b>USER ID</b></label><br>
+        <label for="userId">USER ID</label><br>
         <input type="text"#em="ngModel" placeholder="Enter UserId" id="userId" name="userId" required [(ngModel)]=loginDto.id> <br>
          <div *ngIf="em.invalid && (em.dirty||em.touched)" style="color: darkred;">
           <span *ngIf="em.errors.required">UserId is required</span>
          </div> 
     
-        <label for="pwd"><b>PASSWORD</b></label><br>
+        <label for="pwd">PASSWORD</label><br>
 
         <input type="password" #pwd="ngModel" placeholder="Enter Password" id="pwd" required  name="pwd" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=loginDto.password><br>
         <div *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style="color:darkred;">
@@ -38,7 +38,7 @@
           <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="button" class="cancelbtn" >Cancel</button></a> -->
           
           <div>
-         <a style="text-decoration: none; color: white;" [routerLink]="['/forgotPasswordLink']"> <span class="psw">Forgot password?</span></a>
+         <a style="text-decoration: none; color: white; font-family: 'IM Fell DW Pica SC', serif;" [routerLink]="['/forgotPasswordLink']"><span class="psw">Forgot password?</span></a>
           </div>
         
 

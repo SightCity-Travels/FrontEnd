@@ -6,11 +6,21 @@ table {
     
   }
   
-  th, td {
+  th {
     text-align: center;
     padding: 10px;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
+    font-family: 'IM Fell DW Pica SC', serif;
+    font-size: 18px;
+  }
+  td{
+    text-align: center;
+    padding: 10px;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    /* font-family: 'IM Fell DW Pica SC', serif; */
+    font-size: 18px;
   }
         .text{
             text-align: center;
@@ -63,5 +73,12 @@ table {
         background-repeat: no-repeat;
         background-size: cover; */
         } 
+        button{
+          font-family: 'IM Fell DW Pica SC', serif;
+          border-radius: 10px;
+        }
 
+        label{
+          font-size: 18px;
+        }
        

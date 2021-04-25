@@ -6,24 +6,24 @@
       <div class="dropdown">
         <input type="image" src="../assets/loginn.png" style="height: 35px; width: 35px;" class="dropbtn" />
         <div class="dropdown-content">
-          <a [routerLink]="['/trackticket']">Track booking</a>
+          <a [routerLink]="['/trackticket']" style="font-family: 'IM Fell DW Pica SC', serif;">Track booking</a>
           <!-- <a [routerLink]="['/loginLink']">Login/Sign-up</a> -->
           <span *ngIf="isStatus then block2 else block1"></span>
           <ng-template #block1>
-            <a [routerLink]="['/loginLink']">Login/Sign-up</a>
+            <a [routerLink]="['/loginLink']" style="font-family: 'IM Fell DW Pica SC', serif;">Login/Sign-up</a>
           </ng-template>
           <ng-template #block2>
-            <a [routerLink]="['/userDashBoard']">DashBoard</a>
+            <a [routerLink]="['/userDashBoard']" style="font-family: 'IM Fell DW Pica SC', serif;">DashBoard</a>
             <a (click)="signOut()">Sign Out</a>
           </ng-template>
-          <a [routerLink]="['/feedbackLink']">Feedback</a>
+          <a [routerLink]="['/feedbackLink']" style="font-family: 'IM Fell DW Pica SC', serif;">Feedback</a>
         </div>
       </div>
-    <li><a [routerLink]="['/contactUsLink']" style="float: right;">CONTACT US</a></li>
+    <li><a [routerLink]="['/contactUsLink']" style="float: right; font-family: 'IM Fell DW Pica SC', serif;">CONTACT US</a></li>
 
     <!-- <li><a [routerLink]="['/aboutUsLink']" style="float: right;">ABOUT US</a></li>  -->
-    <li><a href=#about-section style="float: right;">ABOUT US</a></li>
-    <li><a [routerLink]="['/homeLink']" style="float: right;">HOME</a></li>
+    <li><a href=#about-section style="float: right; font-family: 'IM Fell DW Pica SC', serif;">ABOUT US</a></li>
+    <li><a [routerLink]="['/homeLink']" style="float: right; font-family: 'IM Fell DW Pica SC', serif;">HOME</a></li>
   </ul>
 </div>
 <!-- <div class="navbar">
