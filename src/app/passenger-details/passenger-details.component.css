@@ -48,7 +48,7 @@ input[type=text], select, textarea {
     width: 70%;
    
     border: 1px solid #ccc;
-    background: rgba(204, 223, 228, 0.5); 
+    background: rgba(204, 223, 228, 0.8); 
     /* opacity: 0.8; */
     margin: 20px;
     margin-left: 150px;

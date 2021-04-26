@@ -93,11 +93,12 @@ button {
 
   span{
 
-    color: rgb(4, 37, 37);
+    color: darkred;
 
 
     font-family: 'IM Fell DW Pica SC', "serif";
   }
+  
   .dt{
     width: 80%;
     padding-top: 0px;

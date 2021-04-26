@@ -17,6 +17,7 @@ import { Wallet } from '../Wallet';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
+  minDate = new Date();
   today = new Date().toLocaleDateString();
   dateOfJourney = this.datepipe.transform(this.today, 'yyyy-MM-dd');
   password: Password = new Password()
@@ -138,14 +139,20 @@ export class UserDashboardComponent implements OnInit {
   }
 
 
-  rechargeWallet() {
-    this.userService.rechargeWallet(this.loggedInUserId, this.wallet.amount).subscribe(
-      fetchedUser => {
-        this.loggedInUser = fetchedUser;
-        console.log(this.loggedInUser);
-      }
-    );
-    document.getElementById("msgWallet").innerHTML = "Wallet Updated";
+  rechargeWallet(rechargeForm: NgForm) {
+    if (rechargeForm.valid) {
+      this.userService.rechargeWallet(this.loggedInUserId, this.wallet.amount).subscribe(
+        fetchedUser => {
+          this.loggedInUser = fetchedUser;
+          console.log(this.loggedInUser);
+        }
+      );
+      document.getElementById("msgWallet").innerHTML = "Wallet Updated";
+    }
+    else {
+      document.getElementById("msgWallet").innerHTML = "Enter Valid Data";
+    }
+
   }
 
 
@@ -154,15 +161,15 @@ export class UserDashboardComponent implements OnInit {
     if (this.password.newPassword != this.password.confirmPassword) {
       //alert("Password is not matching");
       document.getElementById("changePassword").innerHTML = "Confirm Password is not matching";
-      document.getElementById("oldPassword").innerHTML = "";
+      // document.getElementById("oldPassword").innerHTML = "";
     }
-    else if (this.password.oldPassword != this.loggedInUser.password) {
-      //alert("Incorrect old password");
-      document.getElementById("changePassword").innerHTML = "";
-      document.getElementById("oldPassword").innerHTML = "Old Password is incorrect";
-    }
+    // else if (this.password.oldPassword != this.loggedInUser.password) {
+    //   //alert("Incorrect old password");
+    //   document.getElementById("changePassword").innerHTML = "";
+    //   document.getElementById("oldPassword").innerHTML = "Old Password is incorrect";
+    // }
     else if (passwordForm.valid) {
-      document.getElementById("oldPassword").innerHTML = "";
+      // document.getElementById("oldPassword").innerHTML = "";
       document.getElementById("changePassword").innerHTML = "";
       // alert(JSON.stringify(passwordForm.value));
       console.log(this.password); //obj will be sent to server thru Api calls
@@ -222,12 +229,12 @@ export class UserDashboardComponent implements OnInit {
   // }
   signOut() {
     sessionStorage.clear();
-    this.isStatus=false;
-    this.router.navigate(['homeLink']).then(()=>{
+    this.isStatus = false;
+    this.router.navigate(['homeLink']).then(() => {
       window.location.reload()
     })
   }
-  
+
 
   trackFunction(ticketId) {
     // console.log(ticketId);

@@ -52,10 +52,10 @@ export class NewHomeComponent implements OnInit {
 
   checkBus(searchBusForm: NgForm) {
     if (this.source === this.destination) {
-      alert("Source and Destination cannot be same or empty!");
+     document.getElementById("errorForDirectClick").innerHTML="Source and Destination cannot be same or Empty";
     }
     else if (searchBusForm.valid) {
-
+      document.getElementById("errorForDirectClick").innerHTML="";
       sessionStorage.setItem("source", this.source.toString());
       sessionStorage.setItem("destination", this.destination.toString());
       sessionStorage.setItem("dateOfJourney", this.dateOfJourney.toString());
@@ -63,6 +63,7 @@ export class NewHomeComponent implements OnInit {
     }
     else {
       // alert("Enter valid infomation");
+      document.getElementById("errorForDirectClick").innerHTML="Enter valid infomation";
     }
 
   }
