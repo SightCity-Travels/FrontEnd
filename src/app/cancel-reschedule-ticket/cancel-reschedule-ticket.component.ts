@@ -10,12 +10,11 @@ export class CancelRescheduleTicketComponent implements OnInit {
 
   constructor(private service:UserService) { }
 
-//  loggedInUserId: number;
+
   isLoggedIn:boolean;
   cancelTicketId:number;
   
   ngOnInit(): void {
-   // this.loggedInUserId = Number(sessionStorage.getItem("userId"));
     this.cancelTicketId=Number(sessionStorage.getItem("cancelTicketId"));
     if( sessionStorage.getItem("userId") !== null){
        this.isLoggedIn=true;
@@ -25,7 +24,6 @@ export class CancelRescheduleTicketComponent implements OnInit {
   }
 
   cancelFunction(){
-   // this.cancelTicketId=Number(sessionStorage.getItem("cancelTicketId"));
     this.service.cancelTicket(this.cancelTicketId).subscribe(
       result=>{
         console.log(result);

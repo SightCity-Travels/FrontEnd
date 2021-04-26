@@ -39,13 +39,8 @@ export class UserDashboardComponent implements OnInit {
   isclicked: boolean;
   isCancelled: boolean;
   isDisabled: boolean;
+
   constructor(private userService: UserService, private router: Router, public datepipe: DatePipe) {
-
-    // this.bookingDetails = [{
-    //   ticketId: 101, travelDate: this.date, email: "T@gmail.com", totalAmount: 200, st: Status.cancelled, noOfPassengers: 30
-
-    // }
-    // ]
   }
 
 
@@ -69,7 +64,6 @@ export class UserDashboardComponent implements OnInit {
       fetchedTickets => {
         this.tickets = fetchedTickets;
         localStorage.setItem("tickets", JSON.stringify(this.tickets))
-        // console.log(this.tickets);
       }
     );
 
@@ -98,22 +92,6 @@ export class UserDashboardComponent implements OnInit {
     }
     // Show the bookinh tab, and add an "active" class to the link that opened the tab
     document.getElementById("Profile").style.display = "block";
-
-    // var acc = document.getElementsByClassName("accordion");
-    // var i;
-    // for (i = 0; i < acc.length; i++) {
-    //     acc[i].addEventListener("click", function () {
-    //         this.classList.toggle("active");
-    //         var panel = this.nextElementSibling;
-    //         if (panel.style.display === "block") {
-    //             panel.style.display = "none";
-    //         } else {
-    //             panel.style.display = "block";
-    //         }
-    //     });
-    //   }
-    // document.getElementById('bookBtn').classList.add("active");
-
   }
 
 
@@ -159,19 +137,11 @@ export class UserDashboardComponent implements OnInit {
 
   checkPassword(passwordForm: NgForm) {
     if (this.password.newPassword != this.password.confirmPassword) {
-      //alert("Password is not matching");
       document.getElementById("changePassword").innerHTML = "Confirm Password is not matching";
-      // document.getElementById("oldPassword").innerHTML = "";
     }
-    // else if (this.password.oldPassword != this.loggedInUser.password) {
-    //   //alert("Incorrect old password");
-    //   document.getElementById("changePassword").innerHTML = "";
-    //   document.getElementById("oldPassword").innerHTML = "Old Password is incorrect";
-    // }
+
     else if (passwordForm.valid) {
-      // document.getElementById("oldPassword").innerHTML = "";
       document.getElementById("changePassword").innerHTML = "";
-      // alert(JSON.stringify(passwordForm.value));
       console.log(this.password); //obj will be sent to server thru Api calls
       this.changePasswordDto.userId = this.loggedInUserId;
       this.changePasswordDto.password = this.password.confirmPassword;
@@ -217,16 +187,6 @@ export class UserDashboardComponent implements OnInit {
     document.getElementById(btnClass).classList.add("active");
   }
 
-
-
-  // signOut(){
-  //  this.isStatusD=false;
-  //  sessionStorage.setItem("isStatusD",this.isStatusD.toString());
-  //  this.router.navigate(['homeLink'])
-  //  .then(() => {
-  //    window.location.reload();
-
-  // }
   signOut() {
     sessionStorage.clear();
     this.isStatus = false;
@@ -237,37 +197,8 @@ export class UserDashboardComponent implements OnInit {
 
 
   trackFunction(ticketId) {
-    // console.log(ticketId);
-
     this.tId = ticketId;
-    // this.userService.ticketDetails(ticketId).subscribe(
-    //   fetchedTicket=>{
-    //     console.log(fetchedTicket.status)
-    //     if(fetchedTicket.status == Status.BOOKED){
-    //       this.isBooked=false;
-    //       sessionStorage.setItem("ticketId",this.tId.toString());
-    //       this.router.navigate(['ticketLink']);
-    //     }else{
-    //       this.isBooked=true;
-    //     }
-    //   }
-    // );
-
     sessionStorage.setItem("ticketId", this.tId.toString());
-
-
-    //  // Get the button that opens the modal
-    //  var btn1 = document.getElementById("myBtn1");
-
-    //  modal.style.display = "block";
-    // var span;
-    //  span = document.getElementsByClassName("close")[0];
-    //  span.onclick = function () {
-    //   modal.style.display = "none";
-    // }
-
-
-    //  this.router.navigate(['ticketLink']);
     console.log(100);
   }
 
@@ -278,14 +209,9 @@ export class UserDashboardComponent implements OnInit {
     this.userService.cancelTicket(this.cancelTicketId).subscribe(
       result => {
         console.log(result);
-        //  if(result==true){
-        //   this.isShown = ! this.isShown;
-        //  }
         document.getElementById("res").innerHTML = "Your ticket has been cancelled";
       }
     );
-    // document.getElementById("resultDiv").innerHTML="Your ticket has been cancelled";
-
   }
   close() {
     var modal = document.getElementById("myModal");

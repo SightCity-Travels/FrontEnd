@@ -21,90 +21,25 @@ export class RegisterationComponent implements OnInit {
   userCPassword: string;
   constructor(private userservice: UserService, private router: Router) { }
 
-  ngOnInit(){
-    
+  ngOnInit() {
+
   }
-  
-checkPassword() {
-  if (this.user.password != this.userCPassword) {
-    //alert("Password is not matching");
-    document.getElementById("resultDiv").innerHTML="Confirm Password Is Not Matching";
+
+  checkPassword() {
+    if (this.user.password != this.userCPassword) {
+      document.getElementById("resultDiv").innerHTML = "Confirm Password Is Not Matching";
+    }
+    else {
+      document.getElementById("resultDiv").innerHTML = "";
+    }
   }
-  else {
-    //alert("Incorrect old password");
-    document.getElementById("resultDiv").innerHTML="";
-   
-  }}
-   
-// =======
-//   ngOnInit() {
-
-//     // Get the modal
-//     var modal = document.getElementById("myModal");
-
-//     // Get the button that opens the modal
-//     //var btn1 = document.getElementById("btn1");
-
-//     var btn2 = document.getElementById("myBtn2");
-//     var btn3 = document.getElementById("myBtn3");
-
-//     // Get the <span> element that closes the modal
-//     var span;
-//     span = document.getElementsByClassName("close")[0];
-
-//     // When the user clicks the button, open the modal 
-
-//     btn2.onclick = function () {
-//       modal.style.display = "block";
-//     }
-//     btn3.onclick = function () {
-//       modal.style.display = "block";
-//     }
-
-//     // When the user clicks on <span> (x), close the modal
-//     span.onclick = function () {
-//       modal.style.display = "none";
-//     }
-
-//     // When the user clicks anywhere outside of the modal, close it
-//     window.onclick = function (event) {
-//       if (event.target == modal) {
-//         modal.style.display = "none";
-//       }
-//     }
-
-
-
-//     // When the user clicks on <span> (x), close the modal
-//     span.onclick = function () {
-//       modal.style.display = "none";
-//     }
-
-//     // When the user clicks anywhere outside of the modal, close it
-//     window.onclick = function (event) {
-//       if (event.target == modal) {
-//         modal.style.display = "none";
-//       }
-//     }
-//
-//   }
-  
-
 
 
   checkRegister(registerationForm: NgForm) {
-    // console.log("Hi");
-    // if (this.user.password != this.userCPassword) {
-    //   document.getElementById("btn3").innerHTML="Password is not matching ";
-    // }
-     if (registerationForm.valid) {
-
-      // alert(JSON.stringify(registerationForm.value));
-      // console.log(this.user); //obj will be sent to server thru Api calls
-      // Get the modal
+    if (registerationForm.valid) {
       var modal = document.getElementById("myModal1");
-        modal.style.display = "block";
-    
+      modal.style.display = "block";
+
       // Get the button that opens the modal
       var btn1 = document.getElementById("btn1");
       btn1.onclick = function () {
@@ -113,30 +48,28 @@ checkPassword() {
       this.userservice.registerUser(this.user).subscribe(
 
         userPersisted => {
-          if(userPersisted.userId!=0){
+          if (userPersisted.userId != 0) {
             this.userservice.sendMailOnRegistration(userPersisted.userId).subscribe(
-              fetchedBoolean=>{
-                console.log("Mail Sent"+fetchedBoolean);
+              fetchedBoolean => {
+                console.log("Mail Sent" + fetchedBoolean);
               }
             );
 
           }
           console.log(userPersisted);
-          const ticketId= Number(sessionStorage.getItem("ticketId"));
-          if(ticketId!=0){
-            this.userservice.addTicketToUser(ticketId,userPersisted.userId).subscribe(
-              fetchedTicket=>{
+          const ticketId = Number(sessionStorage.getItem("ticketId"));
+          if (ticketId != 0) {
+            this.userservice.addTicketToUser(ticketId, userPersisted.userId).subscribe(
+              fetchedTicket => {
                 console.log(fetchedTicket);
               }
             );
           }
         }
       );
-      // this.router.navigate(['homeLink']); 
     }
     else {
-
-       document.getElementById("btn2").innerHTML="Please fill the requried details";
+      document.getElementById("btn2").innerHTML = "Please fill the requried details";
     }
   }
 

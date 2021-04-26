@@ -53,10 +53,7 @@ export class AdminComponentComponent implements OnInit {
   fetchedTickets: Ticket[] = [];
   dateOfJourney: Date;
 
-  constructor(private adminService: AdminService, private busService: BusService, private router: Router) {
-
-  }
-
+  constructor(private adminService: AdminService, private busService: BusService, private router: Router) {  }
 
   bookingBus(bookBusForm: NgForm) {
     if (bookBusForm.valid) {
@@ -76,13 +73,6 @@ export class AdminComponentComponent implements OnInit {
     );
 
   }
-
-
-
-
-
-
-
   functionCall1() {
     this.isAddBushidden = false;
     this.isBookinghidden = true;
@@ -140,54 +130,8 @@ export class AdminComponentComponent implements OnInit {
           }
         }
       );
-
-
     }
-
-
-
-
-    // this.service.updateBus(this.updateBus.busId,this.updateBus.source,this.updateBus.destination,this.updateBus.fare).subscribe(
-    //   updateBus =>{
-    //      this.updateddBus=updateBus;
-    //      console.log(this.updateddBus);
-    //   }
-    // );
-
-    // this.busService.getBusById(this.updateBus.busId).subscribe(
-    //   fetchedBus => {
-    //     this.fetchedBus = fetchedBus;
-    //     sessionStorage.setItem("fetchedBus", this.fetchedBus.toString());
-    //     console.log(this.fetchedBus);
-    //   }
-    // );
-
-
-    // this.updateddBus = JSON.parse(sessionStorage.getItem("fetchedBus"));
-    // this.updateddBus.source = this.updateBus.source;
-    // this.updateddBus.destination = this.updateBus.destination;
-    // this.updateddBus.fare = this.updateBus.fare;
-
-    // console.log(this.updateddBus);
-
-    // this.adminService.addorUpdateBus(this.updateddBus).subscribe(
-    //   updatedBus => {
-    //     this.uBus = updatedBus;
-    //     console.log(this.uBus);
-    //   }
-    // );
-
   }
-
-
-
-
-
-
-
-
-
-
 
   regCustomer() {
     this.isupDateRoutehidden = true;
@@ -320,16 +264,9 @@ export class AdminComponentComponent implements OnInit {
     }
 
   }
-
   signOut() {
     console.log(this.loggedInAdminId);
-    // sessionStorage.removeItem("userId");
     sessionStorage.clear();
-    // this.isStatus=false;
-
     this.router.navigate(['homeLink']);
   }
-
-
-
 }

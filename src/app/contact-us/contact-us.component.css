@@ -7,8 +7,6 @@ h3,h2,p,h1,button,th{
 .fon{
     position: relative;
     display: inline;
-    /* top: 15vh; */
-    /* background-color: limegreen; */
     left: 20px;
     width: 141px;
     height: 36px;
@@ -22,7 +20,6 @@ h3,h2,p,h1,button,th{
 }
 .for{
     position: relative;
-    /* top: 16vh; */
     height: auto;
     width: 95%;
     padding-right: 20px;
@@ -34,8 +31,6 @@ h3,h2,p,h1,button,th{
     left: 20px;
     width: 100%;
     right: 20px;
-    
-    /* height: 49px; */
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 10px;
@@ -44,17 +39,11 @@ h3,h2,p,h1,button,th{
 button {
     font-weight: bold;
     position: relative;
-    /* place-items: right; */
     color:white;
-    /* padding: 14px 20px;  */
-    /* margin: 8px 0;
-    border: none; */
-    /* left: 300px;  */
     text-align: center;
     float:right;
     top: 10px;
     right: 10px;
-    /* right: 200px; */
     cursor: pointer;
     width: 25%;
     opacity: 0.9;
@@ -62,8 +51,6 @@ button {
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 10px;
     opacity: 1;
-    /* display: block;
-    justify-items: flex-end; */
 }
   
 button:hover {

@@ -12,60 +12,43 @@ import { User } from '../User';
   styleUrls: ['./resetpassword.component.css']
 })
 export class ResetpasswordComponent implements OnInit {
-  password: Password=new Password();
- // loggedInUser: any;
-  changePasswordDto: ChangePasswordDto=new ChangePasswordDto();
-
-  //userService: any;
-  loginforgetdto:LoginForgetDto=new LoginForgetDto();
-//  loggedInUserId1: number;
+  password: Password = new Password();
+  changePasswordDto: ChangePasswordDto = new ChangePasswordDto();
+  loginforgetdto: LoginForgetDto = new LoginForgetDto();
   loggedInUser1: User = new User();
+  loggedInUser = Number(localStorage.getItem("Id"));
 
- loggedInUser=Number(localStorage.getItem("Id"));
-
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
   checkPassword(passwordForm: NgForm) {
     if (this.password.newPassword != this.password.confirmPassword) {
-      //alert("Password is not matching");
-      document.getElementById("changePassword").innerHTML="Confirm Password is not matching";
-    //  document.getElementById("oldPassword").innerHTML="";
+      document.getElementById("changePassword").innerHTML = "Confirm Password is not matching";
     }
-    // else if(this.password.oldPassword!=this.loggedInUser.password){
-    //   //alert("Incorrect old password");
-    //   document.getElementById("changePassword").innerHTML="";
-    //   document.getElementById("oldPassword").innerHTML="Old Password is incorrect";
-    // }
     else if (passwordForm.valid) {
-    //  document.getElementById("oldPassword").innerHTML="";
-      document.getElementById("changePassword").innerHTML="";
-      // alert(JSON.stringify(passwordForm.value));
+      document.getElementById("changePassword").innerHTML = "";
       console.log(this.password); //obj will be sent to server thru Api calls
-      this.changePasswordDto.userId=Number(localStorage.getItem("Id"));
-      this.changePasswordDto.userId=this.loggedInUser;
-      this.changePasswordDto.password=this.password.confirmPassword;
+      this.changePasswordDto.userId = Number(localStorage.getItem("Id"));
+      this.changePasswordDto.userId = this.loggedInUser;
+      this.changePasswordDto.password = this.password.confirmPassword;
       console.log(this.changePasswordDto);
 
       this.userService.changePassword(this.changePasswordDto).subscribe(
-        fetchedString=>{
+        fetchedString => {
           console.log(fetchedString);
-          if(fetchedString){
-            document.getElementById("resultDiv").innerHTML="Password Changed Successfully. Please Login with your new password";
+          if (fetchedString) {
+            document.getElementById("resultDiv").innerHTML = "Password Changed Successfully. Please Login with your new password";
           }
-          else{
-            document.getElementById("resultDiv").innerHTML="Could not change the password";
+          else {
+            document.getElementById("resultDiv").innerHTML = "Could not change the password";
           }
         }
       );
-
-
     }
     else {
       alert("Please enter correct information.");
     }
-
   }
 }

@@ -4,27 +4,11 @@
     </p>
 
     <form #searchBusForm="ngForm" (ngSubmit)="checkBus(searchBusForm)">
-      <!-- <div style="text-align: center;">
-
-
-        <label for="nsleeper">
-          <input type="radio" id="nsleeper" name="bus-type">
-          <span class="checkmark"></span>NON-AC SLEEPER
-        </label>
-        <label for="asleeper">
-          <input type="radio" id="asleeper" name="bus-type">
-          <span class="checkmark"></span>AC SLEEPER
-        </label><br>
-      </div> -->
-
-
       <div id="errorForDirectClick" style="text-align: center; color: darkred;"></div>
       <div class="row">
         <div class="col_s">
           <span *ngIf="(src.dirty||src.touched)" style='color:darkred;'>
             <span style="margin-left: 10%;" *ngIf="src.errors?.required">Source is required</span></span><br>
-
-          <!-- <label for="source" style="margin-left: 2%;">SOURCE</label> -->
           <input list="list-buses" type="text" value="source" id="source" name="source" [(ngModel)]="source"
             #src=ngModel placeholder="ENTER SOURCE CITY" required style="margin-left: 10%;">
 
@@ -32,7 +16,6 @@
           <datalist id="list-buses">
             <option value="Pune">
             <option value="Mumbai">
-            <option value="Delhi">
             <option value="Chennai">
             <option value="Aurangabad">
             <option value="Nashik">
@@ -52,8 +35,6 @@
             [(ngModel)]="destination" #des=ngModel placeholder="ENTER DESTINATION CITY" required
             style="margin-left: 5%;">
 
-
-
           <datalist id="list-buses">
             <option value="Pune">
             <option value="Mumbai">
@@ -64,50 +45,31 @@
           </datalist>
         </div>
 
-
-
         <div class="col_s">
-
           <span *ngIf="(dt.dirty||dt.touched)" style='color:darkred;'>
             <span style="margin-left: 9%;" *ngIf="dt.errors?.required">Travel date is required</span></span><br>
 
-
           <mat-form-field class="dt">
-
             <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="   CHOOSE A DATE" name="dateOfJourney"
               required #dt="ngModel" [(ngModel)]=dateOfJourney>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-
-
-
         </div>
       </div>
-
-
-
-
       <button type="submit" style="margin-left: 38%;"> SEARCH BUSES</button>
-
     </form>
   </div>
 </div>
-
 <div style="background-color: white; margin-top: 60px; width: 100%;">
   <div style="border-radius: 35px;">
     <br>
     <h2 style="text-align: center; font-size: 25px; font-family: 'IM Fell DW Pica SC', 'serif';">POPULAR DESTINATIONS
     </h2>
-
     <div id="main_1" class="slideshow-container">
-
       <div class="mySlides fade">
-
         <img src="../assets/jai.jpeg" id="img1" alt="JAIPUR" style="height: 450px;">
-
         <div class="text">JAIPUR
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">JAIPUR</h3> -->
         </div>
       </div>
 
@@ -115,44 +77,36 @@
 
         <img src="../assets/udaipur.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
         <div class="text">UDAIPUR
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">UDAIPUR</h3> -->
         </div>
       </div>
 
       <div class="mySlides fade">
         <img src="../assets/hyd.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
         <div class="text">HYDERABAD
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">HYDERABAD</h3> -->
         </div>
       </div>
       <div class="mySlides fade">
         <img src="../assets/goa.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
         <div class="text">GOA
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">GOA</h3> -->
         </div>
       </div>
       <div class="mySlides fade">
         <img src="../assets/mumbai.jpg" id="img1" alt="JAIPUR" style="height: 450px;">
         <div class="text">MUMBAI
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">MUMBAI</h3> -->
         </div>
       </div>
       <div class="mySlides fade">
         <img src="../assets/mangalore.jpg" id="img1" style="height: 450px;">
         <div class="text">MANGALORE
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">MANGALORE</h3> -->
         </div>
       </div>
       <div class="mySlides fade">
         <img src="../assets/tirupati.jpg" id="img1" style="height: 450px;">
         <div class="text">TIRUPATI
-          <!-- <h3 style="font-family: 'IM Fell DW Pica SC', serif">TIRUPATI</h3> -->
         </div>
       </div>
     </div>
     <br>
-
-
 
     <div style="text-align:center">
       <span class="dot"></span>
@@ -319,9 +273,6 @@
 
   <section id="about-section"
     style=" background-color:rgba(203, 222, 228); margin-top: 5%;margin-bottom: 70px;padding-left: 75px;padding-right: 75px;">
-    <!-- <div class="card" id="main_1"> -->
-    <!-- <div class="container">   -->
-
     <div class="section-title">
 
       <h2 style="font-size: 30px; font-family: 'IM Fell DW Pica SC', serif;">ABOUT US</h2>
@@ -429,8 +380,6 @@
           </div>
         </div>
       </div>
-      <!-- </div> -->
-
     </div>
   </section>
   <div style="height: 150px;">

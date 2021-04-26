@@ -25,8 +25,6 @@ export class PassengerDetailsComponent implements OnInit {
     for (let i = 0; i < this.numberOfPassengers; i++) {
       console.log(this.fetchedSeatInfo[i]);
     }
-
-
   }
 
   addPassenger() {
@@ -48,12 +46,9 @@ export class PassengerDetailsComponent implements OnInit {
       for (let i = 0; i < this.allPassengerList.length; i++) {
         console.log(this.allPassengerList[i]);
       }
-
       this.numberOfPassengers--;
     }
   }
-
-
   proceedToPay(contactForm: NgForm) {
     if (contactForm.valid && this.numberOfPassengers <= 0) {
       sessionStorage.setItem("emailOfPassenger", this.emailOfPassenger);
@@ -63,11 +58,6 @@ export class PassengerDetailsComponent implements OnInit {
     else {
       alert("Please enter correct information.");
     }
-
-
   }
-
-
-
 }
 

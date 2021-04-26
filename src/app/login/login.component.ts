@@ -24,30 +24,8 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
-
   }
-  // checkLogin(loginForm:NgForm){
-  //   if(loginForm.valid){
-  //     if(this.user.email=="shwetha.m1998@gmail.com" && this.user.password=="Shwetha#123"){
-  //       alert("Login successful"); //redirect to 
-  //     //   this.router.navigate(['/homeLink'])
-  //     // }else if(this.user.email=="ashwin@gmail.com" && this.user.password=="Ashwin@2"){
-  //     //   this.router.navigate(['/adminDashBoardLink'])
-  //     // }
-  //     }
 
-  //     else{
-  //       alert("Invalid Username or Password");
-  //      //this.router.navigate(['/loginFailedLink'])
-  //     }
-  //   }
-  //   else{
-  //     alert("Please enter all the details");
-  //   }
-
-  // }
   checkLogin(loginForm: NgForm): void {
     if (loginForm.valid) {
       this.service.loginUser(this.loginDto).subscribe(
@@ -56,12 +34,11 @@ export class LoginComponent implements OnInit {
           if (loginUser == true) {
             sessionStorage.setItem("userId", this.loginDto.id.toString());
             sessionStorage.setItem("status", true.valueOf.toString());
-            // this.router.navigate(['homeLink']);
             this.router.navigate(['userDashBoard'])
               .then(() => {
                 window.location.reload();
               });
-            
+
           } else if (loginUser == false) {
 
             this.serviceAdmin.loginAdmin(this.loginDto).subscribe(
@@ -71,24 +48,18 @@ export class LoginComponent implements OnInit {
                   sessionStorage.setItem("adminId", this.loginDto.id.toString());
                   this.router.navigate(['adminDashBoardLink']);
                 }
-                else{
-           
-                  document.getElementById("allmsg").innerHTML="Invalid password or userid";
+                else {
+                  document.getElementById("allmsg").innerHTML = "Invalid password or userid";
                 }
               }
             );
           }
-
-         
-
-
         }
       );
 
     } else {
 
-      document.getElementById("allmsg").innerHTML=" Please fill all the details";
-
+      document.getElementById("allmsg").innerHTML = " Please fill all the details";
     }
   }
 

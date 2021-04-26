@@ -29,8 +29,6 @@
           </span> </span><br>
 
         <label for="dt">DATE OF BIRTH</label><br>
-        <!-- <input type="text" placeholder="Choose Date Of Birth" id="dt" name="dt" onfocus="(this.type='date')"
-          onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]=user.dateOfBirth><br> -->
         <mat-form-field class="dt">
           <input matInput [matDatepicker]="picker" [max]="minDate" placeholder="Choose DOB " name="dt" required
             #dt="ngModel" [(ngModel)]=user.dateOfBirth>
@@ -46,7 +44,7 @@
         <input type="text" #em="ngModel" placeholder="Enter Email" id="email" name="email" required
           pattern="[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,4}$" [(ngModel)]=user.email> <br>
 
-        <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: red; border-color: red;'>
+        <span *ngIf="em.invalid && (em.dirty||em.touched)" style='color: darkred; border-color: darkred;'>
           <span *ngIf="em.errors?.required">Email is required</span>
           <span *ngIf="em.errors.pattern">Please enter a valid email</span></span><br>
 
@@ -57,7 +55,7 @@
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=user.password
           (change)="checkPassword()"><br>
 
-        <span *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style='color: red; border-color: red;'>
+        <span *ngIf="pwd.invalid && (pwd.dirty||pwd.touched)" style='color: darkred; border-color: darkred;'>
           <span *ngIf="pwd.errors?.required">Password is required</span>
           <span *ngIf="pwd.errors.pattern">Password must contain:<li>A uppercase (A)</li>
             <li>A lowercase (a)</li>
@@ -72,7 +70,7 @@
           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" [(ngModel)]=userCPassword
           (change)="checkPassword()"> <br>
 
-        <div id="resultDiv" style="color:rgb(11, 89, 92); font-family: 'IM Fell DW Pica SC', 'serif'; font-size: 15px;">
+        <div id="resultDiv" style="color:darkred; font-family: 'IM Fell DW Pica SC', 'serif'; font-size: 15px;">
         </div>
 
         <div id="btn3"></div>
@@ -82,7 +80,7 @@
         <input type="text" #cn="ngModel" placeholder="Enter Contact Number" name="ph" id="ph" pattern="^[6-9]\d{9}$"
           required [(ngModel)]=user.contactNo> <br>
 
-        <span *ngIf="cn.invalid && (cn.dirty||cn.touched)" style='color: red; border-color: red;'>
+        <span *ngIf="cn.invalid && (cn.dirty||cn.touched)" style='color: darkred; border-color: darkred;'>
           <span *ngIf="cn.errors?.required">Mobile number is required</span>
           <span *ngIf="cn.errors.pattern">Please enter valid mobile number</span></span><br>
         <div id="btn2"></div>
@@ -114,42 +112,29 @@
 
   <!-- Modal content -->
   <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
     <p>Registration successful <br><br>
       Please check your mail for Login credentials<br><br>
-      <!-- <b>Thankyou!!!</b></p> -->
-
       <br>
       <br>
       <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" value="Submit"
           class="cancelbtn">Click here to Login</button></a>
-
       <br>
       <br>
       <br>
-      <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="submit" value="Submit" class="cancelbtn" >Click here to Login</button></a>
-  </div> -->
   </div>
 </div>
 
 <div id="myModal" class="modal">
-
   <!-- Modal content -->
   <div class="modal-content">
-    <!-- <span class="close">&times;</span> -->
     <p> Password is not matching <br><br>
-
-
       <br>
       <br>
       <a style="text-decoration: none; color: white;" [routerLink]="['/loginLink']"><button type="submit" value="Submit"
           class="cancelbtn">Cancel</button></a>
-
       <br>
       <br>
       <br>
-      <!-- <a style="text-decoration: none; color: white;" [routerLink]="['/homeLink']"><button type="submit" value="Submit" class="cancelbtn" >Click here to Login</button></a>
-  </div> -->
   </div>
 </div>
 

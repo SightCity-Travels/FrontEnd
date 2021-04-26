@@ -1,10 +1,6 @@
-<!-- <div style="margin-top: 100px;"> -->
-
 <div class="tab" style="margin-bottom: 170em;">
-
-
-    <button style="text-align: center;"> <i style="font-size:5em;" class="fas fa-user-cog"
-            aria-hidden="true"></i><br>My Admin</button>
+    <button style="text-align: center;"> <i style="font-size:5em;" class="fas fa-user-cog" aria-hidden="true"></i><br>My
+        Admin</button>
     <button class="tablinks" (click)="openTab($event, 'Booking','bookBtn')" id="bookBtn"><i class="fa fa-ticket"
             aria-hidden="true"></i>Bookings</button>
     <button class="tablinks" (click)="openTab($event, 'AddBus','addBusBtn')" id="addBusBtn"><i
@@ -51,17 +47,10 @@
                 <div *ngIf="dest.errors.pattern">Follow the required pattern : (Mumbai)</div>
             </div><br>
 
-
             <label>Type</label><br>
             <input type="radio" id="ac" name="type" value="AC" [(ngModel)]="addBus.typeOfBus">AC<br>
             <input type="radio" id="nonac" name="type" value="NON-AC" [(ngModel)]="addBus.typeOfBus">NON-AC<br>
             <br>
-            <!-- <label for="capacity">Capacity</label><br>
-        <input type="text" id="capacity" name="capacity" #cap="ngModel" placeholder="Enter Capacity" [(ngModel)]="addBus.noOfSeats" maxlength="2" pattern="[0-9]*" required/>
-        <div *ngIf="cap.invalid && (cap.dirty||cap.touched)"style='color: red; border-color: red;'>
-            <div *ngIf="cap.errors.required">Capacity is required</div>
-            <div *ngIf="cap.errors.pattern">Enter Only Digits</div>
-        </div><br> -->
 
             <label for="fare">Fare</label><br>
             <input type="text" id="fare" name="fare" #fa="ngModel" placeholder="Enter fare" [(ngModel)]="addBus.fare"
@@ -103,8 +92,6 @@
 
     </div>
 </div>
-
-
 <div id="Booking" class="tabcontent">
 
     <div class="card">
@@ -117,17 +104,12 @@
                 <div *ngIf="bn2.errors.required">Bus No. is required</div>
                 <div *ngIf="bn2.errors.pattern">Enter Only Digits</div>
             </div><br>
-
-
             <label for="dt">Period</label><br>
             <input type="text" placeholder="CHOOSE DATE" id="dt" name="dt" onfocus="(this.type='date')"
                 onblur="(this.type='text')" #dt="ngModel" required [(ngModel)]="dateOfJourney">
             <br>
-
             <button type="submit">Check</button>
-
         </form>
-
         <!-- this div is for displaying   -->
         <div [hidden]="isBookinghidden">
 
@@ -154,15 +136,12 @@
 </div>
 
 <div id="View" class="tabcontent">
-
     <div class="card">
         <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">View Buses</h1>
-
         <table id="viewbuses">
             <tr>
                 <th>BusId</th>
                 <th>Bus Name</th>
-                <!-- <th>Number Of Seats</th> -->
                 <th>Duration</th>
                 <th>Type Of Bus</th>
                 <th>Time of Departure</th>
@@ -170,13 +149,10 @@
                 <th>Fare</th>
                 <th>Source</th>
                 <th>Destination</th>
-
-
             </tr>
             <tr *ngFor="let busdetails of busList">
                 <td>{{busdetails.busId}}</td>
                 <td>{{busdetails.busName}}</td>
-                <!-- <td>{{busdetails.noOfSeats}}</td> -->
                 <td>{{busdetails.duration}}</td>
                 <td>{{busdetails.typeOfBus}}</td>
                 <td>{{busdetails.timeOfDeparture}}</td>
@@ -184,7 +160,6 @@
                 <td>{{busdetails.fare}}</td>
                 <td>{{busdetails.source}}</td>
                 <td>{{busdetails.destination}}</td>
-
             </tr>
         </table>
     </div>
@@ -239,7 +214,6 @@
                 <tr>
                     <th>BusId</th>
                     <th>Bus Name</th>
-                    <!-- <th>Number Of Seats</th> -->
                     <th>Duration</th>
                     <th>Type Of Bus</th>
                     <th>Time of Arrival</th>
@@ -247,13 +221,10 @@
                     <th>Fare</th>
                     <th>Source</th>
                     <th>Destination</th>
-
-
                 </tr>
                 <tr *ngFor="let busdetails of updateddBus">
                     <td>{{busdetails.busId}}</td>
                     <td>{{busdetails.busName}}</td>
-                    <!-- <td>{{busdetails.noOfSeats}}</td> -->
                     <td>{{busdetails.duration}}</td>
                     <td>{{busdetails.typeOfBus}}</td>
                     <td>{{busdetails.timeOfArrival}}</td>
@@ -261,13 +232,9 @@
                     <td>{{busdetails.fare}}</td>
                     <td>{{busdetails.source}}</td>
                     <td>{{busdetails.destination}}</td>
-
                 </tr>
             </table>
         </div>
-
-
-
     </div>
 </div>
 
@@ -275,23 +242,10 @@
 
     <div class="card">
         <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Preferred Bus</h1>
-        <!-- <p>Period </p>
-        <input type="radio" class="accordion" name="period" />Weekly
-        <div class="panel">
-            <input type="week" required /><br>
-        </div>
-        <input type="radio" class="accordion" name="period" />Monthly
-        <div class="panel">
-            <input type="month" required /><br>
-        </div><br> -->
-        <!-- <button type="submit" (click)="functionCall2()">Check</button> -->
-
-        <!-- <div [hidden]="ispreferredbushidden"> -->
         <table id="preferrredbus">
             <tr>
                 <th>BusId</th>
                 <th>Bus Name</th>
-                <th>Number Of Seats</th>
                 <th>Duration</th>
                 <th>Type Of Bus</th>
                 <th>Time of Arrival</th>
@@ -299,13 +253,10 @@
                 <th>Fare</th>
                 <th>Source</th>
                 <th>Destination</th>
-
-
             </tr>
             <tr *ngFor="let busdetails of mostPreferredBusses">
                 <td>{{busdetails.busId}}</td>
                 <td>{{busdetails.busName}}</td>
-                <td>{{busdetails.noOfSeats}}</td>
                 <td>{{busdetails.duration}}</td>
                 <td>{{busdetails.typeOfBus}}</td>
                 <td>{{busdetails.timeOfArrival}}</td>
@@ -313,58 +264,43 @@
                 <td>{{busdetails.fare}}</td>
                 <td>{{busdetails.source}}</td>
                 <td>{{busdetails.destination}}</td>
-
             </tr>
         </table>
-        <!-- </div> -->
     </div>
 </div>
-
 
 <div id="Customer" class="tabcontent">
 
     <div class="card">
         <h1 style="text-align: center; font-family:'IM Fell DW Pica SC', 'serif' ; color:black;">Customer Registration
         </h1>
-
-        <!-- <p>Type</p> -->
-        <!-- <input type="radio" class="accordion" name="type1" value="customer" />Registered Customer<br>
-        <input type="radio" class="accordion" name="type2" value="noBooking" />Registered Customer without any Bookings<br>-->
         <button type="submit" (click)="regCustomer()" style="width: 40%;  margin: 8px;">Registered Customer</button>
         <button type="submit" (click)="noBooking()" style="width: 50%;  margin: 8px;">Registered Customer without any
             Bookings</button>
 
         <div [hidden]="iscusthidden">
-
             <table id="customerreg">
                 <tr>
                     <th>UserId</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    <!-- <th>Passsword</th> -->
                     <th>Contact Number</th>
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Address</th>
-
-
                 </tr>
                 <tr *ngFor="let userdetails of userList">
                     <td>{{userdetails.userId}}</td>
                     <td>{{userdetails.firstName}}</td>
                     <td>{{userdetails.lastName}}</td>
                     <td>{{userdetails.email}}</td>
-                    <!-- <td>{{userdetails.password}}</td> -->
                     <td>{{userdetails.contactNo}}</td>
                     <td>{{userdetails.dateOfBirth}}</td>
                     <td>{{userdetails.gender}}</td>
                     <td>{{userdetails.address}}</td>
-
                 </tr>
             </table>
-
-
         </div>
         <div [hidden]="isNoBooking">
 
@@ -374,36 +310,21 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    <!-- <th>Passsword</th> -->
                     <th>Contact Number</th>
                     <th>Date of Birth</th>
                     <th>Gender</th>
                     <th>Address</th>
-
-
                 </tr>
                 <tr *ngFor="let userdetails of userLists">
                     <td>{{userdetails.userId}}</td>
                     <td>{{userdetails.firstName}}</td>
                     <td>{{userdetails.lastName}}</td>
                     <td>{{userdetails.email}}</td>
-                    <!-- <td>{{userdetails.password}}</td> -->
                     <td>{{userdetails.contactNo}}</td>
                     <td>{{userdetails.dateOfBirth}}</td>
                     <td>{{userdetails.gender}}</td>
                     <td>{{userdetails.address}}</td>
-
                 </tr>
             </table>
-
-
         </div>
-
-
     </div>
-    <!-- </div>  -->
-    <!-- <div style="height: 700px;">
-
-</div> -->
-    <!-- 
-<div style="margin-top:500px ;"></div> -->

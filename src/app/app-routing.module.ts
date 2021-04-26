@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AdminComponentComponent } from './admin-component/admin-component.component';
-import { AppComponent } from './app.component';
 import { CancelRescheduleTicketComponent } from './cancel-reschedule-ticket/cancel-reschedule-ticket.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FeedbackComponent } from './feedback/feedback.component';
@@ -11,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { NewHomeComponent } from './new-home/new-home.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 import { PaymentComponent } from './payment/payment.component';
-
 import { RegisterationComponent } from './registeration/registeration.component';
 import { RescheduleSeatBookingComponent } from './reschedule-seat-booking/reschedule-seat-booking.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';

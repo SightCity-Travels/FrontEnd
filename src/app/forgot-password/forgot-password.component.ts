@@ -41,7 +41,6 @@ export class ForgotPasswordComponent implements OnInit {
               this.router.navigate(['loginLink']);
             }, 5000);
 
-            // this.router.navigate(['homeLink']);
           }
           else {
             document.getElementById("forgott").innerHTML = "Invalid email or userid";

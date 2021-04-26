@@ -16,11 +16,7 @@
 
     <button class="accordion">Credit Card</button>
     <div class="panel">
-      <!-- <div class="col-50"> -->
-
       <br>
-
-
       <form #paymentForm="ngForm" (ngSubmit)="payment(paymentForm)">
         <label for="cname">Name on Card</label><br>
         <input type="text" id="cname" name="cname" #cname="ngModel" pattern="[A-Za-z -]*" placeholder="Enter Name"
@@ -39,8 +35,8 @@
         </div><br>
 
         <label for="expmonth">Expiry</label><br>
-        <input #month="ngModel" [(ngModel)]=wallet.expMonth id="expmonth" name="expmonth" maxlength="2" pattern="(0?[1-9]|1[012])"
-          placeholder="Enter month" type="text" required />
+        <input #month="ngModel" [(ngModel)]=wallet.expMonth id="expmonth" name="expmonth" maxlength="2"
+          pattern="(0?[1-9]|1[012])" placeholder="Enter month" type="text" required />
         <div *ngIf="month.invalid && (month.dirty||month.touched)" style='color: red; border-color: red;'>
           <div *ngIf="month.errors?.required">Month is required</div>
           <div *ngIf="month.errors.pattern">Please follow the pattern : (MM)</div>
@@ -54,8 +50,8 @@
         </div><br>
 
         <label for="cvv">CVV</label><br>
-        <input type="password" id="cvv" name="cvv" #cvv="ngModel" [(ngModel)]=wallet.expYear maxlength="3"
-          pattern="[0-9]*" placeholder="Enter CVV" required />
+        <input type="password" id="cvv" name="cvv" #cvv="ngModel" [(ngModel)]=wallet.cvv maxlength="3" pattern="[0-9]*"
+          placeholder="Enter CVV" required />
         <div *ngIf="cvv.invalid && (cvv.dirty||cvv.touched)" style='color: red; border-color: red;'>
           <div *ngIf="cvv.errors.required">CVV is required</div>
           <div *ngIf="cvv.errors.pattern">Please follow the pattern : (123)</div>
@@ -71,7 +67,6 @@
       <button class="accordion">Net Banking</button>
       <div class="panel">
         <br>
-        <!-- <div class="col-50"> -->
 
         <label for="Bank">Select Your Bank</label>
         <select id="Bank" name="Bank">
@@ -84,7 +79,6 @@
 
         </select>
 
-        <!-- </div> -->
         <br>
 
         <button type="button" id="myBtn2" (click)="bookingOfTicket()">Pay</button>
@@ -99,7 +93,7 @@
           <div id="resultDiv1" style="color:red;"></div>
           <button type="button" class="pay" id="myBtn3" (click)="checkwallet()"
             [disabled]="isLoggedIn==false">Pay</button>
-          
+
         </form>
 
 
@@ -111,7 +105,7 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <!-- <span class="close">&times;</span> -->
+
           <p>Payment succesful <br><br>
             Your ticket has been booked<br><br>
             <b>Thankyou!!!</b>
@@ -121,7 +115,6 @@
           <br>
           <a style="text-decoration: none; color: white;"><button type="submit" value="Submit" class="cancelbtn"
               (click)="viewTicket()">view ticket</button></a>
-          <!-- <a style="text-decoration: none; color: white;" ><button type="submit" value="Submit" class="cancelbtn"(click)="close()" >Close</button></a> -->
 
         </div>
 
@@ -135,7 +128,6 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <!-- <span class="close">&times;</span> -->
           <p>Payment succesful <br><br>
             Your ticket has been booked<br><br>
             <b>Thankyou!!!</b>
@@ -157,7 +149,6 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <!-- <span class="close">&times;</span> -->
           <p>Payment succesful <br><br>
             Your ticket has been booked<br><br>
             <b>Thankyou!!!</b>
